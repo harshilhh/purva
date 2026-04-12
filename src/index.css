@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-yellow: #F5A623;
+  --color-brand-yellow-light: #FDF4E3;
+  --color-brand-yellow-dark: #D4891A;
+  --color-brand-dark: #1A1A1A;
+  --color-brand-grey: #374151;
+  --color-brand-grey-light: #6B7280;
+  --color-brand-surface: #F8F8F6;
+  --color-brand-surface-warm: #FAF8F5;
+  --color-brand-border: #E8E6E1;
+  --color-brand-hero: #0D0D0D;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-brand-dark);
+    background: #ffffff;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  ::selection {
+    background: var(--color-brand-yellow);
+    color: var(--color-brand-dark);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fadeUp 0.7s ease-out both;
+}
+
+@utility animate-fade-up-delay-1 {
+  animation: fadeUp 0.7s ease-out 0.1s both;
+}
+
+@utility animate-fade-up-delay-2 {
+  animation: fadeUp 0.7s ease-out 0.2s both;
+}
+
+@utility animate-fade-up-delay-3 {
+  animation: fadeUp 0.7s ease-out 0.3s both;
+}
+
+@utility animate-fade-up-delay-4 {
+  animation: fadeUp 0.7s ease-out 0.4s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+/* Sub-navigation scrollbar hide */
+.subnav-scroll::-webkit-scrollbar {
+  display: none;
+}
+.subnav-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Large numbered section numbers */
+.section-number {
+  font-size: 120px;
+  line-height: 1;
+  opacity: 0.08;
+  font-weight: 700;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  pointer-events: none;
+  user-select: none;
+  font-family: var(--font-display);
+}
+
+@media (max-width: 768px) {
+  .section-number {
+    font-size: 80px;
+  }
+}
