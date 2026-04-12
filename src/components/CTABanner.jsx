@@ -12,7 +12,7 @@ export default function CTABanner({ heading, subheading, buttonText, variant = '
       <div className="absolute inset-0">
         {!noBgImage && (
           <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            className="absolute inset-0 bg-cover bg-center md:bg-fixed"
             style={{ backgroundImage: `url(/cta-bg.jpg)` }}
           />
         )}

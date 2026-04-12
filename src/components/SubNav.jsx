@@ -40,7 +40,7 @@ export default function SubNav() {
   if (!visible) return null;
 
   return (
-    <div className="fixed top-[72px] left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-brand-border shadow-sm">
+    <div className="fixed top-[64px] md:top-[72px] left-0 right-0 z-40 w-full max-w-[100vw] overflow-hidden bg-white/95 backdrop-blur-sm border-b border-brand-border shadow-sm">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <nav className="subnav-scroll flex items-center gap-0 overflow-x-auto">
           {sections.map((section) => (

@@ -5,27 +5,27 @@ const clients = [
   {
     label: 'RegTech',
     description: 'RegTech platforms building or enabling compliance infrastructure',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?w=800&q=80',
   },
   {
     label: 'HealthTech',
     description: 'HealthTech companies navigating HIPAA, patient data laws, and cross-border data restrictions',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
   },
   {
     label: 'SaaS',
     description: 'SaaS companies managing regulated or sensitive data flows',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
   },
   {
     label: 'Expansion',
     description: 'Organisations expanding into new regulatory environments',
-    image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?w=800&q=80',
   },
   {
     label: 'Scrutiny',
     description: 'Firms undergoing cross-border regulatory scrutiny',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80',
   },
 ];
 

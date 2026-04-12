@@ -17,10 +17,18 @@
 }
 
 @layer base {
-  html {
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  html, body {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   body {
@@ -29,6 +37,7 @@
     background: #ffffff;
     line-height: 1.7;
     margin: 0;
+    padding: 0;
   }
 
   ::selection {
