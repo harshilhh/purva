@@ -21,7 +21,7 @@ export default function Navbar() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/#services' },
-    { label: 'Contact', to: '/#contact' },
+    { label: 'Contact', to: '/contact' },
   ];
 
   return (
@@ -47,10 +47,13 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => {
+              const basePath = link.to.split('#')[0];
               const isActive =
                 link.to === '/'
-                  ? location.pathname === '/'
-                  : location.pathname === link.to || location.pathname.startsWith(link.to.split('#')[0] === '' ? '___' : link.to.split('#')[0]);
+                  ? location.pathname === '/' && !location.hash
+                  : basePath === '/'
+                    ? location.pathname === '/' && location.hash === `#${link.to.split('#')[1]}`
+                    : location.pathname === basePath;
 
               return (
                 <Link

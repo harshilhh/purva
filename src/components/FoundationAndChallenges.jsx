@@ -89,7 +89,7 @@ export default function FoundationAndChallenges() {
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-yellow mt-2 flex-shrink-0" />
                   <div>
                     <span className="text-[14px] font-semibold text-brand-dark">{item.title}</span>
-                    <span className="text-[13px] text-brand-grey-light italic"> — {item.description}</span>
+                    <span className="text-[13px] text-brand-grey-light italic"> - {item.description}</span>
                   </div>
                 </div>
               ))}
