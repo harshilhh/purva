@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import SectionHeader from './SectionHeader';
+import Hyphen from './Hyphen';
 
 const faqs = [
   {
@@ -65,7 +66,7 @@ export default function FAQ() {
       <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <div className="max-w-3xl mx-auto">
           <SectionHeader
-            title="Frequently Asked Questions on Cross-Border Compliance"
+            title={<>Frequently Asked Questions on Cross<Hyphen />Border Compliance</>}
             highlight="FAQ"
           />
 

@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView';
+import Hyphen from './Hyphen';
 
 export default function Hero() {
   const [ref, isInView] = useInView();
@@ -34,9 +35,9 @@ export default function Hero() {
             </div>
 
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-brand-dark leading-[1.1] tracking-tight">
-              Cross-Border Compliance for{' '}
+              Cross<Hyphen />Border Compliance for{' '}
               <span className="relative inline-block">
-                Multi-Jurisdiction
+                Multi<Hyphen />Jurisdiction
                 <span className="absolute bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/50" />
               </span>{' '}
               Operations

@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView';
+import Hyphen from './Hyphen';
 
 const challenges = [
   {
@@ -39,7 +40,7 @@ export default function FoundationAndChallenges() {
               </span>
             </div>
             <h2 className="font-display text-2xl md:text-3xl font-semibold text-brand-dark leading-[1.15] tracking-tight mb-6">
-              Understanding Cross-Border Compliance: <span className="text-brand-grey-light font-normal">Beyond a Single Rulebook</span>
+              Understanding Cross<Hyphen />Border Compliance: <span className="text-brand-grey-light font-normal">Beyond a Single Rulebook</span>
             </h2>
 
             <div className="space-y-5">

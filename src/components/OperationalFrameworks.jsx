@@ -1,5 +1,6 @@
 import { useInView } from '../hooks/useInView';
 import SectionHeader from './SectionHeader';
+import Hyphen from './Hyphen';
 
 export default function OperationalFrameworks() {
   const [ref, isInView] = useInView();
@@ -8,7 +9,7 @@ export default function OperationalFrameworks() {
     <section ref={ref} id="framework" className="py-6 md:py-8 bg-brand-surface">
       <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <SectionHeader
-          title="Designing Operational Frameworks for Cross-Border Compliance Across Jurisdictions"
+          title={<>Designing Operational Frameworks for Cross<Hyphen />Border Compliance Across Jurisdictions</>}
           highlight="Our Framework"
         />
 

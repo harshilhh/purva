@@ -3,6 +3,7 @@ import { useInView } from '../hooks/useInView';
 import SectionHeader from '../components/SectionHeader';
 import BulletList from '../components/BulletList';
 import CTABanner from '../components/CTABanner';
+import Hyphen from '../components/Hyphen';
 
 /* --- About Hero --- */
 function AboutHero() {
@@ -33,7 +34,7 @@ function AboutHero() {
           </div>
 
           <h1 className="font-display text-4xl md:text-5xl lg:text-[56px] font-semibold text-brand-dark leading-[1.1] tracking-tight">
-            Cross-Border Compliance,{' '}
+            Cross<Hyphen />Border Compliance,{' '}
             <span className="relative inline-block">
               Structured
               <span className="absolute bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/60" />
@@ -108,7 +109,7 @@ function AboutWhatWeDo() {
     <section ref={ref} className="py-10 md:py-14 bg-white">
       <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <SectionHeader
-          title={<>What We Do: <span className="text-brand-grey-light font-normal">Make Cross-Border Compliance Operational</span></>}
+          title={<>What We Do: <span className="text-brand-grey-light font-normal">Make Cross<Hyphen />Border Compliance Operational</span></>}
           highlight="Services"
         />
 
@@ -282,7 +283,7 @@ function Leadership() {
               </span>
             </div>
             <h4 className="font-display text-2xl md:text-3xl font-semibold text-brand-dark leading-[1.15] tracking-tight mb-6">
-              Scope of Work: <span className="text-brand-grey-light font-normal">Cross-Border Challenges</span>
+              Scope of Work: <span className="text-brand-grey-light font-normal">Cross<Hyphen />Border Challenges</span>
             </h4>
 
             <p className="text-[15px] leading-relaxed text-brand-grey mb-5">
