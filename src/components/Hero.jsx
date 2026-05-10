@@ -1,5 +1,5 @@
 import { useInView } from '../hooks/useInView';
-import Hyphen from './Hyphen';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [ref, isInView] = useInView();
@@ -8,70 +8,108 @@ export default function Hero() {
     <section
       ref={ref}
       id="home"
-      className="relative min-h-[75vh] md:min-h-[85vh] flex items-center bg-white overflow-hidden"
+      className="relative overflow-hidden"
     >
-      {/* Right-side law stock image at 70% opacity */}
-      <div className="absolute top-0 right-0 bottom-0 w-full md:w-[50%]">
+      {/* Full-cover minimal image */}
+      <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80"
-          alt="Legal and compliance"
-          className="w-full h-full object-cover opacity-70"
+          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
+          alt=""
+          className="w-full h-full object-cover"
         />
-        {/* Left fade so it blends into the text area */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+        {/* Light yellow overlay — keeps image visible but text-focused */}
+        <div className="absolute inset-0 bg-brand-yellow-light/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow-light/95 via-brand-yellow-light/70 to-brand-yellow-light/25" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 md:py-40">
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 md:pt-36 pb-20 md:pb-24">
         <div className="max-w-2xl">
-          <div className={`transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-8 h-[1.5px] bg-brand-yellow" />
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-yellow">
-                Cross-Border Compliance
-              </span>
-            </div>
-
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-semibold text-brand-dark leading-[1.1] tracking-tight">
-              Cross<Hyphen />Border Compliance for{' '}
-              <span className="relative inline-block">
-                Multi<Hyphen />Jurisdiction
-                <span className="absolute bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/50" />
-              </span>{' '}
-              Operations
-            </h1>
+          {/* Eyebrow */}
+          <div
+            className={`flex items-center gap-4 mb-10 transition-all duration-700 ${
+              isInView ? 'animate-fade-up' : 'opacity-0'
+            }`}
+          >
+            <div className="w-12 h-[1px] bg-brand-yellow" />
+            <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light">
+              Cross-Border Regulatory Advisory
+            </span>
           </div>
 
-          <div className={`mt-8 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-1' : 'opacity-0'}`}>
-            <p className="text-lg md:text-xl text-brand-grey leading-relaxed">
-              Organisations operating across multiple geographies face fragmented AML and Data Privacy requirements.
-            </p>
-          </div>
+          {/* Headline */}
+          <h1
+            className={`font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.08] tracking-[-0.02em] transition-all duration-700 ${
+              isInView ? 'animate-fade-up-delay-1' : 'opacity-0'
+            }`}
+          >
+            The Space Between{' '}
+            <span className="relative inline-block">
+              Frameworks
+              <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/40" />
+            </span>
+          </h1>
 
-          <div className={`mt-6 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}>
-            <p className="text-base text-brand-grey-light leading-relaxed">
-              We help SaaS, RegTech, HealthTech, and global businesses to align with AML and Data Privacy and protection requirements across jurisdictions through structured, operational compliance frameworks.
-            </p>
-          </div>
+          {/* Supporting paragraph */}
+          <p
+            className={`mt-8 text-[17px] md:text-[17px] leading-[1.8] text-brand-grey max-w-[480px] transition-all duration-700 ${
+              isInView ? 'animate-fade-up-delay-2' : 'opacity-0'
+            }`}
+          >
+            Where AML obligations meet privacy law. Where AI governance
+            intersects financial regulation. Where incident reporting timelines
+            collide across jurisdictions.
+            <span className="block mt-3 text-brand-dark font-medium">
+              We advise at the points where regulatory frameworks create
+              operational conflict.
+            </span>
+          </p>
 
-          <div className={`mt-5 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-3' : 'opacity-0'}`}>
-            <p className="text-base text-brand-grey-light leading-relaxed">
-              Operate across multiple regulatory landscapes with confidence using systems designed for jurisdiction-specific compliance, not one-size-fits-all approach.
-            </p>
-          </div>
-
-          {/* Jurisdiction tags */}
-          <div className={`mt-10 flex flex-wrap gap-3 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-4' : 'opacity-0'}`}>
-            {['EU', 'UK', 'UAE', 'APAC'].map((tag) => (
-              <span
-                key={tag}
-                className="px-4 py-2 text-[11px] font-semibold tracking-[0.15em] uppercase border border-brand-border text-brand-grey rounded-sm hover:border-brand-yellow hover:text-brand-yellow hover:bg-brand-yellow-light transition-all duration-200"
+          {/* CTAs */}
+          <div
+            className={`mt-10 flex flex-wrap items-center gap-4 transition-all duration-700 ${
+              isInView ? 'animate-fade-up-delay-3' : 'opacity-0'
+            }`}
+          >
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-[12px] font-semibold tracking-[0.15em] uppercase bg-brand-yellow text-brand-dark rounded-sm hover:bg-brand-yellow-dark transition-all duration-200 hover:translate-y-[-1px]"
+            >
+              Work With Us
+            </Link>
+            <a
+              href="https://regulatorygap.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-[12px] font-semibold tracking-[0.15em] uppercase border border-brand-dark/20 text-brand-dark rounded-sm hover:border-brand-dark/60 transition-all duration-200"
+            >
+              Read Our Insights
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
               >
-                {tag}
-              </span>
-            ))}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                />
+              </svg>
+            </a>
+          </div>
+
+          {/* Trust cue */}
+          <div
+            className={`mt-12 flex items-center gap-3 transition-all duration-700 ${
+              isInView ? 'animate-fade-up-delay-4' : 'opacity-0'
+            }`}
+          >
+            <div className="w-8 h-[1px] bg-brand-border" />
+            <span className="text-[11px] tracking-[0.25em] text-brand-dark/70 font-medium uppercase">
+              EU &middot; UK &middot; UAE &middot; APAC
+            </span>
           </div>
         </div>
       </div>

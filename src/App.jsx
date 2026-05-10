@@ -9,7 +9,7 @@ import ServicesPage from './pages/ServicesPage';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen overflow-x-hidden">
+      <div className="min-h-screen" style={{ overflowX: 'clip' }}>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

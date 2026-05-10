@@ -10,7 +10,7 @@ const navLinks = [
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-white to-brand-yellow-light">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Main footer */}
         <div className="py-16 md:py-20 grid md:grid-cols-[1fr_auto] gap-10 items-start">
           <div>
@@ -22,12 +22,12 @@ export default function Footer() {
                 The Compliance Chamber
               </span>
             </Link>
-            <p className="mt-5 text-[14px] leading-relaxed text-brand-grey max-w-md">
+            <p className="mt-5 text-[17px] leading-relaxed text-brand-grey max-w-md">
               Cross-border compliance frameworks designed for multi-jurisdiction operations. Aligning AML and Data Protection across regulatory landscapes.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-12 text-[13px]">
+          <div className="flex flex-wrap gap-12 text-[17px]">
             <div>
               <p className="font-semibold text-brand-dark mb-4 text-[11px] tracking-[0.15em] uppercase">Navigate</p>
               <ul className="space-y-3">

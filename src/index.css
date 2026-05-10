@@ -10,6 +10,8 @@
   --color-brand-surface: #F8F8F6;
   --color-brand-surface-warm: #FAF8F5;
   --color-brand-border: #E8E6E1;
+  --color-brand-sage: #EAEFE6;
+  --color-brand-sage-dark: #D4DCC9;
   --color-brand-hero: #0D0D0D;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
@@ -18,7 +20,7 @@
 
 @layer base {
   #root {
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
   }
 
@@ -26,7 +28,7 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     max-width: 100%;
   }
@@ -120,4 +122,116 @@
   .section-number {
     font-size: 80px;
   }
+}
+
+/* Editorial grid motif for hero */
+.grid-motif {
+  background-image:
+    linear-gradient(rgba(26, 26, 26, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26, 26, 26, 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Carousel scrollbar hide */
+[data-carousel]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Conflict card — editorial dossier style */
+.conflict-card {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02), inset 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.conflict-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 4px 12px rgba(245,166,35,0.07),
+    0 20px 50px rgba(0,0,0,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* × symbol spin on card hover */
+.conflict-card:hover .conflict-x {
+  animation: tensionPulse 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes tensionPulse {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(90deg) scale(1.4); opacity: 1; }
+  100% { transform: rotate(180deg) scale(1); }
+}
+
+@keyframes whyPulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(3); opacity: 0; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+@keyframes whyRing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.animate-why-ring {
+  animation: whyRing 1.5s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+/* Service panel — editorial index hover */
+.service-panel {
+  transition: background-color 0.4s ease, padding-left 0.4s ease, border-color 0.4s ease;
+  border-radius: 2px;
+}
+
+.service-panel:hover {
+  background-color: rgba(253, 244, 227, 0.25);
+  padding-left: 16px;
+  border-color: rgba(245, 166, 35, 0.2);
+}
+
+/* Audience expand card line animation */
+@keyframes lineExpand {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+.animate-line-expand {
+  animation: lineExpand 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Insight card hover */
+.insight-card {
+  transition: background-color 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.insight-card:hover {
+  background-color: #FFFDF9;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.03);
+}
+
+/* Regulatory Radar pulse */
+@keyframes radarPulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(2); opacity: 0; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Country highlight — cycles through 5 countries, 10s total loop */
+@keyframes countryHighlight {
+  0%, 12% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  16% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  24% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  30%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+.country-highlight {
+  animation: countryHighlight 10s ease-in-out infinite;
+  opacity: 0;
+}
+
+@utility animate-fade-up-delay-5 {
+  animation: fadeUp 0.7s ease-out 0.5s both;
+}
+
+@utility animate-fade-up-delay-6 {
+  animation: fadeUp 0.7s ease-out 0.6s both;
 }

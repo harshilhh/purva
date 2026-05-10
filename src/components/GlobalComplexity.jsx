@@ -16,7 +16,7 @@ export default function GlobalComplexity() {
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/60 to-transparent" />
       </div>
 
-      <div className={`relative max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`relative max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         {/* Global Reach + tags on same row */}
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">

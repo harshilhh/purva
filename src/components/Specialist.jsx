@@ -5,7 +5,7 @@ export default function Specialist() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 bg-white">
-      <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Photo side */}
           <div>

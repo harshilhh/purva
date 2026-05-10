@@ -29,7 +29,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="text-[15px] font-semibold text-brand-dark pr-4 group-hover:text-brand-yellow transition-colors duration-200">
+        <span className="text-[17px] font-semibold text-brand-dark pr-4 group-hover:text-brand-yellow transition-colors duration-200">
           {question}
         </span>
         <span className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full border border-brand-border group-hover:border-brand-yellow transition-all duration-300 ${isOpen ? 'bg-brand-yellow border-brand-yellow rotate-0' : ''}`}>
@@ -49,7 +49,7 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
           isOpen ? 'max-h-[500px] opacity-100 pb-5' : 'max-h-0 opacity-0'
         }`}
       >
-        <p className="text-[14px] leading-relaxed text-brand-grey-light pr-10">
+        <p className="text-[17px] leading-relaxed text-brand-grey-light pr-10">
           {answer}
         </p>
       </div>
@@ -63,7 +63,7 @@ export default function FAQ() {
 
   return (
     <section ref={ref} id="faq" className="py-10 md:py-14 bg-brand-surface">
-      <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <div className="max-w-3xl mx-auto">
           <SectionHeader
             title={<>Frequently Asked Questions on Cross<Hyphen />Border Compliance</>}

@@ -2,14 +2,11 @@ import { useState, useEffect } from 'react';
 
 const sections = [
   { id: 'home', label: 'Overview' },
-  { id: 'how-we-help', label: 'How we help' },
-  { id: 'services', label: 'Focus & Model' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'foundation', label: 'Foundation' },
-  { id: 'framework', label: 'Framework' },
-  { id: 'approach', label: 'Our process' },
-  { id: 'context', label: 'Context' },
-  { id: 'faq', label: 'FAQ' },
+  { id: 'regulatory-gap', label: 'The Gaps' },
+  { id: 'services', label: 'What We Do' },
+  { id: 'audience', label: 'Who We Serve' },
+  { id: 'why-us', label: 'Why Us' },
+  { id: 'insights', label: 'Insights' },
 ];
 
 export default function SubNav() {
@@ -41,7 +38,7 @@ export default function SubNav() {
 
   return (
     <div className="fixed top-[64px] md:top-[72px] left-0 right-0 z-40 w-full max-w-[100vw] overflow-hidden bg-white/95 backdrop-blur-sm border-b border-brand-border shadow-sm">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <nav className="subnav-scroll flex items-center gap-0 overflow-x-auto">
           {sections.map((section) => (
             <a
@@ -51,7 +48,8 @@ export default function SubNav() {
                 e.preventDefault();
                 const el = document.getElementById(section.id);
                 if (el) {
-                  const top = el.getBoundingClientRect().top + window.scrollY - 130;
+                  const top =
+                    el.getBoundingClientRect().top + window.scrollY - 130;
                   window.scrollTo({ top, behavior: 'smooth' });
                 }
               }}

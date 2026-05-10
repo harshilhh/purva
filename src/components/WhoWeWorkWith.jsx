@@ -35,7 +35,7 @@ export default function WhoWeWorkWith() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 bg-brand-surface">
-      <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <SectionHeader
           title={<>Who We Work With: <span className="text-brand-grey-light font-normal">Built for Regulated, Multi<Hyphen />Jurisdiction Businesses</span></>}
           highlight="Our Clients"

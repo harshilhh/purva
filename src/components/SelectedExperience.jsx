@@ -7,7 +7,7 @@ export default function SelectedExperience() {
 
   return (
     <section ref={ref} id="experience" className="py-10 md:py-14 bg-white">
-      <div className={`max-w-6xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`max-w-7xl mx-auto px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <SectionHeader
           title={<>Selected Experience: <span className="text-brand-grey-light font-normal">Where Compliance Gets Operational</span></>}
           highlight="Track Record"

@@ -61,7 +61,7 @@ export default function ProcessSteps() {
 
   return (
     <section ref={ref} id="approach" className="py-6 md:py-8 bg-brand-surface">
-      <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <SectionHeader
           title={<>How We Get Things Done</>}
           highlight="Our 5 Step Process"
