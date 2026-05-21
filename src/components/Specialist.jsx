@@ -10,9 +10,11 @@ export default function Specialist() {
           {/* Photo side */}
           <div>
             <img
-              src="/leadership.jpeg"
+              src="/leadership.jpg"
               alt="Purva Buch, CAMS"
               className="w-full h-[480px] object-cover rounded-sm"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

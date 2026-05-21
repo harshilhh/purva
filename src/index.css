@@ -124,6 +124,19 @@
   }
 }
 
+/* Regulatory Radar map — zoom in on mobile */
+.map-container {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    width: 200vw;
+    margin-left: calc(-100vw + 50%);
+  }
+}
+
 /* Editorial grid motif for hero */
 .grid-motif {
   background-image:

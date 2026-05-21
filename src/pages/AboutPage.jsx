@@ -20,6 +20,8 @@ function AboutHero() {
           src="/about-hero.jpeg"
           alt="Professional consultant"
           className="w-full h-full object-cover"
+          fetchpriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow-light via-brand-yellow-light/90 to-brand-yellow-light/40 md:from-brand-yellow-light md:via-brand-yellow-light/80 md:to-transparent" />
       </div>
@@ -245,9 +247,11 @@ function Leadership() {
         <div className="grid md:grid-cols-[280px_1fr] gap-10 items-start">
           <div>
             <img
-              src="/leadership.jpeg"
+              src="/leadership.jpg"
               alt="Purva Buch, CAMS"
               className="w-full h-[320px] object-cover rounded-sm"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div>

@@ -15,9 +15,11 @@ export default function FounderQuote() {
           <div className="relative w-[200px] md:w-[260px] shrink-0 mx-auto md:mx-0">
             <div className="aspect-[3/4] rounded-[3px] overflow-hidden">
               <img
-                src="/leadership.jpeg"
+                src="/leadership.jpg"
                 alt="Purva Buch, CAMS"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Yellow accent corner */}

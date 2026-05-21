@@ -13,9 +13,11 @@ export default function Hero() {
       {/* Full-cover minimal image */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80"
+          src="/hero-bg.jpg"
           alt=""
           className="w-full h-full object-cover"
+          fetchpriority="high"
+          decoding="async"
         />
         {/* Light yellow overlay — keeps image visible but text-focused */}
         <div className="absolute inset-0 bg-brand-yellow-light/70" />

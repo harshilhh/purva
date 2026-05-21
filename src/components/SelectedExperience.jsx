@@ -30,9 +30,11 @@ export default function SelectedExperience() {
           </div>
           <div>
             <img
-              src="/corporate-law.png"
+              src="/corporate-law.jpg"
               alt="Corporate law"
               className="w-full h-[320px] object-cover rounded-sm"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

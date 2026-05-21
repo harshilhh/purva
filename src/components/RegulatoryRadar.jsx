@@ -1,24 +1,58 @@
+import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 
 const jurisdictions = [
-  { id: 'uk', label: 'United Kingdom', sub: 'FCA / ICO / PRA', left: '34.8%', top: '22%', delay: 0 },
-  { id: 'eu', label: 'European Union', sub: 'ESMA / EBA / EDPB', left: '39%', top: '28%', delay: 150 },
-  { id: 'uae', label: 'UAE', sub: 'DFSA / ADGM / CBUAE', left: '53.5%', top: '52%', delay: 300 },
-  { id: 'india', label: 'India', sub: 'RBI / SEBI / IRDAI', left: '60%', top: '48%', delay: 450 },
-  { id: 'apac', label: 'Singapore', sub: 'MAS / PDPC', left: '68%', top: '62%', delay: 600 },
+  {
+    id: 'uk',
+    label: 'United Kingdom',
+    sub: 'FCA / ICO / PRA',
+    left: '34.8%',
+    top: '22%',
+    delay: 0,
+    tooltip: 'Deep expertise in FCA authorisation, ICO data compliance, and PRA-regulated firm governance. Covering financial services, fintech, and cross-border data flows.',
+  },
+  {
+    id: 'eu',
+    label: 'European Union',
+    sub: 'ESMA / EBA / EDPB',
+    left: '39%',
+    top: '28%',
+    delay: 150,
+    tooltip: 'Advisory across DORA, MiCA, GDPR, and ESG disclosure obligations. Supporting firms navigating the EU regulatory single rulebook and equivalence frameworks.',
+  },
+  {
+    id: 'uae',
+    label: 'UAE',
+    sub: 'DFSA / ADGM / CBUAE',
+    left: '53.5%',
+    top: '52%',
+    delay: 300,
+    tooltip: 'Specialist coverage of DIFC and ADGM regulatory regimes, CBUAE licensing requirements, and AML/CFT frameworks for financial institutions operating in the Gulf.',
+  },
+  {
+    id: 'india',
+    label: 'India',
+    sub: 'RBI / SEBI / IRDAI',
+    left: '60%',
+    top: '48%',
+    delay: 450,
+    tooltip: 'Guidance on RBI payment system regulations, SEBI capital markets compliance, and DPDP Act requirements for technology and financial services firms.',
+  },
+  {
+    id: 'apac',
+    label: 'Singapore',
+    sub: 'MAS / PDPC',
+    left: '68%',
+    top: '62%',
+    delay: 600,
+    tooltip: 'Advisory on MAS licensing and technology risk management guidelines, PDPA obligations, and regional compliance strategies for APAC market entry.',
+  },
 ];
 
-// Country highlight zones — positioned over each country on the map
-const countryHighlights = [
-  { id: 'uk', left: '35%', top: '28%', w: '3%', h: '8%', animDelay: '0s' },
-  { id: 'eu', left: '39.5%', top: '32%', w: '7%', h: '12%', animDelay: '2s' },
-  { id: 'uae', left: '54.5%', top: '56%', w: '3.5%', h: '8%', animDelay: '4s' },
-  { id: 'india', left: '61%', top: '52%', w: '5%', h: '14%', animDelay: '6s' },
-  { id: 'apac', left: '68.5%', top: '66%', w: '2.5%', h: '5%', animDelay: '8s' },
-];
 
 export default function RegulatoryRadar() {
   const [ref, isInView] = useInView();
+  const [hoveredPin, setHoveredPin] = useState(null);
 
   return (
     <section
@@ -52,12 +86,11 @@ export default function RegulatoryRadar() {
           </p>
         </div>
 
-        {/* Globe map container — full width */}
+        {/* Globe map container — full width, zoomed on mobile */}
         <div
-          className={`relative transition-all duration-1000 delay-200 ${
+          className={`relative transition-all duration-1000 delay-200 map-container ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
-          style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}
         >
           <div className="relative">
             <img
@@ -68,23 +101,6 @@ export default function RegulatoryRadar() {
               style={{ marginBottom: '-4px', clipPath: 'inset(0 0 4px 0)' }}
             />
 
-            {/* Country highlight glows — cycle one by one */}
-            {isInView && countryHighlights.map((c) => (
-              <div
-                key={c.id}
-                className="absolute rounded-full pointer-events-none country-highlight"
-                style={{
-                  left: c.left,
-                  top: c.top,
-                  width: c.w,
-                  height: c.h,
-                  transform: 'translate(-50%, -50%)',
-                  background: 'radial-gradient(ellipse at center, rgba(245,166,35,0.55) 0%, rgba(245,166,35,0.2) 40%, rgba(245,166,35,0) 70%)',
-                  animationDelay: c.animDelay,
-                  filter: 'blur(4px)',
-                }}
-              />
-            ))}
 
             {/* Pin markers overlaid on the map */}
             {jurisdictions.map((j) => (
@@ -97,11 +113,63 @@ export default function RegulatoryRadar() {
                   transform: 'translate(-50%, -100%)',
                   opacity: isInView ? 1 : 0,
                   transitionDelay: `${600 + j.delay}ms`,
+                  zIndex: hoveredPin === j.id ? 50 : 10,
                 }}
+                onMouseEnter={() => setHoveredPin(j.id)}
+                onMouseLeave={() => setHoveredPin(null)}
               >
+                {/* Tooltip */}
+                <div
+                  className="absolute bottom-full mb-3 pointer-events-none"
+                  style={{
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    opacity: hoveredPin === j.id ? 1 : 0,
+                    transition: 'opacity 0.2s ease, transform 0.2s ease',
+                    transformOrigin: 'bottom center',
+                    scale: hoveredPin === j.id ? '1' : '0.95',
+                    width: '200px',
+                  }}
+                >
+                  <div
+                    className="rounded-xl px-4 py-3 text-left"
+                    style={{
+                      background: 'rgba(15, 23, 42, 0.92)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(245,166,35,0.35)',
+                      boxShadow: '0 -6px 24px rgba(0,0,0,0.35), 0 0 12px rgba(0,0,0,0.2)',
+                    }}
+                  >
+                    <p className="text-[13px] font-semibold text-brand-yellow leading-tight mb-1">
+                      {j.label}
+                    </p>
+                    <p className="text-[10px] tracking-[0.12em] uppercase text-brand-yellow/60 mb-2">
+                      {j.sub}
+                    </p>
+                    <p className="text-[11px] leading-[1.6] text-white/80">
+                      {j.tooltip}
+                    </p>
+                  </div>
+                  {/* Arrow pointing down */}
+                  <div
+                    className="mx-auto w-0 h-0"
+                    style={{
+                      borderLeft: '6px solid transparent',
+                      borderRight: '6px solid transparent',
+                      borderTop: '6px solid rgba(15, 23, 42, 0.92)',
+                    }}
+                  />
+                </div>
+
                 {/* Pin head */}
-                <div className="relative">
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-yellow flex items-center justify-center shadow-lg shadow-brand-yellow/30">
+                <div className="relative cursor-pointer">
+                  <div
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-brand-yellow flex items-center justify-center transition-transform duration-200"
+                    style={{
+                      transform: hoveredPin === j.id ? 'scale(1.2)' : 'scale(1)',
+                      boxShadow: '0 0 12px 3px rgba(245,166,35,0.45)',
+                    }}
+                  >
                     <svg className="w-4 h-4 md:w-5 md:h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>

@@ -8,6 +8,7 @@ import WhyUs from '../components/WhyUs';
 import FounderQuote from '../components/FounderQuote';
 import Insights from '../components/Insights';
 import PlatformBridge from '../components/PlatformBridge';
+import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCTA';
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <FounderQuote />
       <Insights />
       <PlatformBridge />
+      <FAQ />
       <FinalCTA />
     </>
   );
