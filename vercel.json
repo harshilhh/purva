@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd tcc-app && npm install && npm run build",
+  "outputDirectory": "tcc-app/dist",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
