@@ -393,41 +393,131 @@ function FounderLens() {
 
 /* ─────────────────────────────────────────────
    SECTION 4 — The Triangulated Model
-   bg-brand-surface
-   Three pillars shown as editorial panels.
-   Shows how Legal / Governance / Systems
-   operate as an integrated model.
+   bg-white | Fixed equilateral SVG triangle,
+   vertex icon nodes, hover-reveal side cards
 ───────────────────────────────────────────── */
+
+/* Reusable hover card for each pillar */
+function PillarHoverCard({ pillar, active, onEnter, onLeave }) {
+  return (
+    <div
+      className={`relative bg-white border rounded-sm p-5 shadow-[0_8px_40px_rgba(0,0,0,0.08)] transition-all duration-300 ${
+        active
+          ? 'border-brand-yellow/40 shadow-[0_8px_40px_rgba(245,166,35,0.18)] scale-[1.02]'
+          : 'border-brand-border'
+      }`}
+      style={{ width: 310, minHeight: 230 }}
+      onMouseEnter={() => onEnter(pillar.id)}
+      onMouseLeave={onLeave}
+    >
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-yellow rounded-t-sm" />
+      <div className="flex items-start justify-between gap-2 mb-3">
+        <h3 className="font-display text-[17px] font-semibold text-brand-dark leading-tight tracking-tight">
+          {pillar.name}
+        </h3>
+        <span className="shrink-0 text-[9px] font-bold tracking-[0.22em] text-brand-yellow mt-0.5">{pillar.number}</span>
+      </div>
+      <div className="h-px bg-brand-yellow/25 mb-3" />
+      <ul className="space-y-[6px] mb-4">
+        {pillar.points.map((pt, i) => (
+          <li key={i} className="flex items-center gap-2 text-[11px] text-brand-grey leading-relaxed">
+            <span className="shrink-0 w-[4px] h-[4px] rounded-full bg-brand-yellow flex-none" />
+            {pt}
+          </li>
+        ))}
+      </ul>
+      <p className="text-[10.5px] font-display font-semibold italic text-brand-yellow-dark leading-relaxed">
+        {pillar.tagline}
+      </p>
+    </div>
+  );
+}
+
 function TriangulatedModel() {
   const [ref, isInView] = useInView();
+  const [hovered, setHovered] = useState(null);
+  const [drawn, setDrawn]     = useState(false);
+  const leaveTimer            = useRef(null);
+
+  const onEnter = (id) => { clearTimeout(leaveTimer.current); setHovered(id); };
+  const onLeave = ()   => { leaveTimer.current = setTimeout(() => setHovered(null), 90); };
+
+  useEffect(() => {
+    if (isInView && !drawn) {
+      const t = setTimeout(() => setDrawn(true), 400);
+      return () => clearTimeout(t);
+    }
+  }, [isInView, drawn]);
 
   const pillars = [
     {
-      number: '01',
-      name: 'Legal Defensibility',
-      description:
-        'Frameworks built to withstand regulatory scrutiny — not just internally coherent but externally defensible across every jurisdiction in which a firm operates.',
-      accent: 'Defensible by design.',
+      id: 'legal', number: '01', name: 'Legal Defensibility',
+      tagline: 'Can this withstand regulatory scrutiny?',
+      points: ['Regulatory alignment', 'Documentation integrity', 'Escalation & reporting', 'Audit preparedness', 'Cross-border obligations'],
+      /* SVG vertex coords (viewBox 0 0 460 420) */
+      svgX: 230, svgY: 22,
+      /* pixel position inside the 460×420 diagram div */
+      nodeX: 230, nodeY: 22,
     },
     {
-      number: '02',
-      name: 'Strategic Governance',
-      description:
-        'Compliance logic structured to function at both board and operational level — where policy is actionable and accountability is traceable across the organisation.',
-      accent: 'Governance that holds under pressure.',
+      id: 'governance', number: '02', name: 'Strategic Governance',
+      tagline: 'Can leadership actually govern this effectively?',
+      points: ['Governance frameworks', 'Roles & accountability', 'Board & management oversight', 'Risk appetite & controls', 'Policy coherence'],
+      svgX: 22, svgY: 398,
+      nodeX: 22, nodeY: 398,
     },
     {
-      number: '03',
-      name: 'Systems Integration',
-      description:
-        'Regulatory obligations embedded into the operational systems and processes the firm actually runs — not documented separately from how work gets done.',
-      accent: 'Compliance built into the workflow.',
+      id: 'systems', number: '03', name: 'Systems Integration',
+      tagline: 'Can the systems execute this consistently?',
+      points: ['Process & workflow design', 'Automation & AI oversight', 'Systems interoperability', 'Data flows & controls', 'Explainability & transparency'],
+      svgX: 438, svgY: 398,
+      nodeX: 438, nodeY: 398,
     },
   ];
 
+  /*
+   * Equilateral triangle in viewBox "0 0 460 420"
+   * Side ≈ 416px  → height = 416 × √3/2 ≈ 360px
+   * T  = (230,  22)
+   * BL = ( 22, 382)  [22 + 360 = 382]
+   * BR = (438, 382)
+   * Centroid ≈ (230, 262)
+   * Perimeter ≈ 1248
+   */
+  const T  = { x: 230, y: 22  };
+  const BL = { x: 22,  y: 382 };
+  const BR = { x: 438, y: 382 };
+  const cx = (T.x + BL.x + BR.x) / 3;   // 230
+  const cy = (T.y + BL.y + BR.y) / 3;   // 262
+  const triPath = `M${T.x},${T.y} L${BL.x},${BL.y} L${BR.x},${BR.y} Z`;
+  const perim   = 1248;
+
+  const legalPillar      = pillars[0];
+  const governancePillar = pillars[1];
+  const systemsPillar    = pillars[2];
+
   return (
-    <section ref={ref} className="pt-10 md:pt-14 pb-20 md:pb-28 bg-brand-surface overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={ref} className="relative bg-white overflow-hidden">
+      {/* Subtle editorial grid */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: `linear-gradient(rgba(26,26,26,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(26,26,26,0.025) 1px, transparent 1px)`,
+        backgroundSize: '72px 72px',
+      }} />
+
+      {/* ── Animated background blobs ── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Top-left amber blob */}
+        <div className="blob-drift-1 absolute -top-32 -left-24 w-[480px] h-[480px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0.03) 55%, transparent 75%)' }} />
+        {/* Bottom-right warm blob */}
+        <div className="blob-drift-2 absolute -bottom-40 -right-28 w-[520px] h-[520px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(245,166,35,0.09) 0%, rgba(253,244,227,0.05) 50%, transparent 72%)' }} />
+        {/* Center-top accent blob */}
+        <div className="blob-drift-3 absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[280px] rounded-full"
+          style={{ background: 'radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 68%)' }} />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 md:pt-28 pb-20 md:pb-28">
 
         {/* Section header */}
         <div className={`mb-14 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
@@ -437,69 +527,288 @@ function TriangulatedModel() {
               The Practice Model
             </span>
           </div>
-          <h2 className="font-display text-[30px] md:text-[42px] lg:text-[52px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
+          <h2 className="font-display text-[30px] md:text-[44px] lg:text-[56px] font-semibold text-brand-dark leading-[1.06] tracking-tight">
             The Triangulated Model
           </h2>
-          <p className="mt-5 text-[15px] md:text-[16px] leading-[1.8] text-brand-grey max-w-xl">
-            Three pillars that must operate together. Remove any one and the framework loses structural integrity.
+          <p className="text-[14px] leading-[1.8] text-brand-grey mt-4 max-w-lg">
+            Every engagement is evaluated through three interconnected lenses.
+            Remove any one and the framework loses structural integrity.
           </p>
         </div>
 
-        {/* Three-panel editorial grid */}
-        <div className={`grid md:grid-cols-3 gap-px bg-brand-border/50 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}>
-          {pillars.map((pillar, i) => (
-            <div
-              key={i}
-              className="relative bg-white p-8 md:p-10 group hover:bg-brand-yellow-light/40 transition-colors duration-300"
-            >
-              {/* Top accent bar — grows on hover */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-brand-yellow/25 group-hover:bg-brand-yellow transition-colors duration-400" />
-
-              {/* Background watermark number */}
-              <div
-                className="absolute top-5 right-6 font-display font-bold text-brand-dark select-none leading-none pointer-events-none"
-                style={{ fontSize: '88px', opacity: 0.04 }}
-              >
-                {pillar.number}
-              </div>
-
-              {/* Index */}
-              <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-yellow mb-6 block">
-                {pillar.number}
-              </span>
-
-              {/* Pillar name */}
-              <h3 className="font-display text-[24px] md:text-[28px] lg:text-[32px] font-semibold text-brand-dark leading-tight tracking-tight mb-5">
-                {pillar.name}
-              </h3>
-
-              {/* Yellow divider — expands on hover */}
-              <div className="w-8 h-[2px] bg-brand-yellow mb-6 group-hover:w-16 transition-all duration-500" />
-
-              {/* Description */}
-              <p className="text-[14px] md:text-[15px] leading-[1.8] text-brand-grey mb-7">
-                {pillar.description}
-              </p>
-
-              {/* Accent line — italic display */}
-              <p className="text-[14px] font-display font-semibold italic text-brand-dark/50">
-                "{pillar.accent}"
-              </p>
+        {/* ── DESKTOP: 3-col grid — left card | triangle | right cards ── */}
+        <div
+          className={`hidden lg:grid items-start gap-8 transition-all duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}
+          style={{ gridTemplateColumns: 'minmax(0,1fr) 460px minmax(0,1fr)' }}
+        >
+          {/* LEFT column — Governance card (bottom-aligned to match BL vertex) */}
+          <div className="flex flex-col" style={{ height: 420 }}>
+            <div style={{ marginTop: 'auto' }}>
+              <PillarHoverCard
+                pillar={governancePillar}
+                active={hovered === 'governance'}
+                onEnter={onEnter}
+                onLeave={onLeave}
+              />
             </div>
-          ))}
+          </div>
+
+          {/* CENTER — fixed 460×420 equilateral triangle diagram */}
+          <div className="relative shrink-0" style={{ width: 460, height: 420 }}>
+            {/* SVG — fixed size, no aspect-ratio distortion */}
+            <svg
+              width={460}
+              height={420}
+              viewBox="0 0 460 420"
+              className="absolute inset-0 pointer-events-none"
+              aria-hidden="true"
+            >
+              {/* Warm interior fill */}
+              <path d={triPath} fill="rgba(253,244,227,0.55)" />
+
+              {/* Soft centroid glow */}
+              <ellipse cx={cx} cy={cy} rx="90" ry="80" fill="rgba(245,166,35,0.07)" />
+
+              {/* Dashed spoke lines — vertex → centroid */}
+              {pillars.map((p, i) => (
+                <line key={i}
+                  x1={p.svgX} y1={p.svgY} x2={cx} y2={cy}
+                  stroke="#F5A623" strokeWidth="1" strokeDasharray="4 9"
+                  opacity={drawn ? (hovered === null || hovered === p.id ? 0.4 : 0.07) : 0}
+                  style={{ transition: 'opacity 0.35s ease' }}
+                />
+              ))}
+
+              {/* Triangle outline — animated draw-in */}
+              <path
+                d={triPath}
+                fill="none"
+                stroke="#F5A623"
+                strokeWidth="1.5"
+                strokeLinejoin="miter"
+                strokeDasharray={perim}
+                strokeDashoffset={drawn ? 0 : perim}
+                opacity="0.75"
+                style={{ transition: 'stroke-dashoffset 2s cubic-bezier(0.4,0,0.2,1)' }}
+              />
+
+              {/* Centre convergence marker */}
+              <g opacity={drawn ? 1 : 0} style={{ transition: 'opacity 0.9s ease 1.4s' }}>
+                {/* Animated radar rings */}
+                <circle cx={cx} cy={cy} r="52" fill="none" stroke="#F5A623" strokeWidth="1" className="radar-ring-1" />
+                <circle cx={cx} cy={cy} r="52" fill="none" stroke="#F5A623" strokeWidth="1" className="radar-ring-2" />
+                {/* Static rings */}
+                <circle cx={cx} cy={cy} r="52" fill="rgba(253,244,227,0.55)" stroke="#F5A623" strokeWidth="0.8" opacity="0.45" />
+                <circle cx={cx} cy={cy} r="34" fill="white" stroke="#F5A623" strokeWidth="1.5" opacity="0.94" />
+                <circle cx={cx} cy={cy} r="7" fill="#F5A623" />
+              </g>
+              <g opacity={drawn ? 1 : 0} style={{ transition: 'opacity 0.7s ease 1.8s' }}>
+                <text x={cx} y={cy + 54} textAnchor="middle" fill="#D4891A"
+                  fontSize="7.5" fontFamily="'Plus Jakarta Sans', sans-serif"
+                  fontWeight="700" letterSpacing="0.18em">
+                  OPERATIONALIZED CERTAINTY
+                </text>
+                <text x={cx} y={cy + 66} textAnchor="middle" fill="#6B7280"
+                  fontSize="6.5" fontFamily="'Plus Jakarta Sans', sans-serif"
+                  fontWeight="500" letterSpacing="0.1em">
+                  Integrated Governance Architecture
+                </text>
+              </g>
+            </svg>
+
+            {/* Vertex icon nodes — pixel-positioned over SVG */}
+            {pillars.map((p, idx) => {
+              const act = hovered === p.id;
+              return (
+                <div
+                  key={p.id}
+                  className="absolute z-20 cursor-pointer"
+                  style={{ left: p.nodeX, top: p.nodeY, transform: 'translate(-50%,-50%)' }}
+                  onMouseEnter={() => onEnter(p.id)}
+                  onMouseLeave={onLeave}
+                >
+                  {/* Animated radar rings */}
+                  <div className="radar-ring-1 absolute inset-0 rounded-full border-2 border-brand-yellow" />
+                  <div className="radar-ring-2 absolute inset-0 rounded-full border border-brand-yellow/70" />
+                  {/* Icon circle — always in active/hover state */}
+                  <div
+                    className="relative w-20 h-20 rounded-full border-2 border-brand-yellow bg-amber-50 flex items-center justify-center shadow-[0_0_32px_rgba(245,166,35,0.35)]"
+                    style={{
+                      opacity: drawn ? 1 : 0,
+                      transition: `opacity 0.6s ease ${0.6 + idx * 0.15}s`,
+                    }}
+                  >
+                    <VertexIcon id={p.id} active={true} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* RIGHT column — Legal near top vertex, Systems near bottom vertex */}
+          <div className="flex flex-col" style={{ height: 420 }}>
+            {/* Pull legal up and left so it visually aligns with the apex circle */}
+            <div style={{ marginTop: -130, marginLeft: -120 }}>
+              <PillarHoverCard
+                pillar={legalPillar}
+                active={hovered === 'legal'}
+                onEnter={onEnter}
+                onLeave={onLeave}
+              />
+            </div>
+            <div style={{ marginTop: 'auto', marginLeft: 100 }}>
+              <PillarHoverCard
+                pillar={systemsPillar}
+                active={hovered === 'systems'}
+                onEnter={onEnter}
+                onLeave={onLeave}
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Convergence note */}
-        <div className={`mt-10 flex items-start gap-5 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-4' : 'opacity-0'}`}>
-          <div className="shrink-0 w-8 h-[2px] bg-brand-yellow mt-3" />
-          <p className="text-[14px] md:text-[15px] leading-[1.8] text-brand-grey max-w-2xl">
-            Legal defensibility without systems integration remains theoretical.
-            Systems integration without strategic governance creates operational risk.
-            The triangulated model keeps all three in alignment — simultaneously.
-          </p>
+
+        {/* ── MOBILE: triangle + stacked cards ── */}
+        <div className="lg:hidden">
+          {/* Triangle SVG — viewBox padded so vertex circles don't clip */}
+          <div className={`mb-8 transition-all duration-700 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+            <svg
+              viewBox="0 0 400 360"
+              className="w-full max-w-sm mx-auto"
+              aria-hidden="true"
+            >
+              {/* T=(200,35) BL=(35,321) BR=(365,321) — equilateral, side≈330px */}
+              {/* Warm fill */}
+              <path d="M200,35 L35,321 L365,321 Z" fill="rgba(253,244,227,0.55)" />
+
+              {/* Centroid glow */}
+              <ellipse cx="200" cy="226" rx="70" ry="60" fill="rgba(245,166,35,0.07)" />
+
+              {/* Dashed spokes */}
+              {[[200,35],[35,321],[365,321]].map(([x,y],i) => (
+                <line key={i} x1={x} y1={y} x2="200" y2="226"
+                  stroke="#F5A623" strokeWidth="1" strokeDasharray="4 8"
+                  opacity={drawn ? 0.4 : 0}
+                  style={{ transition: `opacity 0.4s ease ${0.8+i*0.1}s` }} />
+              ))}
+
+              {/* Triangle outline — animated draw */}
+              <path d="M200,35 L35,321 L365,321 Z"
+                fill="none" stroke="#F5A623" strokeWidth="1.5" opacity="0.75"
+                strokeDasharray="990" strokeDashoffset={drawn ? 0 : 990}
+                style={{ transition: 'stroke-dashoffset 1.8s ease 0.3s' }} />
+
+              {/* Vertex circles — bigger, with animated radar rings */}
+              {[[200,35],[35,321],[365,321]].map(([x,y],i) => (
+                <g key={i} opacity={drawn ? 1 : 0} style={{ transition: `opacity 0.5s ease ${0.9+i*0.15}s` }}>
+                  {/* Animated radar ring 1 */}
+                  <circle cx={x} cy={y} r="22" fill="none" stroke="#F5A623" strokeWidth="1.5"
+                    className="radar-ring-1"
+                    style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
+                  {/* Animated radar ring 2 */}
+                  <circle cx={x} cy={y} r="22" fill="none" stroke="#F5A623" strokeWidth="1"
+                    className="radar-ring-2"
+                    style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
+                  {/* Main circle */}
+                  <circle cx={x} cy={y} r="22" fill="rgba(255,251,235,1)" stroke="#F5A623" strokeWidth="1.5" />
+                  {/* Inner dot */}
+                  <circle cx={x} cy={y} r="7" fill="#F5A623" />
+                </g>
+              ))}
+
+              {/* Centre convergence */}
+              <g opacity={drawn ? 1 : 0} style={{ transition: 'opacity 0.5s ease 1.6s' }}>
+                {/* Animated radar rings */}
+                <circle cx="200" cy="226" r="20" fill="none" stroke="#F5A623" strokeWidth="1.5"
+                  className="radar-ring-1"
+                  style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
+                <circle cx="200" cy="226" r="20" fill="none" stroke="#F5A623" strokeWidth="1"
+                  className="radar-ring-2"
+                  style={{ transformBox: 'fill-box', transformOrigin: 'center' }} />
+                <circle cx="200" cy="226" r="32" fill="rgba(253,244,227,0.65)" stroke="#F5A623" strokeWidth="0.8" opacity="0.55" />
+                <circle cx="200" cy="226" r="20" fill="white" stroke="#F5A623" strokeWidth="1.5" opacity="0.93" />
+                <circle cx="200" cy="226" r="6" fill="#F5A623" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Stacked pillar cards */}
+          <div className="space-y-3">
+            {pillars.map((p, i) => (
+              <div key={p.id}
+                className={`relative border border-brand-border bg-white rounded-sm p-5 transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                style={{ transitionDelay: `${i * 120 + 300}ms` }}>
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-brand-yellow rounded-t-sm" />
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <h3 className="font-display text-[18px] font-semibold text-brand-dark leading-tight">{p.name}</h3>
+                  <span className="text-[9px] font-bold tracking-[0.22em] text-brand-yellow mt-0.5">{p.number}</span>
+                </div>
+                <div className="h-px bg-brand-yellow/25 mb-3" />
+                <ul className="space-y-[6px] mb-4">
+                  {p.points.map((pt, j) => (
+                    <li key={j} className="flex items-center gap-2 text-[12px] text-brand-grey">
+                      <span className="shrink-0 w-[4px] h-[4px] rounded-full bg-brand-yellow flex-none" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[11px] font-display font-semibold italic text-brand-yellow-dark">{p.tagline}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom thesis bar */}
+        <div className={`mt-16 border-t border-brand-border pt-10 transition-all duration-700 delay-500 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+            <div className="shrink-0 flex items-center gap-4">
+              <div className="w-8 h-[2px] bg-brand-yellow" />
+              <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-yellow-dark">The Thesis</span>
+            </div>
+            <p className="text-[13px] md:text-[14px] leading-[1.8] text-brand-grey-light max-w-2xl">
+              Legal defensibility without systems integration remains theoretical.
+              Systems integration without strategic governance creates operational risk.
+              The triangulated model keeps all three in alignment — simultaneously.
+            </p>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/* Thin-line SVG icons for each pillar vertex node */
+function VertexIcon({ id, active }) {
+  const c = active ? '#F5A623' : '#6B7280';
+  const s = { stroke: c, fill: 'none', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' };
+  if (id === 'legal') return (
+    <svg width="28" height="28" viewBox="0 0 24 24" {...s}>
+      <line x1="12" y1="3" x2="12" y2="21" />
+      <line x1="5.5" y1="6.5" x2="18.5" y2="6.5" />
+      <path d="M4 14l2-7.5 4 7.5H4z" />
+      <path d="M14 14l2-7.5 4 7.5h-6z" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+    </svg>
+  );
+  if (id === 'governance') return (
+    <svg width="28" height="28" viewBox="0 0 24 24" {...s}>
+      <polygon points="12,3 3,9 21,9" />
+      <line x1="7" y1="9" x2="7" y2="19" />
+      <line x1="12" y1="9" x2="12" y2="19" />
+      <line x1="17" y1="9" x2="17" y2="19" />
+      <line x1="3" y1="19" x2="21" y2="19" />
+      <line x1="3" y1="21" x2="21" y2="21" />
+    </svg>
+  );
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" {...s}>
+      <circle cx="12" cy="5" r="2" />
+      <circle cx="5" cy="19" r="2" />
+      <circle cx="19" cy="19" r="2" />
+      <line x1="12" y1="7" x2="6.5" y2="17" />
+      <line x1="12" y1="7" x2="17.5" y2="17" />
+      <line x1="7" y1="19" x2="17" y2="19" />
+    </svg>
   );
 }
 
