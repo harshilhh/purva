@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
+    { label: 'Services 2', to: '/services-2' },
     { label: 'Contact', to: '/contact' },
   ];
 
@@ -40,7 +41,7 @@ export default function Navbar() {
               <span className="font-display text-white text-lg font-bold leading-none">C</span>
             </div>
             <span className="font-display text-lg sm:text-xl md:text-[22px] font-semibold text-brand-dark tracking-tight">
-              The Compliance Chamber
+              Compliancenomics
             </span>
           </Link>
 

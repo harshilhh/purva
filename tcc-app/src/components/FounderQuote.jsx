@@ -40,7 +40,7 @@ export default function FounderQuote() {
                 Purva Buch, CAMS
               </p>
               <p className="mt-1 text-[13px] text-brand-grey-light tracking-wide">
-                Founder, The Compliance Chamber
+                Founder, Compliancenomics
               </p>
             </div>
           </div>

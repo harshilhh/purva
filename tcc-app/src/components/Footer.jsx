@@ -19,7 +19,7 @@ export default function Footer() {
                 <span className="font-display text-white text-lg font-bold leading-none">C</span>
               </div>
               <span className="font-display text-xl font-semibold tracking-tight text-brand-dark">
-                The Compliance Chamber
+                Compliancenomics
               </span>
             </Link>
             <p className="mt-5 text-[17px] leading-relaxed text-brand-grey max-w-md">
@@ -56,7 +56,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-6 border-t border-brand-dark/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12px] text-brand-grey-light">
-            &copy; {new Date().getFullYear()} The Compliance Chamber. All rights reserved.
+            &copy; {new Date().getFullYear()} Compliancenomics. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-[12px] text-brand-grey-light hover:text-brand-dark transition-colors">Privacy Policy</a>

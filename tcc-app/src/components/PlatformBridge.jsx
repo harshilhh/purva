@@ -35,7 +35,7 @@ export default function PlatformBridge() {
               </svg>
             </div>
             <p className="font-display text-[18px] md:text-[22px] font-semibold text-brand-dark leading-[1.35] tracking-tight">
-              <span className="text-brand-yellow italic font-normal">The Compliance Chamber</span>{' '}
+              <span className="text-brand-yellow italic font-normal">Compliancenomics</span>{' '}
               advises on the consequences.
             </p>
           </div>

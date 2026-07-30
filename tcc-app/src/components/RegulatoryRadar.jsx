@@ -95,7 +95,7 @@ export default function RegulatoryRadar() {
           <div className="relative">
             <img
               src="/world-map.png"
-              alt="Globe showing TCC jurisdictional coverage"
+              alt="Globe showing Compliancenomics jurisdictional coverage"
               className="w-full h-auto block"
               draggable="false"
               style={{ marginBottom: '-4px', clipPath: 'inset(0 0 4px 0)' }}

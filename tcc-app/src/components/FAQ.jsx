@@ -4,12 +4,12 @@ import Hyphen from './Hyphen';
 
 const faqs = [
   {
-    question: 'What does The Compliance Chamber do?',
+    question: 'What does Compliancenomics do?',
     answer:
-      'The Compliance Chamber designs and implements cross-border AML and privacy compliance frameworks for businesses operating across multiple jurisdictions. We align regulatory obligations — including AML, data protection, and reporting requirements — across regions such as the UK, EU, UAE, India, and Singapore.',
+      'Compliancenomics designs and implements cross-border AML and privacy compliance frameworks for businesses operating across multiple jurisdictions. We align regulatory obligations — including AML, data protection, and reporting requirements — across regions such as the UK, EU, UAE, India, and Singapore.',
   },
   {
-    question: 'Who does The Compliance Chamber work with?',
+    question: 'Who does Compliancenomics work with?',
     answer:
       'We work with financial institutions, fintech companies, payment service providers, and professional services firms that operate — or are expanding — across multiple jurisdictions and need structured, cross-border compliance frameworks.',
   },
@@ -19,12 +19,12 @@ const faqs = [
       'The Alignment-First Compliance Model is our structured approach to managing overlapping regulatory obligations across jurisdictions. Rather than forcing artificial standardisation, it maps jurisdiction-specific requirements, segments obligations, and applies controls that enable simultaneous compliance across all relevant regions.',
   },
   {
-    question: 'Which jurisdictions does The Compliance Chamber cover?',
+    question: 'Which jurisdictions does Compliancenomics cover?',
     answer:
       'We cover key regulatory jurisdictions including the United Kingdom (FCA, ICO, PRA), the European Union (ESMA, EBA, EDPB), the UAE (DFSA, ADGM, CBUAE), India (RBI, SEBI, IRDAI), and Singapore (MAS, PDPC), along with their intersecting regulatory frameworks.',
   },
   {
-    question: 'How is The Compliance Chamber different from a traditional compliance consultant?',
+    question: 'How is Compliancenomics different from a traditional compliance consultant?',
     answer:
       "Unlike generalist consultants, we specialise exclusively in cross-border regulatory conflict — the point where jurisdictions impose contradictory or overlapping obligations. We do not simplify compliance; we structure it so that each jurisdiction's requirements are met individually and simultaneously.",
   },

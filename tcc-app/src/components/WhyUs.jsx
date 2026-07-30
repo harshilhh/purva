@@ -88,7 +88,7 @@ export default function WhyUs() {
                     </span>
                   </div>
                   <h2 className="font-display text-[30px] md:text-[36px] lg:text-[44px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-                    Why The Compliance Chamber
+                    Why Compliancenomics
                   </h2>
                 </div>
 

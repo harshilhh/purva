@@ -15,8 +15,21 @@ function OpeningProblemStatement() {
   return (
     <section
       ref={ref}
-      className="relative flex flex-col justify-center bg-brand-yellow-light overflow-hidden"
+      className="relative flex flex-col justify-center overflow-hidden"
     >
+      {/* Full-cover background image with yellow overlay — matches home hero */}
+      <div className="absolute inset-0">
+        <img
+          src="/cta-bg.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-brand-yellow-light/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow-light/95 via-brand-yellow-light/70 to-brand-yellow-light/25" />
+      </div>
+
       {/* Editorial grid texture — dark lines on warm cream */}
       <div
         className="absolute inset-0"
@@ -109,7 +122,7 @@ function OpeningProblemStatement() {
               isInView ? 'animate-fade-up-delay-4' : 'opacity-0'
             }`}
           >
-            The Compliance Chamber exists to close it.
+            Compliancenomics exists to close it.
           </p>
         </div>
 
@@ -117,7 +130,7 @@ function OpeningProblemStatement() {
         <div className={`mt-16 flex items-center gap-5 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-5' : 'opacity-0'}`}>
           <div className="w-8 h-[2px] bg-brand-yellow" />
           <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-brand-grey-light/60">
-            The Compliance Chamber
+            Compliancenomics
           </span>
           <span className="w-4 h-px bg-brand-border" />
           <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-brand-grey-light/60">
@@ -351,7 +364,7 @@ function FounderLens() {
                   Purva Buch, CAMS
                 </p>
                 <p className="text-[12px] font-medium tracking-[0.1em] uppercase text-brand-yellow-dark mt-0.5">
-                  Founder · The Compliance Chamber
+                  Founder · Compliancenomics
                 </p>
               </div>
             </div>
@@ -365,7 +378,7 @@ function FounderLens() {
 
               <img
                 src="/leadership.jpg"
-                alt="Purva Buch, CAMS — Founder, The Compliance Chamber"
+                alt="Purva Buch, CAMS — Founder, Compliancenomics"
                 className="relative w-full h-[460px] md:h-[500px] object-cover object-top rounded-sm"
                 loading="lazy"
                 decoding="async"
@@ -1052,7 +1065,7 @@ function ForTheFirms() {
                 For the Firms<br /> We Are<br className="hidden md:block" /> Built For
               </h2>
               <p className="mt-5 text-[17px] leading-[1.8] text-brand-grey">
-                The Compliance Chamber is not a generalist practice. These are the organisations whose cross-border complexity we are specifically built to handle.
+                Compliancenomics is not a generalist practice. These are the organisations whose cross-border complexity we are specifically built to handle.
               </p>
             </div>
           </div>
@@ -1180,7 +1193,7 @@ function Testimonials() {
   const testimonials = [
     {
       quote:
-        'The Compliance Chamber redesigned our cross-border AML framework after our Singapore expansion. The approach was precise, jurisdiction-specific, and operational from day one.',
+        'Compliancenomics redesigned our cross-border AML framework after our Singapore expansion. The approach was precise, jurisdiction-specific, and operational from day one.',
       name: 'Head of Compliance',
       firm: 'Payments Platform, UK / SG',
     },
@@ -1270,8 +1283,8 @@ function AboutFAQs() {
       a: 'The regulatory gap is the space created when two or more regulatory frameworks impose different or contradictory obligations on the same activity. It is not a flaw in any single regulation — it is the structural consequence of frameworks being developed independently by different jurisdictions with different legal priorities and policy objectives.',
     },
     {
-      q: 'How is The Compliance Chamber different from a law firm?',
-      a: 'Law firms interpret what the law requires. The Compliance Chamber designs frameworks that make compliance operational — translating legal obligations into processes, systems, and governance structures that a business can actually run. Our work sits at the intersection of legal logic, management logic, and systems logic. We do not provide legal advice; we design the operational architecture that puts legal requirements into practice.',
+      q: 'How is Compliancenomics different from a law firm?',
+      a: 'Law firms interpret what the law requires. Compliancenomics designs frameworks that make compliance operational — translating legal obligations into processes, systems, and governance structures that a business can actually run. Our work sits at the intersection of legal logic, management logic, and systems logic. We do not provide legal advice; we design the operational architecture that puts legal requirements into practice.',
     },
     {
       q: 'What does the Triangulated Model mean in practice?',
@@ -1282,8 +1295,8 @@ function AboutFAQs() {
       a: 'Our practice is specifically designed for multi-jurisdiction complexity. Organisations operating within a single jurisdiction are generally well-served by domestic compliance providers. We engage where the structural conflict between regulatory systems is the core challenge — where the same activity is governed by two or more frameworks that impose different or contradictory obligations.',
     },
     {
-      q: 'What is regulatorygap.com and how does it relate to The Compliance Chamber?',
-      a: 'regulatorygap.com is a research and analysis platform that documents structural differences between regulatory frameworks across jurisdictions. The Compliance Chamber is the advisory practice that translates those differences into operational compliance frameworks. One identifies the gap; the other closes it.',
+      q: 'What is regulatorygap.com and how does it relate to Compliancenomics?',
+      a: 'regulatorygap.com is a research and analysis platform that documents structural differences between regulatory frameworks across jurisdictions. Compliancenomics is the advisory practice that translates those differences into operational compliance frameworks. One identifies the gap; the other closes it.',
     },
   ];
 
