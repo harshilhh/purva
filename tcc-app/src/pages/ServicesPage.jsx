@@ -289,64 +289,111 @@ function ServicesCover() {
           </div>
         </div>
 
-        {/* Editorial split — index list left, live detail right */}
+        {/* Editorial split — index list left, live detail right (mobile becomes accordion) */}
         <div className="grid md:grid-cols-12 gap-0 border border-brand-border bg-white">
           {/* Index list */}
           <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-brand-border">
             {services.map((s, i) => {
               const isActive = i === activeIndex;
               return (
-                <button
-                  key={s.title}
-                  onMouseEnter={() => setActiveIndex(i)}
-                  onFocus={() => setActiveIndex(i)}
-                  onClick={() => setActiveIndex(i)}
-                  className={`w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center gap-5 border-b border-brand-border last:border-b-0 transition-all duration-300 group ${
-                    isActive
-                      ? 'bg-brand-yellow-light pl-8 md:pl-10'
-                      : 'bg-white hover:bg-brand-yellow-light/40'
-                  }`}
-                >
-                  <span
-                    className={`shrink-0 font-display text-[11px] font-semibold tracking-widest transition-colors ${
-                      isActive ? 'text-brand-yellow-dark' : 'text-brand-grey-light'
-                    }`}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span
-                    className={`flex-1 font-display text-lg md:text-xl font-semibold leading-tight transition-colors ${
-                      isActive ? 'text-brand-dark' : 'text-brand-grey group-hover:text-brand-dark'
-                    }`}
-                  >
-                    {s.title}
-                  </span>
-                  <span
-                    className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full transition-all duration-300 ${
+                <div key={s.title} className="border-b border-brand-border last:border-b-0">
+                  <button
+                    onMouseEnter={() => {
+                      if (window.matchMedia('(min-width: 768px)').matches) setActiveIndex(i);
+                    }}
+                    onFocus={() => setActiveIndex(i)}
+                    onClick={() => setActiveIndex(isActive ? -1 : i)}
+                    className={`w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center gap-5 transition-all duration-300 group ${
                       isActive
-                        ? 'bg-brand-yellow text-brand-dark scale-100 opacity-100'
-                        : 'bg-transparent text-transparent scale-75 opacity-0'
+                        ? 'bg-brand-yellow-light pl-8 md:pl-10'
+                        : 'bg-white hover:bg-brand-yellow-light/40'
                     }`}
                   >
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>
+                    <span
+                      className={`shrink-0 font-display text-[11px] font-semibold tracking-widest transition-colors ${
+                        isActive ? 'text-brand-yellow-dark' : 'text-brand-grey-light'
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span
+                      className={`flex-1 font-display text-lg md:text-xl font-semibold leading-tight transition-colors ${
+                        isActive ? 'text-brand-dark' : 'text-brand-grey group-hover:text-brand-dark'
+                      }`}
+                    >
+                      {s.title}
+                    </span>
+                    {/* Mobile-only chevron toggle */}
+                    <span
+                      className={`md:hidden shrink-0 w-7 h-7 flex items-center justify-center rounded-full border transition-all duration-300 ${
+                        isActive
+                          ? 'bg-brand-yellow border-brand-yellow'
+                          : 'border-gray-300'
+                      }`}
+                    >
+                      <svg
+                        className={`w-3 h-3 transition-transform duration-300 ${
+                          isActive ? 'rotate-180 text-brand-dark' : 'text-brand-grey-light'
+                        }`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                    {/* Desktop-only right arrow when active */}
+                    <span
+                      className={`hidden md:flex shrink-0 w-6 h-6 items-center justify-center rounded-full transition-all duration-300 ${
+                        isActive
+                          ? 'bg-brand-yellow text-brand-dark scale-100 opacity-100'
+                          : 'bg-transparent text-transparent scale-75 opacity-0'
+                      }`}
+                    >
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  {/* Mobile accordion body */}
+                  <div
+                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-brand-surface-warm ${
+                      isActive ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="px-6 pt-4 pb-6">
+                      <p className="text-[15px] leading-relaxed text-brand-grey">{s.body}</p>
+                      <Link
+                        to="/contact"
+                        className="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold tracking-wide uppercase text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                      >
+                        Discuss
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
 
-          {/* Detail pane */}
-          <div className="md:col-span-7 relative bg-brand-surface-warm">
+          {/* Detail pane (desktop only) */}
+          <div className="hidden md:block md:col-span-7 relative bg-brand-surface-warm">
+            {(() => {
+              const detailIndex = activeIndex >= 0 ? activeIndex : 0;
+              return (
             <div
-              key={activeIndex}
+              key={detailIndex}
               className="p-8 md:p-14 h-full flex flex-col justify-between animate-fade-up"
             >
               <div>
                 <div className="flex items-center gap-3 mb-8">
                   <span className="font-display text-[80px] md:text-[120px] leading-none font-semibold text-brand-yellow/25 select-none">
-                    {String(activeIndex + 1).padStart(2, '0')}
+                    {String(detailIndex + 1).padStart(2, '0')}
                   </span>
                   <div className="flex-1">
                     <div className="w-10 h-[2px] bg-brand-yellow mb-3" />
@@ -357,11 +404,11 @@ function ServicesCover() {
                 </div>
 
                 <h3 className="font-display text-2xl md:text-3xl lg:text-[36px] font-semibold text-brand-dark leading-[1.1] tracking-tight mb-6">
-                  {services[activeIndex].title}
+                  {services[detailIndex].title}
                 </h3>
 
                 <p className="text-[16px] md:text-[17px] leading-relaxed text-brand-grey">
-                  {services[activeIndex].body}
+                  {services[detailIndex].body}
                 </p>
               </div>
 
@@ -380,6 +427,8 @@ function ServicesCover() {
                 </Link>
               </div>
             </div>
+              );
+            })()}
           </div>
         </div>
       </div>
