@@ -37,9 +37,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[64px] md:h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="w-8 h-8 bg-brand-yellow rounded-sm flex items-center justify-center">
-              <span className="font-display text-white text-lg font-bold leading-none">C</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="Compliancenomics"
+              className="w-9 h-9 rounded-sm object-cover"
+            />
             <span className="font-display text-lg sm:text-xl md:text-[22px] font-semibold text-brand-dark tracking-tight">
               Compliancenomics
             </span>

@@ -366,6 +366,15 @@ function FounderLens() {
                 <p className="text-[12px] font-medium tracking-[0.1em] uppercase text-brand-yellow-dark mt-0.5">
                   Founder · Compliancenomics
                 </p>
+                <a
+                  href="mailto:purva@compliancenomics.com"
+                  className="mt-2 inline-flex items-center gap-2 text-[13px] text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                >
+                  <svg className="w-4 h-4 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  purva@compliancenomics.com
+                </a>
               </div>
             </div>
           </div>

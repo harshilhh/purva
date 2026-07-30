@@ -74,8 +74,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-1">Email</p>
-                    <a href="mailto:contact@thecompliancechamber.com" className="text-[15px] text-brand-dark hover:text-brand-yellow transition-colors">
-                      contact@thecompliancechamber.com
+                    <a href="mailto:info@compliancenomics.com" className="text-[15px] text-brand-dark hover:text-brand-yellow transition-colors">
+                      info@compliancenomics.com
                     </a>
                   </div>
                 </div>
@@ -89,8 +89,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-1">Phone</p>
-                    <a href="tel:+910000000000" className="text-[15px] text-brand-dark hover:text-brand-yellow transition-colors">
-                      +91 00 0000 0000
+                    <a href="tel:+919773149576" className="text-[15px] text-brand-dark hover:text-brand-yellow transition-colors">
+                      +91 97731 49576
                     </a>
                   </div>
                 </div>

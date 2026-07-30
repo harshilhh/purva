@@ -15,9 +15,11 @@ export default function Footer() {
         <div className="py-16 md:py-20 grid md:grid-cols-[1fr_auto] gap-10 items-start">
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-brand-yellow rounded-sm flex items-center justify-center">
-                <span className="font-display text-white text-lg font-bold leading-none">C</span>
-              </div>
+              <img
+                src="/logo.png"
+                alt="Compliancenomics"
+                className="w-10 h-10 rounded-sm object-cover"
+              />
               <span className="font-display text-xl font-semibold tracking-tight text-brand-dark">
                 Compliancenomics
               </span>
