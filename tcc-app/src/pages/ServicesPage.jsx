@@ -135,8 +135,22 @@ function WhyMatters() {
 /*  Section 3 — Our Approach                                                  */
 /* -------------------------------------------------------------------------- */
 
+const approachDirections = [
+  {
+    key: 'upward',
+    label: 'Upward',
+    body: 'Giving the board genuine visibility into what the organisation is doing.',
+  },
+  {
+    key: 'downward',
+    label: 'Downward',
+    body: 'Giving operations a clear, executable framework for what the board has decided.',
+  },
+];
+
 function Approach() {
   const [ref, isInView] = useInView();
+  const [activeKey, setActiveKey] = useState('upward');
   return (
     <section ref={ref} className="py-20 md:py-28 bg-brand-surface-warm relative overflow-hidden">
       <div
@@ -161,30 +175,54 @@ function Approach() {
             </p>
           </div>
           <div className="bg-brand-yellow-light p-8 md:p-10 border border-brand-yellow/30">
-            <div className="space-y-6">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-brand-dark text-xs font-semibold tracking-[0.2em] uppercase">
-                    Upward
-                  </span>
-                  <div className="flex-1 h-px bg-brand-dark/15" />
-                </div>
-                <p className="text-[15px] leading-relaxed text-brand-grey">
-                  Giving the board genuine visibility into what the organisation is doing.
-                </p>
-              </div>
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-brand-dark text-xs font-semibold tracking-[0.2em] uppercase">
-                    Downward
-                  </span>
-                  <div className="flex-1 h-px bg-brand-dark/15" />
-                </div>
-                <p className="text-[15px] leading-relaxed text-brand-grey">
-                  Giving operations a clear, executable framework for what the board has decided.
-                </p>
-              </div>
-              <p className="pt-4 border-t border-brand-dark/10 text-[14px] italic text-brand-grey">
+            <div className="space-y-3">
+              {approachDirections.map((d) => {
+                const isActive = activeKey === d.key;
+                return (
+                  <div key={d.key} className="border-b border-brand-dark/10 last:border-b-0 pb-3 last:pb-0">
+                    <button
+                      onClick={() => setActiveKey((prev) => (prev === d.key ? null : d.key))}
+                      className="w-full flex items-center gap-3 group"
+                    >
+                      <span
+                        className={`text-xs font-semibold tracking-[0.2em] uppercase transition-colors ${
+                          isActive ? 'text-brand-dark' : 'text-brand-dark/60 group-hover:text-brand-dark'
+                        }`}
+                      >
+                        {d.label}
+                      </span>
+                      <div className="flex-1 h-px bg-brand-dark/15" />
+                      <span
+                        className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full border transition-all duration-300 ${
+                          isActive
+                            ? 'bg-brand-yellow border-brand-yellow'
+                            : 'border-brand-dark/25 group-hover:border-brand-dark/50'
+                        }`}
+                      >
+                        <svg
+                          className={`w-3 h-3 transition-transform duration-300 ${
+                            isActive ? 'rotate-180 text-brand-dark' : 'text-brand-dark/50'
+                          }`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </button>
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isActive ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
+                      }`}
+                    >
+                      <p className="text-[15px] leading-relaxed text-brand-grey">{d.body}</p>
+                    </div>
+                  </div>
+                );
+              })}
+              <p className="pt-4 mt-4 border-t border-brand-dark/10 text-[14px] italic text-brand-grey">
                 Most governance engagements produce one or the other. The architecture Compliancenomics
                 builds produces both — because the distance between board intent and operational
                 execution is precisely where regulatory exposure accumulates.
@@ -301,8 +339,7 @@ function ServicesCover() {
                     onMouseEnter={() => {
                       if (window.matchMedia('(min-width: 768px)').matches) setActiveIndex(i);
                     }}
-                    onFocus={() => setActiveIndex(i)}
-                    onClick={() => setActiveIndex(isActive ? -1 : i)}
+                    onClick={() => setActiveIndex((prev) => (prev === i ? -1 : i))}
                     className={`w-full text-left px-6 md:px-8 py-5 md:py-6 flex items-center gap-5 transition-all duration-300 group ${
                       isActive
                         ? 'bg-brand-yellow-light pl-8 md:pl-10'
