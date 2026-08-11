@@ -1,46 +1,38 @@
 import { useInView } from '../hooks/useInView';
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const conflicts = [
   {
     id: '01',
     left: 'SAR',
     right: 'DSAR',
-    summary: 'Reporting obligation vs right of access',
+    summary: 'The SAR\u2013DSAR Conflict',
     description:
-      'The obligation to file a Suspicious Activity Report directly conflicts with the data subject\u2019s right to access their personal data under GDPR. One requires silence. The other demands disclosure.',
+      'A data subject submits an erasure request. Your GDPR team starts the clock. Your MLRO has an active suspicious activity report on the same individual. Disclosure of the SAR is a criminal offence. Erasure of the underlying data may prejudice an investigation. Neither team has a documented protocol for this scenario.',
   },
   {
     id: '02',
-    left: 'GDPR Art.\u200922',
-    right: 'AML Scoring',
-    summary: 'Automated decision rules vs risk detection',
+    left: 'AML',
+    right: 'AI Act',
+    summary: 'The AML\u2013AI Act Paradox',
     description:
-      'Automated AML risk scoring triggers GDPR\u2019s restrictions on solely automated decision-making. The regulator expects both \u2014 simultaneously.',
+      'Your automated customer risk-scoring model is subject to Article 22 GDPR \u2014 the individual has a right to explanation and human review. The same model is central to your AML transaction monitoring architecture. The EU AI Act now classifies certain AML tools as high-risk AI systems with mandatory oversight obligations. Your compliance team and your technology team are operating without a unified governance framework.',
   },
   {
     id: '03',
     left: 'DORA',
     right: 'GDPR',
-    summary: 'Competing incident timelines',
+    summary: 'The DORA\u2013GDPR Incident Timeline Conflict',
     description:
-      'DORA requires ICT incident reporting within hours. GDPR allows 72 hours for breach notification. Different timelines, same incident, overlapping obligations.',
+      'DORA requires ICT-related incident reporting within 24 hours of classification. GDPR sets a 72-hour window for personal data breaches but requires prior determination of whether personal data is affected. When an ICT incident involves customer data, the two reporting timelines run simultaneously, under different supervisors, with different notification content requirements. Most firms do not have a joint protocol.',
   },
   {
     id: '04',
     left: 'MiCA',
-    right: 'Travel Rule',
-    summary: 'Data transmission vs data restriction',
+    right: 'Travel Rule \u00d7 GDPR',
+    summary: 'The MiCA\u2013Travel Rule\u2013GDPR Triangle',
     description:
-      'The Travel Rule mandates originator and beneficiary data transmission. Privacy frameworks restrict exactly that kind of sharing. The tension is structural.',
-  },
-  {
-    id: '05',
-    left: 'AI Gov.',
-    right: 'Financial Reg.',
-    summary: 'Transparency vs detection',
-    description:
-      'AI regulation imposes transparency and explainability requirements that sit uneasily alongside AML\u2019s operational need for pattern detection across sensitive data.',
+      'MiCA imposes disclosure obligations on crypto-asset service providers. The EU Transfer of Funds Regulation extends Travel Rule requirements to crypto transfers, mandating originator and beneficiary data at the point of transaction. GDPR restricts the transfer of that same personal data to third-country counterparties without an adequacy mechanism. Three frameworks. Three supervisors. One transaction.',
   },
 ];
 
@@ -67,7 +59,7 @@ function ConflictCard({ conflict, index, isInView }) {
       <div className="absolute top-0 right-0 w-0 h-0 border-t-[28px] border-r-[28px] border-t-transparent border-r-brand-yellow/0 group-hover:border-r-brand-yellow/15 transition-all duration-500" />
 
       {/* Content */}
-      <div className="relative p-7 md:p-9 pl-6 md:pl-7">
+      <div className="relative p-6 md:p-9 pl-5 md:pl-7">
         {/* Case label */}
         <span className="inline-block text-[10px] font-semibold tracking-[0.25em] uppercase text-brand-yellow/90">
           Case {conflict.id}
@@ -169,12 +161,16 @@ export default function RegulatoryGap() {
                 Regulatory Tensions
               </span>
             </div>
-            <h2 className="font-display text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight max-w-2xl">
+            <h2 className="font-display text-[26px] sm:text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.1] tracking-tight max-w-2xl">
               The Cases No One Framework Owns Alone
             </h2>
-            <p className="mt-6 text-[17px] leading-[1.8] text-brand-grey max-w-xl">
-              Regulatory conflict is structural, not incidental. These are the
-              tensions that surface when frameworks are applied simultaneously.
+            <p className="mt-6 text-[17px] leading-[1.8] text-brand-grey max-w-2xl">
+              Most regulated organisations manage AML compliance and data
+              protection in separate functions, with separate advisers, working
+              from separate frameworks. That architecture made sense when the
+              frameworks did not intersect. It no longer does. These are the
+              conflicts that fall through the gap and the ones that create the
+              most material regulatory exposure.
             </p>
           </div>
 

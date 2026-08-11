@@ -62,7 +62,7 @@ function OpeningProblemStatement() {
       {/* Bottom rule */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-brand-border" />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full pt-40 pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 md:pt-36 pb-20 md:pb-24">
 
         {/* Eyebrow */}
         <div
@@ -72,27 +72,27 @@ function OpeningProblemStatement() {
         >
           <div className="w-12 h-px bg-brand-yellow" />
           <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-            Why We Exist
+            Why This Practice Exists
           </span>
         </div>
 
         {/* Manifesto — line 1 */}
         <div className="max-w-5xl">
           <h1
-            className={`font-display text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-semibold text-brand-dark leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
+            className={`font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-1' : 'opacity-0'
             }`}
           >
-            Regulatory frameworks<br className="hidden sm:block" /> are built independently.
+            Every framework makes sense.
           </h1>
 
           {/* Manifesto — highlighted anchor line */}
           <h2
-            className={`mt-2 font-display text-[38px] sm:text-[52px] md:text-[64px] lg:text-[76px] font-semibold leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
+            className={`mt-2 font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-2' : 'opacity-0'
             }`}
           >
-            <span className="text-brand-yellow-dark">They do not align.</span>
+            <span className="text-brand-yellow-dark">Until it meets another.</span>
           </h2>
 
           {/* Divider */}
@@ -104,15 +104,17 @@ function OpeningProblemStatement() {
 
           {/* Anchor paragraph */}
           <p
-            className={`text-[18px] md:text-[21px] leading-[1.75] text-brand-grey max-w-2xl transition-all duration-700 ${
+            className={`text-[16px] md:text-[17px] leading-[1.8] text-brand-grey max-w-2xl transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-3' : 'opacity-0'
             }`}
           >
-            AML obligations cross borders. Privacy law imposes its own requirements.
-            AI governance adds another layer.{' '}
+            That&apos;s where compliance becomes interpretation instead of
+            implementation.{' '}
             <span className="text-brand-dark font-medium">
-              That tension — the gap between regulatory systems — is where firms lose
-              time, clarity, and defensibility.
+              Compliancenomics exists for organisations operating where AML,
+              privacy, AI governance, operational resilience, and regulatory
+              expectations begin to overlap. The work starts where
+              single-framework advice stops.
             </span>
           </p>
 
@@ -122,7 +124,7 @@ function OpeningProblemStatement() {
               isInView ? 'animate-fade-up-delay-4' : 'opacity-0'
             }`}
           >
-            Compliancenomics exists to close it.
+            Compliancenomics is that practice.
           </p>
         </div>
 
@@ -158,28 +160,28 @@ function GapMatrix() {
       b: 'Privacy Timing',
       tag: 'Data',
       description:
-        'AML frameworks require immediate transaction data retention and disclosure. Privacy law demands minimisation and the right to erasure. The same dataset triggers both — on contradictory timelines and with conflicting legal bases.',
+        'Your AML framework says retain. Your privacy framework says erase. Both obligations are live. Both are triggered by the same customer record. AML retention periods run five to seven years. GDPR erasure requests arrive in thirty days. Neither regulator has issued a definitive resolution. What your organisation needs before the request arrives is a documented legal basis, a conflict protocol, and a decision trail that holds under examination from both supervisors simultaneously. Most firms have neither.',
     },
     {
       a: 'AI Explainability',
       b: 'Automation',
       tag: 'Systems',
       description:
-        'Regulators require AI decisions to be explainable and auditable. Automation scales precisely because it removes manual review. Engineering both simultaneously is a structural challenge, not a configuration choice.',
+        'The system flags the transaction. The algorithm scores the risk. The decision is made in milliseconds. Then the regulator asks: why? Deploying automation without building the explainability layer behind it is not a compliance gap waiting to happen. It is one that already exists.',
     },
     {
       a: 'Escalation Workflows',
       b: 'Reporting Duties',
       tag: 'Process',
       description:
-        'Internal escalation timelines differ from external reporting deadlines. What must be reported, to whom, and when — diverges jurisdiction by jurisdiction for the same incident. Firms operating across borders inherit all of it.',
+        'An incident occurs. The GDPR team starts a 72-hour breach notification clock. The MLRO opens a SAR. DORA requires an ICT incident report within 24 hours. Three reporting obligations. Three supervisors. One event. Without a joint escalation protocol, each function follows its own process — and the gaps between them become the audit findings.',
     },
     {
       a: 'Governance Oversight',
       b: 'Operational Execution',
       tag: 'Structure',
       description:
-        'Governance frameworks set policy at board level. Operations must implement it in real time. The gap between what is approved in principle and what systems actually do is where regulatory exposure quietly accumulates.',
+        'The board approves the policy. The policy sits in a folder. The system does something different. That distance between what governance mandates and what operations actually run is where regulatory exposure accumulates without anyone noticing until it is too late to be proactive about it.',
     },
   ];
 
@@ -192,14 +194,18 @@ function GapMatrix() {
           <div className="flex items-center gap-4 mb-5">
             <div className="w-12 h-px bg-brand-yellow" />
             <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-              The Conflict Matrix
+              Where the Framework Breaks
             </span>
           </div>
           <h2 className="font-display text-[30px] md:text-[42px] lg:text-[52px] font-semibold text-brand-dark leading-[1.08] tracking-tight mb-5">
-            Four Points of<br className="hidden md:block" /> Regulatory Tension
+            Four Points of Regulatory Tension
           </h2>
-          <p className="text-[15px] md:text-[16px] leading-[1.8] text-brand-grey max-w-lg">
-            These are not edge cases. They are the structural conflicts where cross-border operations consistently lose time, clarity, and defensibility.
+          <p className="text-[15px] md:text-[16px] leading-[1.8] text-brand-grey max-w-2xl">
+            Compliance fails quietly. Not because firms ignore the rules but
+            because the rules were written by different regulators, at
+            different times, for different problems. When they land on the
+            same transaction, the same system, the same team — the gap
+            between them becomes the liability.
           </p>
         </div>
 
@@ -209,9 +215,9 @@ function GapMatrix() {
           {/* Column labels — desktop only */}
           <div className="hidden md:grid grid-cols-[48px_1fr_52px_1fr_120px] gap-6 pb-4 border-b-2 border-brand-dark/15 mb-1">
             <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light">#</span>
-            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light">Framework A</span>
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light text-center">Framework A</span>
             <span />
-            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light">Framework B</span>
+            <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light text-center">Framework B</span>
             <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light text-center">Domain</span>
           </div>
 
@@ -236,7 +242,7 @@ function GapMatrix() {
                     <span className="font-display text-[13px] font-semibold tracking-[0.2em] text-brand-yellow pl-3">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-display text-[26px] lg:text-[34px] font-semibold text-brand-dark leading-tight tracking-tight">
+                    <h3 className="font-display text-[26px] lg:text-[34px] font-semibold text-brand-dark leading-tight tracking-tight text-center">
                       {c.a}
                     </h3>
                     <div className="flex flex-col items-center gap-[5px]">
@@ -244,7 +250,7 @@ function GapMatrix() {
                       <span className="font-display text-[18px] font-bold text-brand-yellow leading-none">×</span>
                       <div className="w-px h-5 bg-brand-yellow/50" />
                     </div>
-                    <h3 className="font-display text-[26px] lg:text-[34px] font-normal text-brand-grey leading-tight tracking-tight">
+                    <h3 className="font-display text-[26px] lg:text-[34px] font-normal text-brand-grey leading-tight tracking-tight text-center">
                       {c.b}
                     </h3>
                     <div className="flex justify-center">
@@ -286,8 +292,10 @@ function GapMatrix() {
         {/* Footer note */}
         <div className={`mt-12 flex items-start gap-4 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-4' : 'opacity-0'}`}>
           <div className="shrink-0 w-8 h-[2px] bg-brand-yellow mt-3" />
-          <p className="text-[13px] leading-relaxed text-brand-grey-light max-w-md">
-            These conflicts are structural, not incidental. Resolving them requires deliberate design — not workarounds.
+          <p className="text-[13px] leading-relaxed text-brand-grey-light max-w-2xl">
+            These conflicts are not exceptions waiting to be managed. They are
+            structural realities that require frameworks deliberately designed
+            to work together from the very beginning.
           </p>
         </div>
       </div>
@@ -344,7 +352,7 @@ function FounderLens() {
 
             <blockquote className="font-display text-[28px] md:text-[34px] lg:text-[40px] font-semibold text-brand-dark leading-[1.2] tracking-tight">
               I look at regulation the way an architect looks at structure —
-              searching for{' '}
+              for{' '}
               <span className="relative inline-block">
                 load-bearing points
                 <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-brand-yellow/60" />
@@ -352,9 +360,12 @@ function FounderLens() {
               and blind spots.
             </blockquote>
 
-            <p className="mt-7 text-[16px] md:text-[17px] leading-[1.8] text-brand-grey max-w-lg">
-              Most compliance frameworks feel sound until you put weight on the joints.
-              That is where the structural gaps appear — and where we work.
+            <p className="mt-7 text-[16px] md:text-[17px] leading-[1.8] text-brand-grey max-w-xl">
+              Most compliance frameworks feel sound until you put weight on the
+              joints. I built this practice for exactly that moment — when two
+              frameworks collide on the same transaction, the same system, the
+              same team, and neither adviser in the room holds both
+              simultaneously. That is where I work.
             </p>
 
             <div className="mt-10 flex items-center gap-5">
@@ -640,7 +651,6 @@ function TriangulatedModel() {
 
             {/* Vertex icon nodes — pixel-positioned over SVG */}
             {pillars.map((p, idx) => {
-              const act = hovered === p.id;
               return (
                 <div
                   key={p.id}
@@ -788,9 +798,10 @@ function TriangulatedModel() {
               <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-yellow-dark">The Thesis</span>
             </div>
             <p className="text-[13px] md:text-[14px] leading-[1.8] text-brand-grey-light max-w-2xl">
-              Legal defensibility without systems integration remains theoretical.
-              Systems integration without strategic governance creates operational risk.
-              The triangulated model keeps all three in alignment — simultaneously.
+              Every engagement begins with one question: &ldquo;Can this
+              framework be defended, governed, and executed with equal
+              confidence?&rdquo; The triangulated model exists to ensure the
+              answer is always yes.
             </p>
           </div>
         </div>
@@ -848,27 +859,27 @@ function HowWeWork() {
     {
       verb: 'Observe',
       description:
-        'Map the regulatory landscape across all relevant jurisdictions — identifying overlapping obligations, timing conflicts, and legal basis differences before any framework is designed.',
+        'Before any framework is designed, the full regulatory landscape is mapped across every relevant jurisdiction. Jurisdictions in scope, overlapping obligations, points where the regulatory landscape has shifted since the last framework was built. Exposures that have been quietly accumulating tend to surface here. That is by design.',
     },
     {
       verb: 'Map',
       description:
-        'Structure the conflict points with precision. Where do the same activities trigger different obligations? Where do timelines collide? This becomes the operational risk map that drives every design decision.',
+        'The conflict points are structured with precision. Where does the same transaction trigger different obligations? Where do reporting timelines collide? Where does the governance policy say one thing and the system do another? This becomes the operational risk map that every subsequent decision is built on.',
     },
     {
       verb: 'Test',
       description:
-        'Stress-test the proposed framework against each jurisdiction\'s requirements independently — then simultaneously. A framework that holds in theory must hold under real regulatory conditions.',
+        'The proposed framework is stress-tested against each jurisdiction\'s requirements independently, then simultaneously. A position that holds in isolation must also hold when two regulators are examining the same fact pattern at the same time. If it does not hold here, it will not hold in an audit.',
     },
     {
       verb: 'Operationalise',
       description:
-        'Translate the framework into working processes, system controls, documentation standards, and governance structures that the organisation can actually run — day to day, across jurisdictions.',
+        'The framework is translated into what the organisation actually runs on — processes, system controls, escalation workflows, documentation standards. Not a policy that describes what should happen. A governance structure that determines what does.',
     },
     {
       verb: 'Defend',
       description:
-        'Ensure the implemented framework is externally defensible — documented, auditable, and structured to demonstrate compliance to regulators in each relevant jurisdiction.',
+        'Once the framework is in place, the work has to hold up when someone else looks at it. Defend is that final layer: turning the framework into something legible from the outside — to auditors, regulators, institutional partners. Not through a scramble to explain it after the fact, but because it is documented and traceable from the start.',
     },
   ];
 
@@ -886,10 +897,12 @@ function HowWeWork() {
               </span>
             </div>
             <h2 className="font-display text-[30px] md:text-[36px] lg:text-[44px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-              How We Work
+              How Compliancenomics Works
             </h2>
             <p className="mt-5 text-[15px] leading-[1.8] text-brand-grey">
-              A structured sequence — not a service list. Each step builds directly on the one before it.
+              Every framework we build passes through these five stages —
+              because strong compliance is designed deliberately, never
+              assembled retrospectively.
             </p>
 
             {/* Step quick-reference — desktop */}
@@ -972,6 +985,33 @@ const firmItems = [
   },
   {
     num: '03',
+    title: 'Crypto & Virtual Assets',
+    intro:
+      'Crypto-asset service providers and virtual asset firms navigating MiCA, the Travel Rule, and jurisdictional licensing obligations under overlapping supervisors.',
+    detail:
+      'Regulatory architecture for VASPs where MiCA disclosure, Travel Rule transmission, and GDPR restrictions on cross-border data land inside the same transaction.',
+    tag: 'MiCA · VASP · Travel Rule',
+  },
+  {
+    num: '04',
+    title: 'Legal & Accountancy Practices',
+    intro:
+      'Regulated legal and accountancy firms navigating the FCA’s AML supervision transition, where MLR, GDPR, and professional confidentiality collide inside the same client file.',
+    detail:
+      'Practice-level compliance frameworks that map AML, data protection, and professional obligations as a coordinated architecture — not three parallel workstreams.',
+    tag: 'Law · Accountancy · Regulated Practice',
+  },
+  {
+    num: '05',
+    title: 'Corporate Service Providers',
+    intro:
+      'CSPs and registered agents operating across DIFC, ADGM, UAE mainland, and EU jurisdictions, where obligations from three separate regulators sit inside one structure.',
+    detail:
+      'A single advisory view across the full regulatory stack, not three separate advisers working in parallel on VARA, AML, and data protection obligations.',
+    tag: 'DIFC · ADGM · Mainland · EU',
+  },
+  {
+    num: '06',
     title: 'SaaS, HealthTech & RegTech',
     intro:
       'Data-intensive platforms that process personal data across jurisdictions and must align consent frameworks, retention obligations, and disclosure requirements simultaneously.',
@@ -980,13 +1020,22 @@ const firmItems = [
     tag: 'Data · Health · Compliance Tech',
   },
   {
-    num: '04',
-    title: 'Professional Services',
+    num: '07',
+    title: 'Regulated Intermediaries',
     intro:
-      'Law firms, consultancies, and advisory practices that require structured cross-border compliance frameworks for their own operations or for the clients they serve.',
+      'Brokers, agents, and intermediaries embedded in transaction chains where reporting, screening, and data-transfer obligations arrive from more than one supervisor.',
+    detail:
+      'Coordinated compliance protocols for intermediary firms where duty of the seller, duty to the buyer, and duty to the regulator all sit inside the same workflow.',
+    tag: 'Brokers · Agents · Intermediation',
+  },
+  {
+    num: '08',
+    title: 'Professional Services Firms',
+    intro:
+      'Consultancies and advisory practices that require structured cross-border compliance frameworks for their own operations or for the clients they serve.',
     detail:
       'Senior-level compliance architecture for professional services firms navigating multi-jurisdictional regulatory obligations across client engagements and internal operations.',
-    tag: 'Legal · Advisory · Consulting',
+    tag: 'Advisory · Consulting · Services',
   },
 ];
 
@@ -1054,44 +1103,51 @@ function FirmPanel({ firm, index, isOpen, onToggle, isInView }) {
 
 function ForTheFirms() {
   const [ref, isInView] = useInView();
-  const [openIndex, setOpenIndex] = useState(-1);
 
   return (
     <section ref={ref} className="py-20 md:py-28 bg-brand-surface">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-[1fr_1.8fr] gap-12 md:gap-16">
 
-          {/* Left — sticky header */}
-          <div className={`transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
-            <div className="md:sticky md:top-32">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-px bg-brand-yellow" />
-                <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-                  Who We Serve
-                </span>
-              </div>
-              <h2 className="font-display text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-                For the Firms<br /> We Are<br className="hidden md:block" /> Built For
-              </h2>
-              <p className="mt-5 text-[17px] leading-[1.8] text-brand-grey">
-                Compliancenomics is not a generalist practice. These are the organisations whose cross-border complexity we are specifically built to handle.
-              </p>
+        {/* Header */}
+        <div className={`mb-12 md:mb-16 max-w-3xl transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-px bg-brand-yellow" />
+            <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
+              Who We Serve
+            </span>
+          </div>
+          <h2 className="font-display text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
+            For the Firms We Are Built For
+          </h2>
+          <p className="mt-5 text-[16px] md:text-[17px] leading-[1.8] text-brand-grey">
+            The firms in these spaces are the ones we are built for. If you
+            are in one of them, the conversation is worth having.
+          </p>
+        </div>
+
+        {/* Industry cards — 4 cols × 2 rows on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+          {firmItems.map((firm, i) => (
+            <div
+              key={firm.num}
+              className="group relative bg-white border border-brand-border rounded-sm p-6 md:p-7 hover:border-brand-yellow/50 hover:shadow-[0_8px_28px_rgba(0,0,0,0.05)] transition-all duration-300"
+              style={{
+                opacity: isInView ? 1 : 0,
+                transform: isInView ? 'translateY(0)' : 'translateY(16px)',
+                transitionDelay: `${i * 70 + 200}ms`,
+                transitionDuration: '600ms',
+                transitionProperty: 'opacity, transform, border-color, box-shadow',
+              }}
+            >
+              <div className="absolute top-0 left-0 w-8 h-[2px] bg-brand-yellow group-hover:w-full transition-all duration-500 rounded-tl-sm" />
+              <span className="text-[10px] font-bold tracking-[0.24em] text-brand-yellow font-display">
+                {firm.num}
+              </span>
+              <h3 className="mt-3 font-display text-[17px] md:text-[19px] font-semibold text-brand-dark leading-[1.25] tracking-tight">
+                {firm.title}
+              </h3>
             </div>
-          </div>
-
-          {/* Right — accordion panels */}
-          <div>
-            {firmItems.map((firm, i) => (
-              <FirmPanel
-                key={firm.num}
-                firm={firm}
-                index={i}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-                isInView={isInView}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1136,53 +1192,65 @@ function ManifestoEndcap() {
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="max-w-4xl">
+        <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 md:gap-16 items-center">
 
-          {/* Eyebrow */}
-          <div className={`flex items-center gap-4 mb-12 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
-            <div className="w-12 h-px bg-brand-yellow" />
-            <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-              The Thesis
-            </span>
+          {/* Left — statement */}
+          <div>
+            <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
+              <div className="w-12 h-px bg-brand-yellow" />
+              <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
+                The Thesis
+              </span>
+            </div>
+
+            <p
+              className={`font-display text-[28px] md:text-[38px] lg:text-[46px] font-semibold text-brand-dark leading-[1.1] tracking-tight transition-all duration-700 ${isInView ? 'animate-fade-up-delay-1' : 'opacity-0'}`}
+            >
+              Most regulatory failures do not announce themselves.
+            </p>
+
+            <p
+              className={`mt-4 font-display text-[22px] md:text-[26px] lg:text-[30px] font-normal leading-[1.35] tracking-tight text-brand-dark/60 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}
+            >
+              They accumulate quietly, at the{' '}
+              <span className="text-brand-yellow-dark font-semibold">intersections</span>
+              , until the{' '}
+              <span className="text-brand-dark font-semibold">audit</span> begins.
+            </p>
           </div>
 
-          {/* Statement line 1 */}
-          <p
-            className={`font-display text-[32px] md:text-[46px] lg:text-[58px] font-semibold text-brand-dark leading-[1.08] tracking-tight transition-all duration-700 ${isInView ? 'animate-fade-up-delay-1' : 'opacity-0'}`}
+          {/* Right — CTA action card */}
+          <div
+            className={`relative bg-white border border-brand-border p-8 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.05)] transition-all duration-700 ${isInView ? 'animate-fade-up-delay-3' : 'opacity-0'}`}
           >
-            The regulatory gap is not a niche problem.
-          </p>
+            {/* Yellow corner accent */}
+            <div className="absolute -top-[2px] left-0 w-16 h-[3px] bg-brand-yellow" />
+            <div className="absolute top-0 -left-[2px] w-[3px] h-16 bg-brand-yellow" />
 
-          {/* Statement line 2 — slightly recessed */}
-          <p
-            className={`mt-2 font-display text-[32px] md:text-[46px] lg:text-[58px] font-semibold leading-[1.08] tracking-tight transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}
-          >
-            <span className="text-brand-dark/40">It is the place where modern firms lose </span>
-            <span className="text-brand-dark">time</span>
-            <span className="text-brand-dark/40">, </span>
-            <span className="text-brand-dark">clarity</span>
-            <span className="text-brand-dark/40">, and </span>
-            <span className="text-brand-dark">defensibility</span>
-            <span className="text-brand-dark/40">.</span>
-          </p>
+            <p className="font-display text-[15px] md:text-[16px] font-medium italic text-brand-yellow-dark">
+              We exist to close it.
+            </p>
 
-          {/* Divider */}
-          <div className={`my-10 w-14 h-[2px] bg-brand-yellow transition-all duration-700 ${isInView ? 'animate-fade-up-delay-3' : 'opacity-0'}`} />
+            <p className="mt-3 text-[15px] leading-[1.7] text-brand-grey">
+              Start with a scoping conversation. If there is a genuine
+              cross-framework problem, we will map it together.
+            </p>
 
-          {/* CTA row */}
-          <div className={`flex flex-wrap items-center gap-6 transition-all duration-700 ${isInView ? 'animate-fade-up-delay-3' : 'opacity-0'}`}>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 text-[12px] font-semibold tracking-[0.15em] uppercase bg-brand-dark text-white rounded-sm hover:bg-brand-grey transition-all duration-200 hover:translate-y-[-1px] hover:shadow-lg"
+              className="mt-7 group inline-flex items-center justify-between gap-4 w-full px-6 py-4 text-[12px] font-semibold tracking-[0.18em] uppercase bg-brand-yellow text-brand-dark hover:bg-brand-yellow-dark transition-all duration-200"
             >
-              Begin the conversation
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              Begin the Conversation
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <p className="text-[14px] font-semibold text-brand-dark/50 italic font-display">
-              We exist to close it.
-            </p>
           </div>
         </div>
       </div>
@@ -1288,24 +1356,24 @@ function AboutFAQs() {
 
   const faqs = [
     {
-      q: 'What exactly is the regulatory gap?',
-      a: 'The regulatory gap is the space created when two or more regulatory frameworks impose different or contradictory obligations on the same activity. It is not a flaw in any single regulation — it is the structural consequence of frameworks being developed independently by different jurisdictions with different legal priorities and policy objectives.',
+      q: 'What exactly is Compliancenomics and what does it do?',
+      a: 'Compliancenomics is a cross-border regulatory advisory practice specialising in the intersection of AML compliance, privacy law, AI governance, and operational resilience. The practice is built for regulated organisations that have compliance obligations across more than one framework or jurisdiction and whose existing advisory structure was not designed to manage the conflicts between them. The work is not about building basic compliance from scratch. It is about making existing frameworks defensible, coordinated, and operational across the full scope of where the business actually runs.',
     },
     {
-      q: 'How is Compliancenomics different from a law firm?',
-      a: 'Law firms interpret what the law requires. Compliancenomics designs frameworks that make compliance operational — translating legal obligations into processes, systems, and governance structures that a business can actually run. Our work sits at the intersection of legal logic, management logic, and systems logic. We do not provide legal advice; we design the operational architecture that puts legal requirements into practice.',
+      q: 'Who leads the engagements at Compliancenomics?',
+      a: 'Every engagement is led directly by Purva Buch, CAMS — the founder. Purva is a Certified Anti-Money Laundering Specialist with legal training, working at the intersection of AML, privacy law, AI governance, and systems integration. There is no junior substitution. The adviser the client speaks to in the scoping call is the adviser who does the work.',
     },
     {
-      q: 'What does the Triangulated Model mean in practice?',
-      a: 'Every framework we design must satisfy three criteria simultaneously: it must be legally defensible in each relevant jurisdiction, it must be governable at both board and operational level, and it must be embedded into the systems and processes the organisation actually uses. A framework that satisfies only two of the three will eventually fail under regulatory or operational pressure.',
+      q: 'What makes this practice different from hiring a specialist AML or privacy consultant separately?',
+      a: 'A specialist AML consultant advises on AML. A privacy consultant advises on privacy. Neither typically owns the point where the two frameworks collide — and that is precisely where the most consequential regulatory exposure sits. Compliancenomics holds both simultaneously, which means conflicts are identified and resolved within a single engagement rather than falling between two advisers who are not coordinating with each other.',
     },
     {
-      q: 'Do you work on single-jurisdiction or multi-jurisdiction engagements?',
-      a: 'Our practice is specifically designed for multi-jurisdiction complexity. Organisations operating within a single jurisdiction are generally well-served by domestic compliance providers. We engage where the structural conflict between regulatory systems is the core challenge — where the same activity is governed by two or more frameworks that impose different or contradictory obligations.',
+      q: 'What is dynamic policy management and why does it matter?',
+      a: 'Most compliance frameworks are built once and revisited when a regulator asks a question. Dynamic policy management means the framework is designed to grow with the organisation — as the business scales, enters new jurisdictions, deploys new technology, or faces regulatory change, the governance architecture updates in step. The alternative is a framework that was accurate at the point of drafting and quietly becomes a liability as the organisation it was built for stops resembling the one that exists today.',
     },
     {
-      q: 'What is regulatorygap.com and how does it relate to Compliancenomics?',
-      a: 'regulatorygap.com is a research and analysis platform that documents structural differences between regulatory frameworks across jurisdictions. Compliancenomics is the advisory practice that translates those differences into operational compliance frameworks. One identifies the gap; the other closes it.',
+      q: 'Does Compliancenomics work with organisations that already have an in-house compliance team?',
+      a: 'Yes — and most engagements involve one. The practice does not replace the MLRO or DPO. It works alongside them, providing the cross-framework depth that in-house functions are rarely resourced to carry alone.',
     },
   ];
 
@@ -1318,11 +1386,11 @@ function AboutFAQs() {
           <div className="flex items-center gap-4 mb-5">
             <div className="w-12 h-px bg-brand-yellow" />
             <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-              Questions
+              Further Clarity
             </span>
           </div>
           <h2 className="font-display text-[30px] md:text-[42px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-            Frequently Asked
+            Frequently Asked Questions
           </h2>
         </div>
 
@@ -1407,8 +1475,8 @@ export default function AboutPage() {
       {/* S8 — Manifesto endcap + CTA */}
       <ManifestoEndcap />
 
-      {/* S9 — Testimonials */}
-      <Testimonials />
+      {/* S9 — Testimonials (removed) */}
+      {/* <Testimonials /> */}
 
       {/* S10 — FAQs */}
       <AboutFAQs />

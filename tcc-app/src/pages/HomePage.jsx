@@ -6,8 +6,7 @@ import HomeAudience from '../components/HomeAudience';
 import RegulatoryRadar from '../components/RegulatoryRadar';
 import WhyUs from '../components/WhyUs';
 import FounderQuote from '../components/FounderQuote';
-import Insights from '../components/Insights';
-import PlatformBridge from '../components/PlatformBridge';
+// import Insights from '../components/Insights';
 import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCTA';
 
@@ -22,8 +21,7 @@ export default function HomePage() {
       <RegulatoryRadar />
       <WhyUs />
       <FounderQuote />
-      <Insights />
-      <PlatformBridge />
+      {/* <Insights /> */}
       <FAQ />
       <FinalCTA />
     </>

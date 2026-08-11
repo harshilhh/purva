@@ -41,29 +41,29 @@ export default function Hero() {
 
           {/* Headline */}
           <h1
-            className={`font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.08] tracking-[-0.02em] transition-all duration-700 ${
+            className={`font-display text-[30px] xs:text-[34px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.08] tracking-[-0.02em] transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-1' : 'opacity-0'
             }`}
           >
-            The Space Between{' '}
             <span className="relative inline-block">
-              Frameworks
+              Compliancenomics
               <span className="absolute -bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/40" />
             </span>
           </h1>
 
           {/* Supporting paragraph */}
           <p
-            className={`mt-8 text-[17px] md:text-[17px] leading-[1.8] text-brand-grey max-w-[480px] transition-all duration-700 ${
+            className={`mt-8 text-[17px] md:text-[17px] leading-[1.8] text-brand-grey max-w-[520px] transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-2' : 'opacity-0'
             }`}
           >
-            Where AML obligations meet privacy law. Where AI governance
-            intersects financial regulation. Where incident reporting timelines
-            collide across jurisdictions.
+            Cross-border regulatory risk advisory where AML, privacy law, AI
+            governance, and operational resilience converge.
             <span className="block mt-3 text-brand-dark font-medium">
-              We advise at the points where regulatory frameworks create
-              operational conflict.
+              Your GDPR team does not own the SAR. Your AML adviser has not read
+              the AI Act. Your GRC consultant is working from a single-framework
+              lens. The conflict between these obligations is where regulatory
+              exposure lives and where most advisory practices stop.
             </span>
           </p>
 

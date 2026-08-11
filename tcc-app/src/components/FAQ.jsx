@@ -4,29 +4,31 @@ import Hyphen from './Hyphen';
 
 const faqs = [
   {
-    question: 'What does Compliancenomics do?',
+    question:
+      'What does The Compliance Chamber do and how is it different from a standard compliance consultant?',
     answer:
-      'Compliancenomics designs and implements cross-border AML and privacy compliance frameworks for businesses operating across multiple jurisdictions. We align regulatory obligations — including AML, data protection, and reporting requirements — across regions such as the UK, EU, UAE, India, and Singapore.',
+      'The Compliance Chamber advises on the intersection of AML, privacy law, AI governance, and operational resilience simultaneously, not in sequence. Most advisers specialise in one framework and refer out when a second appears. This practice holds both, which is the only way to resolve conflicts between frameworks rather than name them. Every engagement is led directly by Purva Buch, CAMS. So, you get senior sight in all the aspects.',
   },
   {
-    question: 'Who does Compliancenomics work with?',
+    question: 'How do I know if my organisation has a regulatory gap?',
     answer:
-      'We work with financial institutions, fintech companies, payment service providers, and professional services firms that operate — or are expanding — across multiple jurisdictions and need structured, cross-border compliance frameworks.',
+      'The clearest signal is when a compliance question arrives and no single team can answer it completely. Other indicators: your AML adviser and your privacy lawyer are giving conflicting guidance on the same fact pattern. Your governance documentation was built for one jurisdiction and you have since expanded into others. A new regulation such as MiCA, DORA, the EU AI Act, or MLR 2025 has come into force and no one has assessed how it interacts with your existing compliance architecture.',
   },
   {
-    question: 'What is the Alignment-First Compliance Model?',
+    question: 'Who is The Compliance Chamber right for?',
     answer:
-      'The Alignment-First Compliance Model is our structured approach to managing overlapping regulatory obligations across jurisdictions. Rather than forcing artificial standardisation, it maps jurisdiction-specific requirements, segments obligations, and applies controls that enable simultaneous compliance across all relevant regions.',
+      'Regulated organisations with a genuine cross-framework or cross-jurisdictional compliance problem — mid-size law firms, accountancy practices, corporate services providers, fintechs, and scaling businesses preparing for regulatory authorisation or institutional funding.',
   },
   {
-    question: 'Which jurisdictions does Compliancenomics cover?',
+    question:
+      'When does a business need external compliance advisory rather than an in-house team?',
     answer:
-      'We cover key regulatory jurisdictions including the United Kingdom (FCA, ICO, PRA), the European Union (ESMA, EBA, EDPB), the UAE (DFSA, ADGM, CBUAE), India (RBI, SEBI, IRDAI), and Singapore (MAS, PDPC), along with their intersecting regulatory frameworks.',
+      'When the compliance problem crosses framework boundaries that no single in-house function owns. An internal MLRO understands AML. An internal DPO understands data protection. Neither owns the intersection, and that is where the most consequential regulatory exposure sits. External advisory is most valuable when the problem requires depth across more than one regulatory framework simultaneously.',
   },
   {
-    question: 'How is Compliancenomics different from a traditional compliance consultant?',
+    question: 'What should I expect from a compliance advisory engagement?',
     answer:
-      "Unlike generalist consultants, we specialise exclusively in cross-border regulatory conflict — the point where jurisdictions impose contradictory or overlapping obligations. We do not simplify compliance; we structure it so that each jurisdiction's requirements are met individually and simultaneously.",
+      'A clearly scoped engagement with a defined deliverable — not an open-ended retainer that produces activity without output. Every engagement begins with a scoping call to define the problem precisely. The deliverable is built for operational use: a gap analysis your legal team can act on, a protocol your compliance team can follow, a governance framework your board can interrogate. Engagements are led directly by the founder.',
   },
 ];
 
@@ -41,7 +43,7 @@ function FAQItem({ question, answer, isOpen, onToggle, index }) {
           <span className="shrink-0 text-[11px] font-semibold tracking-widest text-brand-yellow font-display">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <span className="text-[16px] font-semibold text-brand-dark group-hover:text-brand-yellow transition-colors duration-200">
+          <span className="text-[14px] sm:text-[16px] font-semibold text-brand-dark group-hover:text-brand-yellow transition-colors duration-200 leading-snug">
             {question}
           </span>
         </div>
@@ -70,7 +72,7 @@ function FAQItem({ question, answer, isOpen, onToggle, index }) {
           isOpen ? 'max-h-[500px] opacity-100 pb-6' : 'max-h-0 opacity-0'
         }`}
       >
-        <p className="text-[15px] leading-relaxed text-brand-grey pl-10 pr-10">
+        <p className="text-[13.5px] sm:text-[15px] leading-relaxed text-brand-grey pl-6 sm:pl-10 pr-2 sm:pr-10">
           {answer}
         </p>
       </div>
@@ -89,7 +91,7 @@ export default function FAQ() {
           isInView ? 'animate-fade-up' : 'opacity-0'
         }`}
       >
-        <div className="border border-gray-200 p-6 sm:p-8 md:p-10 bg-white hover:shadow-lg transition-shadow duration-300">
+        <div className="border border-gray-200 p-5 sm:p-8 md:p-10 bg-white hover:shadow-lg transition-shadow duration-300">
           {/* Header */}
           <div className="flex items-center gap-3 mb-4">
             <div className="w-6 h-[1.5px] bg-brand-yellow" />
@@ -97,14 +99,14 @@ export default function FAQ() {
               FAQ
             </span>
           </div>
-          <h2 className="font-display text-2xl md:text-3xl font-semibold text-brand-dark leading-[1.15] tracking-tight mb-8">
+          <h2 className="font-display text-[20px] sm:text-2xl md:text-3xl font-semibold text-brand-dark leading-[1.2] tracking-tight mb-8">
             Common Questions on Cross<Hyphen />Border Compliance:{' '}
             <span className="text-brand-grey-light font-normal">Answered</span>
           </h2>
 
           {/* Accordion */}
           <div>
-            {faqs.slice(0, 4).map((faq, i) => (
+            {faqs.map((faq, i) => (
               <FAQItem
                 key={i}
                 index={i}

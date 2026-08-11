@@ -63,17 +63,17 @@ function Hero() {
         }`}
       >
         <Eyebrow>Governance Advisory & Regulatory Operating Models</Eyebrow>
-        <h1 className="font-display text-4xl md:text-5xl lg:text-[64px] font-semibold text-brand-dark leading-[1.05] tracking-tight max-w-4xl">
+        <h1 className="font-display text-[28px] xs:text-[32px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.1] tracking-[-0.02em] max-w-4xl">
           Governance Advisory & Regulatory{' '}
           <span className="relative inline-block">
             Operating Models
             <span className="absolute bottom-1 left-0 right-0 h-[3px] bg-brand-yellow/60" />
           </span>
         </h1>
-        <p className="mt-8 font-display italic text-2xl md:text-3xl text-brand-grey max-w-3xl leading-snug">
+        <p className="mt-8 font-display italic text-xl md:text-2xl text-brand-grey max-w-3xl leading-snug">
           If accountability is clear on paper, is it equally clear in practice?
         </p>
-        <p className="mt-8 text-lg text-brand-grey max-w-3xl leading-relaxed">
+        <p className="mt-6 text-[16px] md:text-[17px] text-brand-grey max-w-3xl leading-[1.8]">
           Most governance frameworks are designed for the moment of inspection. They satisfy the
           regulator who asks, the investor who reviews, the auditor who tests and then sit
           untouched until the next one arrives. Compliancenomics builds governance that runs the
@@ -153,7 +153,6 @@ const approachDirections = [
 
 function Approach() {
   const [ref, isInView] = useInView();
-  const [activeKey, setActiveKey] = useState('upward');
   return (
     <section ref={ref} className="py-20 md:py-28 bg-brand-surface-warm relative overflow-hidden">
       <div
@@ -166,73 +165,39 @@ function Approach() {
           <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-semibold text-brand-dark leading-[1.1] tracking-tight">
             Governance architecture that runs the organisation.
           </h2>
+          <p className="mt-6 text-[17px] leading-relaxed text-brand-grey">
+            Compliancenomics approaches governance as an operating discipline, not a documentation
+            exercise. The starting point is always the organisation as it actually functions like
+            its decision pathways, its regulatory obligations, its technology environment, its
+            growth trajectory.
+          </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
-          <div className="bg-white border border-brand-border p-8 md:p-10">
-            <p className="text-[17px] leading-relaxed text-brand-grey">
-              Compliancenomics approaches governance as an operating discipline, not a documentation
-              exercise. The starting point is always the organisation as it actually functions like
-              its decision pathways, its regulatory obligations, its technology environment, its
-              growth trajectory.
-            </p>
-          </div>
-          <div className="bg-brand-yellow-light p-8 md:p-10 border border-brand-yellow/30">
-            <div className="space-y-3">
-              {approachDirections.map((d) => {
-                const isActive = activeKey === d.key;
-                return (
-                  <div key={d.key} className="border-b border-brand-dark/10 last:border-b-0 pb-3 last:pb-0">
-                    <button
-                      onClick={() => setActiveKey((prev) => (prev === d.key ? null : d.key))}
-                      className="w-full flex items-center gap-3 group"
-                    >
-                      <span
-                        className={`text-xs font-semibold tracking-[0.2em] uppercase transition-colors ${
-                          isActive ? 'text-brand-dark' : 'text-brand-dark/60 group-hover:text-brand-dark'
-                        }`}
-                      >
-                        {d.label}
-                      </span>
-                      <div className="flex-1 h-px bg-brand-dark/15" />
-                      <span
-                        className={`shrink-0 w-6 h-6 flex items-center justify-center rounded-full border transition-all duration-300 ${
-                          isActive
-                            ? 'bg-brand-yellow border-brand-yellow'
-                            : 'border-brand-dark/25 group-hover:border-brand-dark/50'
-                        }`}
-                      >
-                        <svg
-                          className={`w-3 h-3 transition-transform duration-300 ${
-                            isActive ? 'rotate-180 text-brand-dark' : 'text-brand-dark/50'
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2.5}
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </span>
-                    </button>
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                        isActive ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <p className="text-[15px] leading-relaxed text-brand-grey">{d.body}</p>
-                    </div>
-                  </div>
-                );
-              })}
-              <p className="pt-4 mt-4 border-t border-brand-dark/10 text-[14px] italic text-brand-grey">
-                Most governance engagements produce one or the other. The architecture
-                Compliancenomics builds produces both, because the distance between board intent and
-                operational execution is precisely where regulatory exposure accumulates.
-              </p>
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          {approachDirections.map((d, i) => (
+            <div
+              key={d.key}
+              className="relative bg-white border border-brand-border p-6 md:p-10 flex flex-col"
+            >
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-4xl md:text-5xl font-semibold text-brand-yellow leading-none">
+                  0{i + 1}
+                </span>
+                <span className="text-xs font-semibold tracking-[0.24em] uppercase text-brand-dark">
+                  {d.label}
+                </span>
+              </div>
+              <div className="mt-6 h-px bg-brand-dark/10" />
+              <p className="mt-6 text-[17px] leading-relaxed text-brand-dark/85">{d.body}</p>
             </div>
-          </div>
+          ))}
         </div>
+
+        <p className="mt-10 max-w-3xl text-[15px] italic leading-relaxed text-brand-grey">
+          Most governance engagements produce one or the other. The architecture Compliancenomics
+          builds produces both, because the distance between board intent and operational execution
+          is precisely where regulatory exposure accumulates.
+        </p>
       </div>
     </section>
   );
@@ -245,9 +210,35 @@ function Approach() {
 function InlineCTA({ heading, subheading, buttonText }) {
   const [ref, isInView] = useInView();
   return (
-    <section ref={ref} className="relative py-16 md:py-20 bg-brand-yellow-light">
+    <section ref={ref} className="relative py-16 md:py-20 bg-brand-yellow-light overflow-hidden">
+      {/* Diagonal stripe texture — matches About Thesis section */}
       <div
-        className={`max-w-4xl mx-auto px-6 lg:px-8 text-center transition-all duration-700 ${
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(
+            135deg,
+            transparent,
+            transparent 40px,
+            rgba(212,137,26,0.07) 40px,
+            rgba(212,137,26,0.07) 41px
+          )`,
+        }}
+      />
+
+      {/* Grid motif */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(26,26,26,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(26,26,26,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: '72px 72px',
+        }}
+      />
+
+      <div
+        className={`relative max-w-4xl mx-auto px-6 lg:px-8 text-center transition-all duration-700 ${
           isInView ? 'animate-fade-up' : 'opacity-0'
         }`}
       >
@@ -626,7 +617,7 @@ function WhyUs() {
           {differentiators.map((d, i) => (
             <div
               key={d.title}
-              className={`p-8 md:p-10 bg-white border border-brand-border hover:border-brand-yellow/60 hover:shadow-lg transition-all duration-300 ${
+              className={`p-6 md:p-10 bg-white border border-brand-border hover:border-brand-yellow/60 hover:shadow-lg transition-all duration-300 ${
                 i === 4 ? 'lg:col-start-2' : ''
               }`}
             >
@@ -858,7 +849,7 @@ export default function ServicesPage2() {
         buttonText="Book a Scoping Call"
       />
       <FAQs />
-      <RelatedInsights />
+      {/* <RelatedInsights /> */}
     </>
   );
 }

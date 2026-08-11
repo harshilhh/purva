@@ -4,23 +4,23 @@ import { useInView } from '../hooks/useInView';
 const reasons = [
   {
     num: '01',
-    title: 'Intersection Expertise',
-    text: 'We work where frameworks collide — AML, data protection, AI governance, operational resilience. Not within one regulation\u2019s boundaries, but at the structural fault lines between them.',
+    title: 'Convergent Counsel',
+    text: 'Most advisory practices specialise in one framework — AML, data protection, or GRC — and refer out when the other framework appears. This practice holds the AML and privacy expertise simultaneously, which is the only way to resolve conflicts between them rather than simply name them.',
   },
   {
     num: '02',
-    title: 'Cross-Jurisdiction Fluency',
-    text: 'EU, UK, UAE, APAC — each jurisdiction carries its own regulatory logic. We don\u2019t export one jurisdiction\u2019s answers to another\u2019s questions.',
+    title: 'Certified Judgment',
+    text: 'The practice was founded by a Certified Anti-Money Laundering Specialist with legal training. That combination is not common in the advisory market. It matters when the engagement requires both regulatory precision and legal interpretive rigour — which most cross-framework conflicts do.',
   },
   {
     num: '03',
-    title: 'Founder-Led Engagement',
-    text: 'Every engagement is led directly by the founder. No delegation to junior analysts. No dilution of expertise through organisational layers.',
+    title: 'Institutional Utility',
+    text: 'Every deliverable is built for operational use: protocols that compliance teams can follow, gap analyses that legal teams can act on, governance frameworks that boards can interrogate. Not documentation that demonstrates engagement and then sits in a folder.',
   },
   {
     num: '04',
-    title: 'Current Regulatory Focus',
-    text: 'We track regulatory developments as they emerge, not legacy compliance doctrine. Our advisory reflects the landscape as it stands — and where it\u2019s moving.',
+    title: 'Regulatory Continuum',
+    text: 'The regulatory environment that matters is the one in force now: AMLA, MLR 2025 amendments, MiCA, DORA, the EU AI Act. The knowledge platform behind this practice maps 141+ regulatory conflict topics across twelve frameworks and six jurisdictions. That is the evidence base the advisory draws from.',
   },
 ];
 
@@ -84,12 +84,16 @@ export default function WhyUs() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-[1px] bg-brand-yellow" />
                     <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow">
-                      Differentiation
+                      Why The Compliance Chamber
                     </span>
                   </div>
-                  <h2 className="font-display text-[30px] md:text-[36px] lg:text-[44px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-                    Why Compliancenomics
+                  <h2 className="font-display text-[24px] sm:text-[30px] md:text-[36px] lg:text-[44px] font-semibold text-brand-dark leading-[1.15] tracking-tight">
+                    The difference begins at the intersection.
                   </h2>
+                  <p className="mt-5 text-[16px] leading-[1.8] text-brand-grey max-w-md">
+                    You might wonder why organisations bring these issues here
+                    instead of to a traditional compliance adviser.
+                  </p>
                 </div>
 
                 {/* Step indicators */}
@@ -138,7 +142,7 @@ export default function WhyUs() {
               </div>
 
               {/* Right — Stacked cards that overlap */}
-              <div className="relative h-[300px] md:h-[340px]">
+              <div className="relative h-[340px] md:h-[380px]">
                 {reasons.map((reason, i) => {
                   const isCurrent = i === activeIndex;
                   const isPast = i < activeIndex;
@@ -173,7 +177,7 @@ export default function WhyUs() {
 
                         <div className="h-[2px] w-10 bg-brand-yellow mb-5" />
 
-                        <p className="text-[16px] md:text-[17px] leading-[1.85] text-brand-grey max-w-lg">
+                        <p className="text-[15px] md:text-[16px] leading-[1.8] text-brand-grey max-w-lg">
                           {reason.text}
                         </p>
                       </div>

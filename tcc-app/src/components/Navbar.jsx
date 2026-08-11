@@ -21,7 +21,6 @@ export default function Navbar() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Services 2', to: '/services-2' },
     { label: 'Contact', to: '/contact' },
   ];
 
@@ -40,9 +39,9 @@ export default function Navbar() {
             <img
               src="/logo.png"
               alt="Compliancenomics"
-              className="w-9 h-9 rounded-sm object-cover"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-sm object-cover"
             />
-            <span className="font-display text-lg sm:text-xl md:text-[22px] font-semibold text-brand-dark tracking-tight">
+            <span className="font-display text-[16px] sm:text-xl md:text-[22px] font-semibold text-brand-dark tracking-tight">
               Compliancenomics
             </span>
           </Link>
@@ -77,7 +76,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 -mr-2"
+            className="md:hidden p-3 -mr-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
             <div className="w-6 flex flex-col gap-[6px]">

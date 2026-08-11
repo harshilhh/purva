@@ -4,27 +4,35 @@ import { useState, useRef, useEffect } from 'react';
 const services = [
   {
     num: '01',
-    title: 'Cross-Border Regulatory Conflict Mapping',
+    title: 'Governance Advisory',
     intro:
-      'We identify where regulatory frameworks impose contradictory or overlapping obligations on the same operational activity.',
+      'Regulated and high-growth organisations need governance structures that hold under scrutiny from regulators, investors, and boards. This service covers the full operating model: three lines of defence design, compliance function resourcing, board and committee reporting frameworks that translate compliance data into strategic management intelligence, and governance maturity assessments for firms preparing for institutional review.',
     detail:
-      'Mapping divergence across AML, data protection, AI governance, and operational resilience \u2014 jurisdiction by jurisdiction.',
+      'For organisations that do not need a full-time compliance department but require institutional-grade oversight, the practice provides the governance architecture without the permanent headcount.',
   },
   {
     num: '02',
-    title: 'Regulatory Readiness and Change Impact',
+    title: 'AML & Sanctions',
     intro:
-      'We assess how incoming or evolving regulation reshapes existing compliance obligations across your operating jurisdictions.',
+      'CAMS-certified AML framework design, built around the 13-step AML/CFT and sanctions defence framework: from board-level governance and MLRO appointment through enterprise-wide risk assessment, CDD/EDD architecture, transaction monitoring logic, sanctions screening, and audit-ready record-keeping.',
     detail:
-      'From MiCA to the EU AI Act to DORA \u2014 structured analysis of change impact before it becomes an operational problem.',
+      'Covering UAE (mainland, DIFC, ADGM), UK, EU, India (IFSCA), and APAC jurisdictions simultaneously as a single coordinated compliance ecosystem. The practice also advises on RegTech selection and implementation, ensuring transaction monitoring and screening tools are configured for audit readiness from day one.',
   },
   {
     num: '03',
-    title: 'Governance Protocols and Senior Advisory',
+    title: 'Privacy & AI',
     intro:
-      'We design governance protocols and advisory frameworks for organisations navigating multi-framework compliance.',
+      'Data protection compliance across GDPR, UK GDPR, UAE PDPL (mainland, DIFC, ADGM), India DPDPA, and APAC frameworks, combined with AI governance architecture for organisations deploying automated decision-making systems. The service covers the full privacy operating model: DPO appointment, ROPA and DPIA frameworks, consent management automation, cross-border transfer mechanisms, and data subject rights workflows.',
     detail:
-      'Senior-level engagement on regulatory strategy, board reporting, and cross-border compliance architecture.',
+      'On the AI side: EU AI Act risk classification, explainability and human oversight design, and the governance documentation regulators are beginning to require. The two disciplines are addressed together, because the automated systems driving AML and financial crime decisions are increasingly subject to both simultaneously.',
+  },
+  {
+    num: '04',
+    title: 'Systems & Automation',
+    intro:
+      'Compliance governance is only as effective as the systems that carry it. This service covers the selection and implementation of compliance technology \u2014 transaction monitoring platforms, sanctions screening tools, consent management systems, and AI governance software \u2014 and the integration of that technology into the organisation\u2019s existing operational infrastructure.',
+    detail:
+      'The objective is to embed compliance logic directly into business workflows, eliminating the manual friction that creates gaps between policy and practice. For SMEs and scaling organisations, this includes aligning compliance tools with core business systems so that governance is not a parallel process but a built-in one.',
   },
 ];
 
@@ -107,16 +115,17 @@ export default function HomeServices() {
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-[1px] bg-brand-yellow" />
                 <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow">
-                  The Operational Layer
+                  What We Do
                 </span>
               </div>
-              <h2 className="font-display text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
-                What We Do
+              <h2 className="font-display text-[26px] sm:text-[30px] md:text-[40px] lg:text-[48px] font-semibold text-brand-dark leading-[1.08] tracking-tight">
+                Advisory built for the intersection.
               </h2>
               <p className="mt-5 text-[17px] leading-[1.8] text-brand-grey">
-                Translating regulatory complexity into structured advisory
-                capability. Each engagement is specific, outcome-led, and scoped to
-                the conflict at hand.
+                The Compliance Chamber operates across four service areas. Each
+                is designed for the point where regulatory frameworks conflict
+                and where single-framework advisory leaves organisations
+                exposed.
               </p>
             </div>
           </div>
