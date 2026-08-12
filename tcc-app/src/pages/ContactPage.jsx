@@ -170,6 +170,26 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
+
+                {/* LinkedIn */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-sm bg-brand-yellow-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-brand-yellow" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-1">LinkedIn</p>
+                    <a
+                      href="https://www.linkedin.com/company/compliancenomics-llp/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[15px] text-brand-dark hover:text-brand-yellow transition-colors"
+                    >
+                      Compliancenomics LLP
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
