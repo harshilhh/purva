@@ -5,47 +5,47 @@ const jurisdictions = [
   {
     id: 'uk',
     label: 'United Kingdom',
-    sub: 'FCA / ICO / PRA',
-    left: '34.8%',
-    top: '22%',
+    sub: 'FCA / ICO / CMA',
+    left: '46%',
+    top: '34%',
     delay: 0,
-    tooltip: 'Deep expertise in FCA authorisation, ICO data compliance, and PRA-regulated firm governance. Covering financial services, fintech, and cross-border data flows.',
+    tooltip: 'FCA for AML supervision of legal and corporate services, ICO for data protection, CMA for consumer-platform conduct.',
   },
   {
     id: 'eu',
     label: 'European Union',
-    sub: 'ESMA / EBA / EDPB',
-    left: '39%',
-    top: '28%',
+    sub: 'EDPB / European Commission',
+    left: '51%',
+    top: '38%',
     delay: 150,
-    tooltip: 'Advisory across DORA, MiCA, GDPR, and ESG disclosure obligations. Supporting firms navigating the EU regulatory single rulebook and equivalence frameworks.',
+    tooltip: 'EDPB for GDPR enforcement coordination, European Commission for AI Act implementation.',
   },
   {
     id: 'uae',
     label: 'UAE',
-    sub: 'DFSA / ADGM / CBUAE',
-    left: '53.5%',
+    sub: 'DIFC / ADGM / TDRA',
+    left: '61%',
     top: '52%',
     delay: 300,
-    tooltip: 'Specialist coverage of DIFC and ADGM regulatory regimes, CBUAE licensing requirements, and AML/CFT frameworks for financial institutions operating in the Gulf.',
+    tooltip: 'DIFC and ADGM for their respective data protection regimes, TDRA for the federal UAE PDPL.',
   },
   {
     id: 'india',
     label: 'India',
-    sub: 'RBI / SEBI / IRDAI',
-    left: '60%',
-    top: '48%',
+    sub: 'MeitY / Data Protection Board / FIU-IND',
+    left: '69%',
+    top: '56%',
     delay: 450,
-    tooltip: 'Guidance on RBI payment system regulations, SEBI capital markets compliance, and DPDP Act requirements for technology and financial services firms.',
+    tooltip: 'MeitY and the Data Protection Board for DPDP Act enforcement, FIU-IND for AML.',
   },
   {
     id: 'apac',
     label: 'Singapore',
-    sub: 'MAS / PDPC',
-    left: '68%',
-    top: '62%',
+    sub: 'PDPC / IMDA',
+    left: '77%',
+    top: '65%',
     delay: 600,
-    tooltip: 'Advisory on MAS licensing and technology risk management guidelines, PDPA obligations, and regional compliance strategies for APAC market entry.',
+    tooltip: 'PDPC for data protection, IMDA for its AI governance framework.',
   },
 ];
 
@@ -82,11 +82,11 @@ export default function RegulatoryRadar() {
           </h2>
           <p className="mt-5 text-[16px] leading-[1.8] text-brand-grey max-w-xl mx-auto">
             Advisory coverage across jurisdictions where regulatory frameworks
-            intersect &mdash; and where that intersection creates operational risk.
+            intersect, and where that intersection creates operational risk.
           </p>
         </div>
 
-        {/* Globe map container — full width, zoomed on mobile */}
+        {/* Globe map container, full width, zoomed on mobile */}
         <div
           className={`relative transition-all duration-1000 delay-200 map-container ${
             isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

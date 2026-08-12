@@ -5,9 +5,9 @@ import Hyphen from './Hyphen';
 const faqs = [
   {
     question:
-      'What does The Compliance Chamber do and how is it different from a standard compliance consultant?',
+      'What does Compliancenomics do and how is it different from a standard compliance consultant?',
     answer:
-      'The Compliance Chamber advises on the intersection of AML, privacy law, AI governance, and operational resilience simultaneously, not in sequence. Most advisers specialise in one framework and refer out when a second appears. This practice holds both, which is the only way to resolve conflicts between frameworks rather than name them. Every engagement is led directly by Purva Buch, CAMS. So, you get senior sight in all the aspects.',
+      'Compliancenomics advises on the intersection of AML, privacy law, AI governance, and operational resilience simultaneously, not in sequence. Most advisers specialise in one framework and refer out when a second appears. Compliancenomics holds both, which is the only way to resolve conflicts between frameworks rather than name them. Every engagement is led directly by Purva Buch, LLB, CAMS, so you get senior sight across all the aspects.',
   },
   {
     question: 'How do I know if my organisation has a regulatory gap?',
@@ -15,9 +15,9 @@ const faqs = [
       'The clearest signal is when a compliance question arrives and no single team can answer it completely. Other indicators: your AML adviser and your privacy lawyer are giving conflicting guidance on the same fact pattern. Your governance documentation was built for one jurisdiction and you have since expanded into others. A new regulation such as MiCA, DORA, the EU AI Act, or MLR 2025 has come into force and no one has assessed how it interacts with your existing compliance architecture.',
   },
   {
-    question: 'Who is The Compliance Chamber right for?',
+    question: 'Who is Compliancenomics right for?',
     answer:
-      'Regulated organisations with a genuine cross-framework or cross-jurisdictional compliance problem — mid-size law firms, accountancy practices, corporate services providers, fintechs, and scaling businesses preparing for regulatory authorisation or institutional funding.',
+      'Regulated organisations with a genuine cross-framework or cross-jurisdictional compliance problem: mid-size law firms and accountancy practices, corporate services providers, online marketplaces and travel tech platforms, healthtech and data-intensive services, platforms deploying customer-facing AI, and scaling businesses preparing for regulatory authorisation or institutional funding.',
   },
   {
     question:
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: 'What should I expect from a compliance advisory engagement?',
     answer:
-      'A clearly scoped engagement with a defined deliverable — not an open-ended retainer that produces activity without output. Every engagement begins with a scoping call to define the problem precisely. The deliverable is built for operational use: a gap analysis your legal team can act on, a protocol your compliance team can follow, a governance framework your board can interrogate. Engagements are led directly by the founder.',
+      'A clearly scoped engagement with a defined deliverable, not an open-ended retainer that produces activity without output. Every engagement begins with a scoping call to define the problem precisely. The deliverable is built for operational use: a gap analysis your legal team can act on, a protocol your compliance team can follow, a governance framework your board can interrogate. Engagements are led directly by the founder.',
   },
 ];
 

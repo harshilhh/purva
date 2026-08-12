@@ -25,7 +25,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-5 text-[17px] leading-relaxed text-brand-grey max-w-md">
-              Cross-border compliance frameworks designed for multi-jurisdiction operations. Aligning AML and Data Protection across regulatory landscapes.
+              Cross-border compliance frameworks designed for multi-jurisdiction operations, aligning Anti-Money Laundering obligations, Data Privacy laws, and AI Governance protocols across regulatory landscapes.
             </p>
 
             <div className="mt-6 flex flex-col gap-2.5">

@@ -5,22 +5,17 @@ const reasons = [
   {
     num: '01',
     title: 'Convergent Counsel',
-    text: 'Most advisory practices specialise in one framework — AML, data protection, or GRC — and refer out when the other framework appears. This practice holds the AML and privacy expertise simultaneously, which is the only way to resolve conflicts between them rather than simply name them.',
+    text: 'Most advisory practices specialise in one framework, AML, data protection, or GRC, and refer out when the other framework appears. Compliancenomics holds the AML and privacy expertise simultaneously, which is the only way to resolve conflicts between them rather than simply name them.',
   },
   {
     num: '02',
     title: 'Certified Judgment',
-    text: 'The practice was founded by a Certified Anti-Money Laundering Specialist with legal training. That combination is not common in the advisory market. It matters when the engagement requires both regulatory precision and legal interpretive rigour — which most cross-framework conflicts do.',
+    text: 'Compliancenomics was founded by a Certified Anti-Money Laundering Specialist with legal training. That combination is not common in the advisory market. It matters when the engagement requires both regulatory precision and legal interpretive rigour, which most cross-framework conflicts do.',
   },
   {
     num: '03',
     title: 'Institutional Utility',
     text: 'Every deliverable is built for operational use: protocols that compliance teams can follow, gap analyses that legal teams can act on, governance frameworks that boards can interrogate. Not documentation that demonstrates engagement and then sits in a folder.',
-  },
-  {
-    num: '04',
-    title: 'Regulatory Continuum',
-    text: 'The regulatory environment that matters is the one in force now: AMLA, MLR 2025 amendments, MiCA, DORA, the EU AI Act. The knowledge platform behind this practice maps 141+ regulatory conflict topics across twelve frameworks and six jurisdictions. That is the evidence base the advisory draws from.',
   },
 ];
 
@@ -74,7 +69,7 @@ export default function WhyUs() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
             <div className="grid md:grid-cols-[1fr_1.6fr] gap-12 md:gap-20 items-center">
 
-              {/* Left — Header + progress dots */}
+              {/* Left, Header + progress dots */}
               <div ref={headerRef}>
                 <div
                   className={`transition-all duration-700 ${
@@ -141,7 +136,7 @@ export default function WhyUs() {
                 </div>
               </div>
 
-              {/* Right — Stacked cards that overlap */}
+              {/* Right, Stacked cards that overlap */}
               <div className="relative h-[340px] md:h-[380px]">
                 {reasons.map((reason, i) => {
                   const isCurrent = i === activeIndex;

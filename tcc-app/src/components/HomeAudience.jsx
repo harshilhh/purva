@@ -6,25 +6,37 @@ const scenarios = [
     marker: 'I',
     situation: 'Legal & Professional Services',
     tagline: 'The law firm or accountancy practice with a cross-framework compliance gap.',
-    text: 'Mid-size regulated legal practices and accountancy firms navigating the FCA’s AML supervision transition, where the Money Laundering Regulations, GDPR, and professional confidentiality obligations are colliding in ways their existing advisers — one for AML, one for data protection — have not mapped together. These organisations have compliance obligations but not the in-house specialist depth to manage the intersection.',
+    text: "Mid-size regulated legal practices and accountancy firms navigating the FCA's transfer of AML supervision, where Regulation 21 customer due diligence requirements under the Money Laundering Regulations, UK GDPR's lawful basis provisions, and legal professional privilege are colliding in ways their existing advisers, one for AML, one for data protection, have not mapped together. These organisations have compliance obligations but not the in-house specialist depth to manage the intersection.",
   },
   {
     marker: 'II',
     situation: 'Corporate Services & Intermediaries',
     tagline: 'The corporate services provider operating across multiple free zone and onshore jurisdictions.',
-    text: 'Corporate service providers, registered agents, and professional intermediaries operating across DIFC, ADGM, UAE mainland, and EU jurisdictions simultaneously, where VARA obligations, AML requirements, and data protection frameworks from three separate regulators sit inside the same transaction architecture. Organisations that need a single advisory view across the full regulatory stack, not three separate advisers working in parallel.',
+    text: "Corporate service providers, registered agents, and professional intermediaries operating across DIFC, ADGM, UAE mainland, and EU jurisdictions simultaneously, where beneficial ownership disclosure thresholds under the UAE's AML-CFT framework, DIFC and ADGM data protection regulations, each with their own extraterritorial reach, and GDPR's Article 3 territorial scope diverge on the same client file, with no single framework reconciling them.",
   },
   {
     marker: 'III',
-    situation: 'Fintech & Regulated Payment Institutions',
-    tagline: 'The fintech operating under MiCA and UK MLR at the same time.',
-    text: 'Regulated payment institutions and crypto-asset service providers managing dual-jurisdiction obligations — preparing for AMLA direct supervision, implementing Travel Rule requirements, and deploying AI-assisted transaction monitoring systems that now fall within the scope of the EU AI Act. Organisations where the compliance, technology, and legal functions are operating from different frameworks with no coordinating architecture.',
+    situation: 'Online Marketplaces & Travel Tech Platforms',
+    tagline: 'The platform handling customer data at scale, across borders.',
+    text: "Online marketplaces, e-commerce platforms, and travel tech businesses, OTAs, booking engines, and travel management platforms, processing user data at every transaction, where consent requirements under India's DPDP Act, GDPR's purpose and storage limitation principles, and cross-border transfer restrictions apply differently depending on where the customer, the server, and the merchant each sit. Travel platforms carry the added layer of passport, visa, and travel history data moving across jurisdictions with each booking. Organisations where consent flows, retention schedules, and vendor data-sharing agreements were built for growth, not for what each of these regimes independently requires.",
   },
   {
     marker: 'IV',
+    situation: 'Healthtech & Data-Intensive Services',
+    tagline: 'The business whose service depends on sensitive personal data.',
+    text: "Healthtech platforms, diagnostics providers, and digital health services processing health records, biometric data, or genetic information, where GDPR's Article 9 special category regime, India's DPDP Act read alongside the forthcoming health data governance rules, and HIPAA where US-linked data flows are in play, impose materially different consent, breach notification, and cross-border transfer standards on the same dataset. Organisations that need data flows, retention periods, and processor arrangements mapped with the same precision as a clinical protocol, not assumed.",
+  },
+  {
+    marker: 'V',
+    situation: 'AI-Deployed Platforms & Conversational Interfaces',
+    tagline: 'The business whose customer-facing AI now carries regulatory obligations of its own.',
+    text: "Platforms deploying AI chatbots, virtual assistants, or automated decision-making tools in customer-facing roles, where the EU AI Act's transparency obligations for limited-risk systems, GDPR's Article 22 restrictions on automated decision-making, and India's DPDP Act consent requirements for AI-processed personal data now apply to a function that was built and shipped as a product feature, not a regulated system. Organisations where the product, legal, and compliance teams have not yet had the conversation about what the chatbot is actually doing with what it collects.",
+  },
+  {
+    marker: 'VI',
     situation: 'Scaling & High-Growth Businesses',
     tagline: 'The high-growth organisation building governance before the regulator arrives.',
-    text: 'Scaling businesses across GIFT City, Dubai, London, Singapore, or beyond, approaching their first institutional funding round, regulatory authorisation, or cross-border expansion and needing governance infrastructure that will hold under scrutiny. Organisations that do not yet have a full compliance function but need institutional-grade governance architecture in place before the regulator or the investor asks for it. The practice is sized for organisations that are regulated, that take compliance seriously, and that have a genuine cross-jurisdictional or cross-framework problem. Not the very small. Not the very large. The sophisticated middle.',
+    text: 'Scaling businesses across GIFT City, Dubai, London, Singapore, or beyond, approaching their first institutional funding round, IFSCA or FCA authorisation, or cross-border expansion, where AML policies, data protection frameworks, and sector-specific licensing conditions are being built in parallel by functions that have never spoken to each other, with no coordinating architecture holding it together.',
   },
 ];
 
@@ -36,7 +48,7 @@ export default function HomeAudience() {
   return (
     <section ref={ref} id="audience" className="py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header — centered */}
+        {/* Header, centered */}
         <div
           className={`mb-14 md:mb-20 flex flex-col items-center text-center transition-all duration-700 ${
             isInView ? 'animate-fade-up' : 'opacity-0'
@@ -54,7 +66,7 @@ export default function HomeAudience() {
           </h2>
           <p className="mt-6 text-[16px] md:text-[17px] leading-[1.85] text-brand-grey max-w-2xl">
             The Compliance Chamber is not the right engagement for every
-            regulated firm. It is built for a specific kind of organisation —
+            regulated firm. It is built for a specific kind of organisation ,
             the one with genuine cross-framework or cross-jurisdictional
             compliance exposure that a single-discipline adviser cannot resolve.
           </p>
@@ -117,7 +129,7 @@ export default function HomeAudience() {
                 </svg>
               </button>
 
-              {/* Hover accent — bottom-left corner mark */}
+              {/* Hover accent, bottom-left corner mark */}
               <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-yellow group-hover:w-full transition-all duration-600 ease-out" />
             </div>
           ))}

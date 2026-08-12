@@ -19,7 +19,7 @@ export default function Hero() {
           fetchpriority="high"
           decoding="async"
         />
-        {/* Light yellow overlay — keeps image visible but text-focused */}
+        {/* Light yellow overlay, keeps image visible but text-focused */}
         <div className="absolute inset-0 bg-brand-yellow-light/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow-light/95 via-brand-yellow-light/70 to-brand-yellow-light/25" />
       </div>

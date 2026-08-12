@@ -11,7 +11,7 @@ export default function Specialist() {
           <div>
             <img
               src="/leadership.jpg"
-              alt="Purva Buch, CAMS"
+              alt="Purva Buch, LLB, CAMS"
               className="w-full h-[480px] object-cover rounded-sm"
               loading="lazy"
               decoding="async"
@@ -32,7 +32,7 @@ export default function Specialist() {
             </p>
 
             <h3 className="font-display text-2xl md:text-[32px] font-semibold text-brand-dark tracking-tight">
-              Purva Buch, CAMS
+              Purva Buch, LLB, CAMS
             </h3>
 
             <p className="mt-4 text-[15px] leading-relaxed text-brand-grey-light max-w-md">

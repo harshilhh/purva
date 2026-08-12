@@ -35,7 +35,7 @@ function FlipCard({ card }) {
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >
-      {/* Image — visible by default, fades when active */}
+      {/* Image, visible by default, fades when active */}
       <img
         src={card.image}
         alt={card.title}
@@ -43,7 +43,7 @@ function FlipCard({ card }) {
       />
       <div className={`absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/30 to-transparent transition-opacity duration-700 ${flipped ? 'opacity-0' : ''}`} />
 
-      {/* Title overlay on image — visible by default, hides when active */}
+      {/* Title overlay on image, visible by default, hides when active */}
       <div className={`absolute bottom-0 left-0 right-0 p-6 sm:p-8 transition-all duration-700 ${flipped ? 'opacity-0 translate-y-4' : ''}`}>
         <div className="flex items-center gap-3 mb-2">
           <div className="w-6 h-[1.5px] bg-brand-yellow" />
@@ -57,7 +57,7 @@ function FlipCard({ card }) {
         <p className="mt-3 text-[12px] text-white/50 md:hidden">Tap to read more</p>
       </div>
 
-      {/* Text content — hidden by default, shows when active */}
+      {/* Text content, hidden by default, shows when active */}
       <div className={`absolute inset-0 bg-white/70 p-6 sm:p-8 overflow-y-auto transition-all duration-700 ${flipped ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-6 h-[1.5px] bg-brand-yellow" />

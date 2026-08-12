@@ -131,7 +131,7 @@
   }
 }
 
-/* Regulatory Radar map — zoom in on mobile */
+/* Regulatory Radar map, zoom in on mobile */
 .map-container {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -157,7 +157,7 @@
   display: none;
 }
 
-/* Conflict card — editorial dossier style */
+/* Conflict card, editorial dossier style */
 .conflict-card {
   transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
               box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -197,7 +197,7 @@
   animation: whyRing 1.5s cubic-bezier(0.23, 1, 0.32, 1) infinite;
 }
 
-/* Service panel — editorial index hover */
+/* Service panel, editorial index hover */
 .service-panel {
   transition: background-color 0.4s ease, padding-left 0.4s ease, border-color 0.4s ease;
   border-radius: 2px;
@@ -235,7 +235,7 @@
   100% { transform: scale(2); opacity: 0; }
 }
 
-/* Country highlight — cycles through 5 countries, 10s total loop */
+/* Country highlight, cycles through 5 countries, 10s total loop */
 @keyframes countryHighlight {
   0%, 12% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
   16% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
@@ -258,7 +258,7 @@
   transition: none !important;
 }
 
-/* Triangulated Model — background animations */
+/* Triangulated Model, background animations */
 @keyframes blobDrift1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33%       { transform: translate(40px, -30px) scale(1.08); }

@@ -67,7 +67,7 @@ export default function ProcessSteps() {
           highlight="Our 5 Step Process"
         />
 
-        {/* All 5 steps in one grid — single row on desktop, scrollable on mobile */}
+        {/* All 5 steps in one grid, single row on desktop, scrollable on mobile */}
         <div className="mt-8">
           <div
             className="h-[3px] bg-brand-dark rounded-full transition-all duration-1000 origin-left"

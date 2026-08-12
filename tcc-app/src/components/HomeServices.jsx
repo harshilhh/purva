@@ -8,7 +8,7 @@ const services = [
     intro:
       'Regulated and high-growth organisations need governance structures that hold under scrutiny from regulators, investors, and boards. This service covers the full operating model: three lines of defence design, compliance function resourcing, board and committee reporting frameworks that translate compliance data into strategic management intelligence, and governance maturity assessments for firms preparing for institutional review.',
     detail:
-      'For organisations that do not need a full-time compliance department but require institutional-grade oversight, the practice provides the governance architecture without the permanent headcount.',
+      'For organisations that do not need a full-time compliance department but require institutional-grade oversight, Compliancenomics provides the governance architecture without the permanent headcount.',
   },
   {
     num: '02',
@@ -16,7 +16,7 @@ const services = [
     intro:
       'CAMS-certified AML framework design, built around the 13-step AML/CFT and sanctions defence framework: from board-level governance and MLRO appointment through enterprise-wide risk assessment, CDD/EDD architecture, transaction monitoring logic, sanctions screening, and audit-ready record-keeping.',
     detail:
-      'Covering UAE (mainland, DIFC, ADGM), UK, EU, India (IFSCA), and APAC jurisdictions simultaneously as a single coordinated compliance ecosystem. The practice also advises on RegTech selection and implementation, ensuring transaction monitoring and screening tools are configured for audit readiness from day one.',
+      'Covering UAE (mainland, DIFC, ADGM), UK, EU, India (IFSCA), and APAC jurisdictions simultaneously as a single coordinated compliance ecosystem. Compliancenomics also advises on RegTech selection and implementation, ensuring transaction monitoring and screening tools are configured for audit readiness from day one.',
   },
   {
     num: '03',
@@ -30,7 +30,7 @@ const services = [
     num: '04',
     title: 'Systems & Automation',
     intro:
-      'Compliance governance is only as effective as the systems that carry it. This service covers the selection and implementation of compliance technology \u2014 transaction monitoring platforms, sanctions screening tools, consent management systems, and AI governance software \u2014 and the integration of that technology into the organisation\u2019s existing operational infrastructure.',
+      'Compliance governance is only as effective as the systems that carry it. This service covers the selection and implementation of compliance technology, transaction monitoring platforms, sanctions screening tools, consent management systems, and AI governance software, and the integration of that technology into the organisation\u2019s existing operational infrastructure.',
     detail:
       'The objective is to embed compliance logic directly into business workflows, eliminating the manual friction that creates gaps between policy and practice. For SMEs and scaling organisations, this includes aligning compliance tools with core business systems so that governance is not a parallel process but a built-in one.',
   },
@@ -105,7 +105,7 @@ export default function HomeServices() {
     <section ref={ref} id="services" className="py-16 md:py-20 bg-brand-yellow-light">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-[1fr_1.8fr] gap-12 md:gap-16">
-          {/* Left — Sticky header */}
+          {/* Left, Sticky header */}
           <div
             className={`transition-all duration-700 ${
               isInView ? 'animate-fade-up' : 'opacity-0'
@@ -130,7 +130,7 @@ export default function HomeServices() {
             </div>
           </div>
 
-          {/* Right — Accordion panels */}
+          {/* Right, Accordion panels */}
           <div>
             {services.map((service, i) => (
               <AccordionPanel

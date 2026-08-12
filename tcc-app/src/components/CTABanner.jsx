@@ -1,6 +1,6 @@
 import { useInView } from '../hooks/useInView';
 
-export default function CTABanner({ heading, subheading, buttonText, variant = 'light', index = 0, noBgImage = false }) {
+export default function CTABanner({ heading, subheading, buttonText, noBgImage = false }) {
   const [ref, isInView] = useInView();
 
   return (

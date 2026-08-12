@@ -1,5 +1,5 @@
 /*
-  ServicesPage2 — same visual design as ServicesPage, but every heading,
+  ServicesPage2, same visual design as ServicesPage, but every heading,
   eyebrow, body paragraph, CTA label, list item, table cell, and FAQ is
   copied 100% ditto from the source document.
 */
@@ -90,7 +90,7 @@ function Hero() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 2 — Why Strong Governance Operating Models Matter                 */
+/*  SECTION 2, Why Strong Governance Operating Models Matter                 */
 /* -------------------------------------------------------------------------- */
 
 function WhyMatters() {
@@ -135,7 +135,7 @@ function WhyMatters() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 3 — Our Governance Advisory Approach                              */
+/*  SECTION 3, Our Governance Advisory Approach                              */
 /* -------------------------------------------------------------------------- */
 
 const approachDirections = [
@@ -211,7 +211,7 @@ function InlineCTA({ heading, subheading, buttonText }) {
   const [ref, isInView] = useInView();
   return (
     <section ref={ref} className="relative py-16 md:py-20 bg-brand-yellow-light overflow-hidden">
-      {/* Diagonal stripe texture — matches About Thesis section */}
+      {/* Diagonal stripe texture, matches About Thesis section */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -257,7 +257,7 @@ function InlineCTA({ heading, subheading, buttonText }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 4 — What Our Governance Advisory Services Cover                   */
+/*  SECTION 4, What Our Governance Advisory Services Cover                   */
 /* -------------------------------------------------------------------------- */
 
 const services = [
@@ -430,7 +430,7 @@ function ServicesCover() {
 
                   <div className="mt-10 pt-6 border-t border-brand-border flex items-center justify-between gap-4">
                     <span className="text-[11px] tracking-[0.2em] uppercase text-brand-grey-light font-semibold">
-                      Scope this practice area
+                      Scope this service area
                     </span>
                     <Link
                       to="/contact"
@@ -453,7 +453,7 @@ function ServicesCover() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 5 — The Residue of Good Advisory                                  */
+/*  SECTION 5, The Substance of Good Advisory                                  */
 /* -------------------------------------------------------------------------- */
 
 const residue = [
@@ -467,7 +467,7 @@ const residue = [
   ['Operational Integration Recommendations', 'Better-aligned systems and workflows'],
 ];
 
-function Residue() {
+function Substance() {
   const [ref, isInView] = useInView();
   return (
     <section ref={ref} className="py-20 md:py-28 bg-brand-surface">
@@ -477,9 +477,9 @@ function Residue() {
         }`}
       >
         <div className="max-w-3xl mb-12">
-          <Eyebrow>The Residue of Good Advisory</Eyebrow>
+          <Eyebrow>The Substance of Good Advisory</Eyebrow>
           <h2 className="font-display text-3xl md:text-4xl lg:text-[44px] font-semibold text-brand-dark leading-[1.1] tracking-tight">
-            The Residue of Good Advisory
+            The Substance of Good Advisory
           </h2>
           <p className="mt-6 text-[17px] leading-relaxed text-brand-grey">
             Good governance should leave you with more than a set of documents. It should make
@@ -520,7 +520,7 @@ function Residue() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 6 — Is Your Organisation at This Stage?                           */
+/*  SECTION 6, Is Your Organisation at This Stage?                           */
 /* -------------------------------------------------------------------------- */
 
 const stages = [
@@ -571,7 +571,7 @@ function Stage() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 7 — Why Organisations Choose Compliancenomics                     */
+/*  SECTION 7, Why Organisations Choose Compliancenomics                     */
 /* -------------------------------------------------------------------------- */
 
 const differentiators = [
@@ -638,7 +638,7 @@ function WhyUs() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  FAQs — Governance Advisory & Regulatory Operating Models                  */
+/*  FAQs, Governance Advisory & Regulatory Operating Models                  */
 /* -------------------------------------------------------------------------- */
 
 const faqs = [
@@ -747,7 +747,7 @@ function FAQs() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*  SECTION 8 — RELATED INSIGHTS                                              */
+/*  SECTION 8, RELATED INSIGHTS                                              */
 /* -------------------------------------------------------------------------- */
 
 const insights = [
@@ -835,7 +835,7 @@ export default function ServicesPage2() {
         buttonText="Discuss Your Governance Structure"
       />
       <ServicesCover />
-      <Residue />
+      <Substance />
       <InlineCTA
         heading="Seen Something Your Governance Is Missing?"
         subheading="Let’s talk through the gaps and determine which structures and deliverables would strengthen your operating model."

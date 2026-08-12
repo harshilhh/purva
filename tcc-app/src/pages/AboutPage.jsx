@@ -4,7 +4,7 @@ import { useInView } from '../hooks/useInView';
 import Hyphen from '../components/Hyphen';
 
 /* ─────────────────────────────────────────────
-   SECTION 1 — Opening Problem Statement
+   SECTION 1, Opening Problem Statement
    bg-brand-yellow-light
    Manifesto opener: the regulatory gap framed
    with conviction before any founder context.
@@ -17,7 +17,7 @@ function OpeningProblemStatement() {
       ref={ref}
       className="relative flex flex-col justify-center overflow-hidden"
     >
-      {/* Full-cover background image with yellow overlay — matches home hero */}
+      {/* Full-cover background image with yellow overlay, matches home hero */}
       <div className="absolute inset-0">
         <img
           src="/cta-bg.jpg"
@@ -30,7 +30,7 @@ function OpeningProblemStatement() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-yellow-light/95 via-brand-yellow-light/70 to-brand-yellow-light/25" />
       </div>
 
-      {/* Editorial grid texture — dark lines on warm cream */}
+      {/* Editorial grid texture, dark lines on warm cream */}
       <div
         className="absolute inset-0"
         style={{
@@ -42,7 +42,7 @@ function OpeningProblemStatement() {
         }}
       />
 
-      {/* Diagonal stripe accent — brand yellow, very faint */}
+      {/* Diagonal stripe accent, brand yellow, very faint */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -72,11 +72,11 @@ function OpeningProblemStatement() {
         >
           <div className="w-12 h-px bg-brand-yellow" />
           <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-            Why This Practice Exists
+            Why Compliancenomics Exists
           </span>
         </div>
 
-        {/* Manifesto — line 1 */}
+        {/* Manifesto, line 1 */}
         <div className="max-w-5xl">
           <h1
             className={`font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold text-brand-dark leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
@@ -86,7 +86,7 @@ function OpeningProblemStatement() {
             Every framework makes sense.
           </h1>
 
-          {/* Manifesto — highlighted anchor line */}
+          {/* Manifesto, highlighted anchor line */}
           <h2
             className={`mt-2 font-display text-[36px] sm:text-[46px] md:text-[54px] lg:text-[64px] font-semibold leading-[1.06] tracking-[-0.02em] transition-all duration-700 ${
               isInView ? 'animate-fade-up-delay-2' : 'opacity-0'
@@ -145,7 +145,7 @@ function OpeningProblemStatement() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 2 — The Gap Map / Conflict Matrix
+   SECTION 2, The Gap Map / Conflict Matrix
    bg-white
    Signature visual: four structural tension
    points shown as an editorial conflict index.
@@ -174,7 +174,7 @@ function GapMatrix() {
       b: 'Reporting Duties',
       tag: 'Process',
       description:
-        'An incident occurs. The GDPR team starts a 72-hour breach notification clock. The MLRO opens a SAR. DORA requires an ICT incident report within 24 hours. Three reporting obligations. Three supervisors. One event. Without a joint escalation protocol, each function follows its own process — and the gaps between them become the audit findings.',
+        'An incident occurs. The GDPR team starts a 72-hour breach notification clock. The MLRO opens a SAR. DORA requires an ICT incident report within 24 hours. Three reporting obligations. Three supervisors. One event. Without a joint escalation protocol, each function follows its own process, and the gaps between them become the audit findings.',
     },
     {
       a: 'Governance Oversight',
@@ -204,7 +204,7 @@ function GapMatrix() {
             Compliance fails quietly. Not because firms ignore the rules but
             because the rules were written by different regulators, at
             different times, for different problems. When they land on the
-            same transaction, the same system, the same team — the gap
+            same transaction, the same system, the same team, the gap
             between them becomes the liability.
           </p>
         </div>
@@ -212,7 +212,7 @@ function GapMatrix() {
         {/* Index table */}
         <div className={`transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}>
 
-          {/* Column labels — desktop only */}
+          {/* Column labels, desktop only */}
           <div className="hidden md:grid grid-cols-[48px_1fr_52px_1fr_120px] gap-6 pb-4 border-b-2 border-brand-dark/15 mb-1">
             <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light">#</span>
             <span className="text-[10px] font-semibold tracking-[0.3em] uppercase text-brand-grey-light text-center">Framework A</span>
@@ -225,9 +225,10 @@ function GapMatrix() {
             {conflicts.map((c, i) => (
               <div
                 key={i}
-                className="group relative"
+                className="group relative cursor-pointer"
                 onMouseEnter={() => setActiveIdx(i)}
                 onMouseLeave={() => setActiveIdx(null)}
+                onClick={() => setActiveIdx(activeIdx === i ? null : i)}
               >
                 {/* Hover background wash */}
                 <div className={`absolute inset-0 bg-brand-yellow-light/55 transition-opacity duration-300 ${activeIdx === i ? 'opacity-100' : 'opacity-0'}`} />
@@ -277,9 +278,9 @@ function GapMatrix() {
                     </div>
                   </div>
 
-                  {/* Tension description — slides open on hover */}
-                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIdx === i ? 'max-h-32 opacity-100 mt-5' : 'max-h-0 opacity-0 mt-0'}`}>
-                    <p className="text-[14px] leading-[1.8] text-brand-grey pl-[64px] md:pl-[calc(48px+24px+4px)] pr-6 md:pr-24">
+                  {/* Tension description, slides open on hover/tap */}
+                  <div className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIdx === i ? 'max-h-[900px] opacity-100 mt-5' : 'max-h-0 opacity-0 mt-0'}`}>
+                    <p className="text-[13.5px] md:text-[14px] leading-[1.8] text-brand-grey pl-[36px] md:pl-[calc(48px+24px+4px)] pr-2 md:pr-24">
                       {c.description}
                     </p>
                   </div>
@@ -304,10 +305,10 @@ function GapMatrix() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 3 — Founder Lens
+   SECTION 3, Founder Lens
    bg-brand-surface-warm
    Personal without biographical. Purva framed
-   as a regulatory architect — first person,
+   as a regulatory architect, first person,
    brief, precise. Portrait + quote only.
 ───────────────────────────────────────────── */
 function FounderLens() {
@@ -333,7 +334,7 @@ function FounderLens() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-[1fr_380px] lg:grid-cols-[1fr_420px] gap-12 md:gap-16 lg:gap-24 items-center">
 
-          {/* Left — quote block */}
+          {/* Left, quote block */}
           <div className={`transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-px bg-brand-yellow" />
@@ -351,7 +352,7 @@ function FounderLens() {
             </div>
 
             <blockquote className="font-display text-[28px] md:text-[34px] lg:text-[40px] font-semibold text-brand-dark leading-[1.2] tracking-tight">
-              I look at regulation the way an architect looks at structure —
+              I look at regulation the way an architect looks at structure
               for{' '}
               <span className="relative inline-block">
                 load-bearing points
@@ -361,21 +362,23 @@ function FounderLens() {
             </blockquote>
 
             <p className="mt-7 text-[16px] md:text-[17px] leading-[1.8] text-brand-grey max-w-xl">
-              Most compliance frameworks feel sound until you put weight on the
-              joints. I built this practice for exactly that moment — when two
-              frameworks collide on the same transaction, the same system, the
-              same team, and neither adviser in the room holds both
-              simultaneously. That is where I work.
+              Think about it this way: a business today isn&rsquo;t just dealing
+              with one rulebook. It&rsquo;s AML obligations, privacy regulations,
+              maybe AI protocols too, all applying to the same piece of customer
+              data at the same time. Most compliance advisers only know one of
+              those rulebooks really well, so when two of them clash,
+              nobody&rsquo;s actually looking at both. That clash is exactly
+              where I work. It&rsquo;s the whole reason Compliancenomics exists.
             </p>
 
             <div className="mt-10 flex items-center gap-5">
               <div className="w-10 h-[2px] bg-brand-yellow" />
               <div>
                 <p className="text-[15px] font-semibold text-brand-dark tracking-tight">
-                  Purva Buch, CAMS
+                  Purva Buch, LLB, CAMS
                 </p>
                 <p className="text-[12px] font-medium tracking-[0.1em] uppercase text-brand-yellow-dark mt-0.5">
-                  Founder · Compliancenomics
+                  Founder · Compliancenomics LLP
                 </p>
                 <a
                   href="mailto:purva@compliancenomics.com"
@@ -390,21 +393,21 @@ function FounderLens() {
             </div>
           </div>
 
-          {/* Right — portrait */}
+          {/* Right, portrait */}
           <div className={`transition-all duration-700 delay-200 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="relative">
-              {/* Yellow corner frame — top right */}
+              {/* Yellow corner frame, top right */}
               <div className="absolute -top-4 -right-4 w-24 h-24 border-t-[3px] border-r-[3px] border-brand-yellow z-10" />
 
               <img
                 src="/leadership.jpg"
-                alt="Purva Buch, CAMS — Founder, Compliancenomics"
+                alt="Purva Buch, LLB, CAMS, Founder, Compliancenomics"
                 className="relative w-full h-[460px] md:h-[500px] object-cover object-top rounded-sm"
                 loading="lazy"
                 decoding="async"
               />
 
-              {/* Yellow corner frame — bottom left */}
+              {/* Yellow corner frame, bottom left */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-[3px] border-l-[3px] border-brand-yellow" />
 
               {/* Credential tag */}
@@ -425,7 +428,7 @@ function FounderLens() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 4 — The Triangulated Model
+   SECTION 4, The Triangulated Model
    bg-white | Fixed equilateral SVG triangle,
    vertex icon nodes, hover-reveal side cards
 ───────────────────────────────────────────── */
@@ -557,7 +560,7 @@ function TriangulatedModel() {
           <div className="flex items-center gap-4 mb-5">
             <div className="w-12 h-px bg-brand-yellow" />
             <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow-dark">
-              The Practice Model
+              Compliancenomics Model
             </span>
           </div>
           <h2 className="font-display text-[30px] md:text-[44px] lg:text-[56px] font-semibold text-brand-dark leading-[1.06] tracking-tight">
@@ -569,12 +572,12 @@ function TriangulatedModel() {
           </p>
         </div>
 
-        {/* ── DESKTOP: 3-col grid — left card | triangle | right cards ── */}
+        {/* ── DESKTOP: 3-col grid, left card | triangle | right cards ── */}
         <div
           className={`hidden lg:grid items-start gap-8 transition-all duration-1000 ${isInView ? 'opacity-100' : 'opacity-0'}`}
           style={{ gridTemplateColumns: 'minmax(0,1fr) 460px minmax(0,1fr)' }}
         >
-          {/* LEFT column — Governance card (bottom-aligned to match BL vertex) */}
+          {/* LEFT column, Governance card (bottom-aligned to match BL vertex) */}
           <div className="flex flex-col" style={{ height: 420 }}>
             <div style={{ marginTop: 'auto' }}>
               <PillarHoverCard
@@ -586,9 +589,9 @@ function TriangulatedModel() {
             </div>
           </div>
 
-          {/* CENTER — fixed 460×420 equilateral triangle diagram */}
+          {/* CENTER, fixed 460×420 equilateral triangle diagram */}
           <div className="relative shrink-0" style={{ width: 460, height: 420 }}>
-            {/* SVG — fixed size, no aspect-ratio distortion */}
+            {/* SVG, fixed size, no aspect-ratio distortion */}
             <svg
               width={460}
               height={420}
@@ -602,7 +605,7 @@ function TriangulatedModel() {
               {/* Soft centroid glow */}
               <ellipse cx={cx} cy={cy} rx="90" ry="80" fill="rgba(245,166,35,0.07)" />
 
-              {/* Dashed spoke lines — vertex → centroid */}
+              {/* Dashed spoke lines, vertex → centroid */}
               {pillars.map((p, i) => (
                 <line key={i}
                   x1={p.svgX} y1={p.svgY} x2={cx} y2={cy}
@@ -612,7 +615,7 @@ function TriangulatedModel() {
                 />
               ))}
 
-              {/* Triangle outline — animated draw-in */}
+              {/* Triangle outline, animated draw-in */}
               <path
                 d={triPath}
                 fill="none"
@@ -649,20 +652,26 @@ function TriangulatedModel() {
               </g>
             </svg>
 
-            {/* Vertex icon nodes — pixel-positioned over SVG */}
+            {/* Vertex icon nodes, pixel-positioned over SVG */}
             {pillars.map((p, idx) => {
               return (
                 <div
                   key={p.id}
-                  className="absolute z-20 cursor-pointer"
+                  className="absolute z-20 cursor-pointer w-20 h-20"
                   style={{ left: p.nodeX, top: p.nodeY, transform: 'translate(-50%,-50%)' }}
                   onMouseEnter={() => onEnter(p.id)}
                   onMouseLeave={onLeave}
                 >
                   {/* Animated radar rings */}
-                  <div className="radar-ring-1 absolute inset-0 rounded-full border-2 border-brand-yellow" />
-                  <div className="radar-ring-2 absolute inset-0 rounded-full border border-brand-yellow/70" />
-                  {/* Icon circle — always in active/hover state */}
+                  <div
+                    className="radar-ring-1 absolute inset-0 rounded-full border-2 border-brand-yellow pointer-events-none"
+                    style={{ opacity: drawn ? 1 : 0, transition: `opacity 0.6s ease ${0.6 + idx * 0.15}s` }}
+                  />
+                  <div
+                    className="radar-ring-2 absolute inset-0 rounded-full border border-brand-yellow/70 pointer-events-none"
+                    style={{ opacity: drawn ? 1 : 0, transition: `opacity 0.6s ease ${0.6 + idx * 0.15}s` }}
+                  />
+                  {/* Icon circle, always in active/hover state */}
                   <div
                     className="relative w-20 h-20 rounded-full border-2 border-brand-yellow bg-amber-50 flex items-center justify-center shadow-[0_0_32px_rgba(245,166,35,0.35)]"
                     style={{
@@ -677,7 +686,7 @@ function TriangulatedModel() {
             })}
           </div>
 
-          {/* RIGHT column — Legal near top vertex, Systems near bottom vertex */}
+          {/* RIGHT column, Legal near top vertex, Systems near bottom vertex */}
           <div className="flex flex-col" style={{ height: 420 }}>
             {/* Pull legal up and left so it visually aligns with the apex circle */}
             <div style={{ marginTop: -130, marginLeft: -120 }}>
@@ -702,14 +711,14 @@ function TriangulatedModel() {
 
         {/* ── MOBILE: triangle + stacked cards ── */}
         <div className="lg:hidden">
-          {/* Triangle SVG — viewBox padded so vertex circles don't clip */}
+          {/* Triangle SVG, viewBox padded so vertex circles don't clip */}
           <div className={`mb-8 transition-all duration-700 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
             <svg
               viewBox="0 0 400 360"
               className="w-full max-w-sm mx-auto"
               aria-hidden="true"
             >
-              {/* T=(200,35) BL=(35,321) BR=(365,321) — equilateral, side≈330px */}
+              {/* T=(200,35) BL=(35,321) BR=(365,321), equilateral, side≈330px */}
               {/* Warm fill */}
               <path d="M200,35 L35,321 L365,321 Z" fill="rgba(253,244,227,0.55)" />
 
@@ -724,13 +733,13 @@ function TriangulatedModel() {
                   style={{ transition: `opacity 0.4s ease ${0.8+i*0.1}s` }} />
               ))}
 
-              {/* Triangle outline — animated draw */}
+              {/* Triangle outline, animated draw */}
               <path d="M200,35 L35,321 L365,321 Z"
                 fill="none" stroke="#F5A623" strokeWidth="1.5" opacity="0.75"
                 strokeDasharray="990" strokeDashoffset={drawn ? 0 : 990}
                 style={{ transition: 'stroke-dashoffset 1.8s ease 0.3s' }} />
 
-              {/* Vertex circles — bigger, with animated radar rings */}
+              {/* Vertex circles, bigger, with animated radar rings */}
               {[[200,35],[35,321],[365,321]].map(([x,y],i) => (
                 <g key={i} opacity={drawn ? 1 : 0} style={{ transition: `opacity 0.5s ease ${0.9+i*0.15}s` }}>
                   {/* Animated radar ring 1 */}
@@ -846,9 +855,9 @@ function VertexIcon({ id, active }) {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 6 — How We Work
+   SECTION 6, How We Work
    bg-white
-   Operating model as a vertical timeline — not
+   Operating model as a vertical timeline, not
    a service list. Five sequential steps.
    observe → map → test → operationalise → defend
 ───────────────────────────────────────────── */
@@ -874,12 +883,12 @@ function HowWeWork() {
     {
       verb: 'Operationalise',
       description:
-        'The framework is translated into what the organisation actually runs on — processes, system controls, escalation workflows, documentation standards. Not a policy that describes what should happen. A governance structure that determines what does.',
+        'The framework is translated into what the organisation actually runs on, processes, system controls, escalation workflows, documentation standards. Not a policy that describes what should happen. A governance structure that determines what does.',
     },
     {
       verb: 'Defend',
       description:
-        'Once the framework is in place, the work has to hold up when someone else looks at it. Defend is that final layer: turning the framework into something legible from the outside — to auditors, regulators, institutional partners. Not through a scramble to explain it after the fact, but because it is documented and traceable from the start.',
+        'Once the framework is in place, the work has to hold up when someone else looks at it. Defend is that final layer: turning the framework into something legible from the outside, to auditors, regulators, institutional partners. Not through a scramble to explain it after the fact, but because it is documented and traceable from the start.',
     },
   ];
 
@@ -888,7 +897,7 @@ function HowWeWork() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-[300px_1fr] lg:grid-cols-[360px_1fr] gap-14 md:gap-20 items-start">
 
-          {/* Left — sticky header + step index */}
+          {/* Left, sticky header + step index */}
           <div className={`md:sticky md:top-28 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
             <div className="flex items-center gap-4 mb-5">
               <div className="w-12 h-px bg-brand-yellow" />
@@ -900,12 +909,12 @@ function HowWeWork() {
               How Compliancenomics Works
             </h2>
             <p className="mt-5 text-[15px] leading-[1.8] text-brand-grey">
-              Every framework we build passes through these five stages —
+              Every framework we build passes through these five stages ,
               because strong compliance is designed deliberately, never
               assembled retrospectively.
             </p>
 
-            {/* Step quick-reference — desktop */}
+            {/* Step quick-reference, desktop */}
             <div className="hidden md:flex flex-col gap-3 mt-10 pl-1">
               {steps.map((s, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -916,7 +925,7 @@ function HowWeWork() {
             </div>
           </div>
 
-          {/* Right — vertical timeline */}
+          {/* Right, vertical timeline */}
           <div className={`relative transition-all duration-700 ${isInView ? 'animate-fade-up-delay-2' : 'opacity-0'}`}>
             {/* Vertical connecting line */}
             <div className="absolute left-[15px] top-4 bottom-8 w-px bg-brand-border/70" />
@@ -959,84 +968,18 @@ function HowWeWork() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 7 — For the Firms We Are Built For
+   SECTION 7, For the Firms We Are Built For
    bg-brand-surface
    Accordion panel layout matching homepage
    "What We Do" design exactly.
 ───────────────────────────────────────────── */
 const firmItems = [
-  {
-    num: '01',
-    title: 'Financial Institutions',
-    intro:
-      'Banks, investment firms, and insurers operating across multiple regulatory environments with overlapping AML, data protection, and reporting obligations.',
-    detail:
-      'Jurisdiction-specific compliance architecture for firms where the same transaction triggers different obligations across multiple regulatory regimes simultaneously.',
-    tag: 'Banks · Investment · Insurance',
-  },
-  {
-    num: '02',
-    title: 'FinTech & PayTech',
-    intro:
-      'Payment service providers and fintech companies expanding across borders — where AML requirements multiply rapidly and privacy law varies market by market.',
-    detail:
-      'Structured frameworks for cross-border payment operations where licensing, AML, and data residency obligations collide across the UK, EU, UAE, Singapore, and India.',
-    tag: 'Payments · Digital Finance',
-  },
-  {
-    num: '03',
-    title: 'Crypto & Virtual Assets',
-    intro:
-      'Crypto-asset service providers and virtual asset firms navigating MiCA, the Travel Rule, and jurisdictional licensing obligations under overlapping supervisors.',
-    detail:
-      'Regulatory architecture for VASPs where MiCA disclosure, Travel Rule transmission, and GDPR restrictions on cross-border data land inside the same transaction.',
-    tag: 'MiCA · VASP · Travel Rule',
-  },
-  {
-    num: '04',
-    title: 'Legal & Accountancy Practices',
-    intro:
-      'Regulated legal and accountancy firms navigating the FCA’s AML supervision transition, where MLR, GDPR, and professional confidentiality collide inside the same client file.',
-    detail:
-      'Practice-level compliance frameworks that map AML, data protection, and professional obligations as a coordinated architecture — not three parallel workstreams.',
-    tag: 'Law · Accountancy · Regulated Practice',
-  },
-  {
-    num: '05',
-    title: 'Corporate Service Providers',
-    intro:
-      'CSPs and registered agents operating across DIFC, ADGM, UAE mainland, and EU jurisdictions, where obligations from three separate regulators sit inside one structure.',
-    detail:
-      'A single advisory view across the full regulatory stack, not three separate advisers working in parallel on VARA, AML, and data protection obligations.',
-    tag: 'DIFC · ADGM · Mainland · EU',
-  },
-  {
-    num: '06',
-    title: 'SaaS, HealthTech & RegTech',
-    intro:
-      'Data-intensive platforms that process personal data across jurisdictions and must align consent frameworks, retention obligations, and disclosure requirements simultaneously.',
-    detail:
-      'Operational compliance design for platforms where GDPR-style regimes overlap with sector-specific data obligations — built into product and system architecture from the start.',
-    tag: 'Data · Health · Compliance Tech',
-  },
-  {
-    num: '07',
-    title: 'Regulated Intermediaries',
-    intro:
-      'Brokers, agents, and intermediaries embedded in transaction chains where reporting, screening, and data-transfer obligations arrive from more than one supervisor.',
-    detail:
-      'Coordinated compliance protocols for intermediary firms where duty of the seller, duty to the buyer, and duty to the regulator all sit inside the same workflow.',
-    tag: 'Brokers · Agents · Intermediation',
-  },
-  {
-    num: '08',
-    title: 'Professional Services Firms',
-    intro:
-      'Consultancies and advisory practices that require structured cross-border compliance frameworks for their own operations or for the clients they serve.',
-    detail:
-      'Senior-level compliance architecture for professional services firms navigating multi-jurisdictional regulatory obligations across client engagements and internal operations.',
-    tag: 'Advisory · Consulting · Services',
-  },
+  { num: '01', title: 'Legal & Accountancy Practices' },
+  { num: '02', title: 'Corporate Services & Intermediaries' },
+  { num: '03', title: 'Online Marketplaces & Travel Tech' },
+  { num: '04', title: 'Healthtech & Data-Intensive Services' },
+  { num: '05', title: 'AI-Deployed Platforms & Conversational Interfaces' },
+  { num: '06', title: 'Scaling & High-Growth Businesses' },
 ];
 
 function FirmPanel({ firm, index, isOpen, onToggle, isInView }) {
@@ -1125,8 +1068,8 @@ function ForTheFirms() {
           </p>
         </div>
 
-        {/* Industry cards — 4 cols × 2 rows on desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+        {/* Industry cards, 4 cols × 2 rows on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {firmItems.map((firm, i) => (
             <div
               key={firm.num}
@@ -1155,7 +1098,7 @@ function ForTheFirms() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 8 — Manifesto Endcap
+   SECTION 8, Manifesto Endcap
    bg-brand-yellow-light
    Closing thesis of the entire page. The exact
    statement from the wireframe + CTA.
@@ -1194,7 +1137,7 @@ function ManifestoEndcap() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-[1.4fr_1fr] gap-10 md:gap-16 items-center">
 
-          {/* Left — statement */}
+          {/* Left, statement */}
           <div>
             <div className={`flex items-center gap-4 mb-8 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
               <div className="w-12 h-px bg-brand-yellow" />
@@ -1219,7 +1162,7 @@ function ManifestoEndcap() {
             </p>
           </div>
 
-          {/* Right — CTA action card */}
+          {/* Right, CTA action card */}
           <div
             className={`relative bg-white border border-brand-border p-8 md:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.05)] transition-all duration-700 ${isInView ? 'animate-fade-up-delay-3' : 'opacity-0'}`}
           >
@@ -1259,7 +1202,7 @@ function ManifestoEndcap() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 9 — Testimonials
+   SECTION 9, Testimonials
    bg-brand-surface
    Three client voice cards. Quote, attribution,
    firm context. Hover reveals yellow top line.
@@ -1276,13 +1219,13 @@ function Testimonials() {
     },
     {
       quote:
-        'What sets this practice apart is intersection expertise — not just AML, not just privacy, but where they structurally conflict. That is exactly the gap we needed closed.',
+        'What sets Compliancenomics apart is intersection expertise, not just AML, not just privacy, but where they structurally conflict. That is exactly the gap we needed closed.',
       name: 'Chief Risk Officer',
       firm: 'RegTech Firm, EU / UAE',
     },
     {
       quote:
-        "Purva's regulatory architecture approach meant our governance framework was defensible at board level from the moment it was implemented — across three jurisdictions, simultaneously.",
+        "Purva's regulatory architecture approach meant our governance framework was defensible at board level from the moment it was implemented, across three jurisdictions, simultaneously.",
       name: 'General Counsel',
       firm: 'FinTech Company, UK / IN',
     },
@@ -1312,7 +1255,7 @@ function Testimonials() {
               key={i}
               className="relative p-8 md:p-9 bg-white border border-brand-border/50 rounded-sm group hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-brand-yellow/30 transition-all duration-300"
             >
-              {/* Top yellow accent — expands on hover */}
+              {/* Top yellow accent, expands on hover */}
               <div className="absolute top-0 left-0 w-8 h-[2px] bg-brand-yellow group-hover:w-full transition-all duration-500 rounded-tl-sm" />
 
               {/* Quote mark */}
@@ -1345,7 +1288,7 @@ function Testimonials() {
 }
 
 /* ─────────────────────────────────────────────
-   SECTION 10 — FAQs
+   SECTION 10, FAQs
    bg-white
    About-specific accordion FAQ. Same pattern
    as homepage FAQ for visual consistency.
@@ -1357,23 +1300,23 @@ function AboutFAQs() {
   const faqs = [
     {
       q: 'What exactly is Compliancenomics and what does it do?',
-      a: 'Compliancenomics is a cross-border regulatory advisory practice specialising in the intersection of AML compliance, privacy law, AI governance, and operational resilience. The practice is built for regulated organisations that have compliance obligations across more than one framework or jurisdiction and whose existing advisory structure was not designed to manage the conflicts between them. The work is not about building basic compliance from scratch. It is about making existing frameworks defensible, coordinated, and operational across the full scope of where the business actually runs.',
+      a: 'Compliancenomics is a cross-border regulatory advisory practice specialising in the intersection of AML compliance, privacy law, AI governance, and operational resilience. Compliancenomics is built for regulated organisations that have compliance obligations across more than one framework or jurisdiction and whose existing advisory structure was not designed to manage the conflicts between them. The work is not about building basic compliance from scratch. It is about making existing frameworks defensible, coordinated, and operational across the full scope of where the business actually runs.',
     },
     {
       q: 'Who leads the engagements at Compliancenomics?',
-      a: 'Every engagement is led directly by Purva Buch, CAMS — the founder. Purva is a Certified Anti-Money Laundering Specialist with legal training, working at the intersection of AML, privacy law, AI governance, and systems integration. There is no junior substitution. The adviser the client speaks to in the scoping call is the adviser who does the work.',
+      a: 'Every engagement is led directly by Purva Buch, LLB, CAMS, the founder. Purva is a Certified Anti-Money Laundering Specialist with legal training, working at the intersection of AML, privacy law, AI governance, and systems integration. There is no junior substitution. The adviser the client speaks to in the scoping call is the adviser who does the work.',
     },
     {
-      q: 'What makes this practice different from hiring a specialist AML or privacy consultant separately?',
-      a: 'A specialist AML consultant advises on AML. A privacy consultant advises on privacy. Neither typically owns the point where the two frameworks collide — and that is precisely where the most consequential regulatory exposure sits. Compliancenomics holds both simultaneously, which means conflicts are identified and resolved within a single engagement rather than falling between two advisers who are not coordinating with each other.',
+      q: 'What makes Compliancenomics different from hiring a specialist AML or privacy consultant separately?',
+      a: 'A specialist AML consultant advises on AML. A privacy consultant advises on privacy. Neither typically owns the point where the two frameworks collide, and that is precisely where the most consequential regulatory exposure sits. Compliancenomics holds both simultaneously, which means conflicts are identified and resolved within a single engagement rather than falling between two advisers who are not coordinating with each other.',
     },
     {
       q: 'What is dynamic policy management and why does it matter?',
-      a: 'Most compliance frameworks are built once and revisited when a regulator asks a question. Dynamic policy management means the framework is designed to grow with the organisation — as the business scales, enters new jurisdictions, deploys new technology, or faces regulatory change, the governance architecture updates in step. The alternative is a framework that was accurate at the point of drafting and quietly becomes a liability as the organisation it was built for stops resembling the one that exists today.',
+      a: 'Most compliance frameworks are built once and revisited when a regulator asks a question. Dynamic policy management means the framework is designed to grow with the organisation, as the business scales, enters new jurisdictions, deploys new technology, or faces regulatory change, the governance architecture updates in step. The alternative is a framework that was accurate at the point of drafting and quietly becomes a liability as the organisation it was built for stops resembling the one that exists today.',
     },
     {
       q: 'Does Compliancenomics work with organisations that already have an in-house compliance team?',
-      a: 'Yes — and most engagements involve one. The practice does not replace the MLRO or DPO. It works alongside them, providing the cross-framework depth that in-house functions are rarely resourced to carry alone.',
+      a: 'Yes, and most engagements involve one. Compliancenomics does not replace the MLRO or DPO. It works alongside them, providing the cross-framework depth that in-house functions are rarely resourced to carry alone.',
     },
   ];
 
@@ -1449,36 +1392,36 @@ function AboutFAQs() {
 }
 
 /* ─────────────────────────────────────────────
-   ABOUT PAGE — full section assembly
+   ABOUT PAGE, full section assembly
 ───────────────────────────────────────────── */
 export default function AboutPage() {
   return (
     <>
-      {/* S1 — Manifesto opener */}
+      {/* S1, Manifesto opener */}
       <OpeningProblemStatement />
 
-      {/* S2 — Conflict matrix */}
+      {/* S2, Conflict matrix */}
       <GapMatrix />
 
-      {/* S3 — Founder lens */}
+      {/* S3, Founder lens */}
       <FounderLens />
 
-      {/* S4 — Triangulated model */}
+      {/* S4, Triangulated model */}
       <TriangulatedModel />
 
-      {/* S6 — How we work (vertical timeline) */}
+      {/* S6, How we work (vertical timeline) */}
       <HowWeWork />
 
-      {/* S7 — Firms we are built for */}
+      {/* S7, Firms we are built for */}
       <ForTheFirms />
 
-      {/* S8 — Manifesto endcap + CTA */}
+      {/* S8, Manifesto endcap + CTA */}
       <ManifestoEndcap />
 
-      {/* S9 — Testimonials (removed) */}
+      {/* S9, Testimonials (removed) */}
       {/* <Testimonials /> */}
 
-      {/* S10 — FAQs */}
+      {/* S10, FAQs */}
       <AboutFAQs />
     </>
   );

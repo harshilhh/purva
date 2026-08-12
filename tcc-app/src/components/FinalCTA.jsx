@@ -6,7 +6,7 @@ export default function FinalCTA() {
 
   return (
     <section ref={ref} className="relative py-20 md:py-28 bg-brand-yellow-light" style={{ overflowX: 'clip' }}>
-      {/* Subtle diagonal lines — same style as WhyUs for rhythm */}
+      {/* Subtle diagonal lines, same style as WhyUs for rhythm */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: 'repeating-linear-gradient(135deg, transparent, transparent 40px, #1A1A1A 40px, #1A1A1A 41px)',
       }} />
@@ -17,7 +17,7 @@ export default function FinalCTA() {
         }`}
       >
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-          {/* Left — statement */}
+          {/* Left, statement */}
           <div className="max-w-xl">
             <div className="w-10 h-[2px] bg-brand-dark/20 mb-8" />
             <p className="font-display text-[26px] md:text-[34px] lg:text-[40px] font-semibold text-brand-dark leading-[1.2] tracking-tight">
@@ -28,16 +28,16 @@ export default function FinalCTA() {
             </p>
             <p className="mt-6 text-[15px] leading-[1.8] text-brand-grey max-w-md">
               If your organisation has a compliance problem that does not fit
-              neatly into one adviser&apos;s remit, this practice is built for
+              neatly into one adviser&apos;s remit, Compliancenomics is built for
               that problem.
             </p>
           </div>
 
-          {/* Right — CTAs stacked */}
+          {/* Right, CTAs stacked */}
           <div className="flex flex-col gap-3 md:items-end shrink-0 w-full md:w-auto">
             <Link
               to="/contact"
-              className="cta-primary inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 md:px-10 py-4 text-[12px] font-semibold tracking-[0.18em] uppercase bg-brand-dark text-white rounded-sm hover:bg-brand-grey transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg"
+              className="cta-primary inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 md:px-10 py-4 text-[12px] font-semibold tracking-[0.18em] uppercase bg-brand-yellow text-brand-dark rounded-sm hover:bg-brand-yellow-dark transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg"
             >
               Book a Scoping Call
             </Link>

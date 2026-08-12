@@ -229,19 +229,18 @@ export default function ContactPage() {
 
       {/* Map */}
       <section ref={mapRef} className="bg-brand-surface">
-        <div className={`max-w-6xl mx-auto px-6 lg:px-8 py-10 md:py-14 transition-all duration-700 ${mapInView ? 'animate-fade-up' : 'opacity-0'}`}>
-          <div className="rounded-sm overflow-hidden border border-brand-border">
-            <iframe
-              title="Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74862387544!2d72.43965583281249!3d23.020474900000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+        <div className={`w-full transition-all duration-700 ${mapInView ? 'animate-fade-up' : 'opacity-0'}`}>
+          <iframe
+            title="Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.74862387544!2d72.43965583281249!3d23.020474900000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+            width="100%"
+            height="420"
+            className="block w-full"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </section>
 

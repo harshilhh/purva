@@ -8,7 +8,7 @@ export default function WhatWeDo() {
     <section ref={ref} id="services" className="py-8 md:py-12 bg-white">
       <div className={`mx-auto px-4 sm:px-6 transition-all duration-700 ${isInView ? 'animate-fade-up' : 'opacity-0'}`}>
         <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-          {/* Our Focus — Left Card */}
+          {/* Our Focus, Left Card */}
           <div className="border border-gray-200 p-6 sm:p-8 md:p-10 bg-white hover:shadow-lg transition-shadow duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-[1.5px] bg-brand-yellow" />
@@ -39,7 +39,7 @@ export default function WhatWeDo() {
             />
           </div>
 
-          {/* Our Model — Right Card */}
+          {/* Our Model, Right Card */}
           <div className="border border-gray-200 p-6 sm:p-8 md:p-10 bg-white hover:shadow-lg transition-shadow duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-[1.5px] bg-brand-yellow" />

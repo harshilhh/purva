@@ -54,7 +54,7 @@ export default function Insights() {
             </h2>
             <p className="mt-5 text-[16px] leading-[1.8] text-brand-grey max-w-lg">
               The regulatory gap between AML law, privacy regulation, AI
-              governance, and operational resilience &mdash; mapped at{' '}
+              governance, and operational resilience, mapped at{' '}
               <a
                 href="https://regulatorygap.com"
                 target="_blank"
@@ -80,7 +80,7 @@ export default function Insights() {
           </a>
         </div>
 
-        {/* Article cards — editorial research style */}
+        {/* Article cards, editorial research style */}
         <div className="grid md:grid-cols-3 gap-[1px] bg-brand-border/40">
           {articles.map((article, i) => (
             <a

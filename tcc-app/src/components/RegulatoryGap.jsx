@@ -16,7 +16,7 @@ const conflicts = [
     right: 'AI Act',
     summary: 'The AML\u2013AI Act Paradox',
     description:
-      'Your automated customer risk-scoring model is subject to Article 22 GDPR \u2014 the individual has a right to explanation and human review. The same model is central to your AML transaction monitoring architecture. The EU AI Act now classifies certain AML tools as high-risk AI systems with mandatory oversight obligations. Your compliance team and your technology team are operating without a unified governance framework.',
+      'Your automated customer risk-scoring model is subject to Article 22 GDPR, the individual has a right to explanation and human review. The same model is central to your AML transaction monitoring architecture. The EU AI Act now classifies certain AML tools as high-risk AI systems with mandatory oversight obligations. Your compliance team and your technology team are operating without a unified governance framework.',
   },
   {
     id: '03',
@@ -47,7 +47,7 @@ function ConflictCard({ conflict, index, isInView }) {
         transitionProperty: 'opacity',
       }}
     >
-      {/* Left accent spine — extends on hover */}
+      {/* Left accent spine, extends on hover */}
       <div className="absolute top-0 left-0 w-[3px] h-10 bg-brand-yellow group-hover:h-full transition-all duration-600 ease-out" />
 
       {/* Large ghost number watermark */}
@@ -55,7 +55,7 @@ function ConflictCard({ conflict, index, isInView }) {
         {conflict.id}
       </span>
 
-      {/* Corner fold accent — slides in on hover */}
+      {/* Corner fold accent, slides in on hover */}
       <div className="absolute top-0 right-0 w-0 h-0 border-t-[28px] border-r-[28px] border-t-transparent border-r-brand-yellow/0 group-hover:border-r-brand-yellow/15 transition-all duration-500" />
 
       {/* Content */}
@@ -83,7 +83,7 @@ function ConflictCard({ conflict, index, isInView }) {
           {conflict.summary}
         </p>
 
-        {/* Animated separator — fills left to right on hover */}
+        {/* Animated separator, fills left to right on hover */}
         <div className="mt-6 mb-6 h-[1px] relative overflow-hidden">
           <div className="absolute inset-0 bg-brand-border/40" />
           <div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-brand-yellow/40 transition-all duration-700 ease-out" />
