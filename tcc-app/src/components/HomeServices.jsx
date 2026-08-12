@@ -122,7 +122,7 @@ export default function HomeServices() {
                 Advisory built for the intersection.
               </h2>
               <p className="mt-5 text-[17px] leading-[1.8] text-brand-grey">
-                The Compliance Chamber operates across four service areas. Each
+                Compliancenomics operates across four service areas. Each
                 is designed for the point where regulatory frameworks conflict
                 and where single-framework advisory leaves organisations
                 exposed.

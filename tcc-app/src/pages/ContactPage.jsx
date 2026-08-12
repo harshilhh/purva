@@ -2,34 +2,79 @@ import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import CTABanner from '../components/CTABanner';
 
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+const GOOGLE_SHEETS_URL =
+  import.meta.env.VITE_GOOGLE_SHEETS_URL ||
+  'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function validate(form) {
+  const errors = {};
+  if (!form.name.trim() || form.name.trim().length < 2) {
+    errors.name = 'Please enter your name (at least 2 characters).';
+  }
+  if (!form.email.trim()) {
+    errors.email = 'Email is required.';
+  } else if (!EMAIL_REGEX.test(form.email.trim())) {
+    errors.email = 'Please enter a valid email address.';
+  }
+  if (!form.subject.trim() || form.subject.trim().length < 3) {
+    errors.subject = 'Please add a short subject (at least 3 characters).';
+  }
+  if (!form.message.trim() || form.message.trim().length < 10) {
+    errors.message = 'Please share a bit more (at least 10 characters).';
+  }
+  return errors;
+}
 
 export default function ContactPage() {
   const [ref, isInView] = useInView();
   const [mapRef, mapInView] = useInView();
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: undefined });
+    }
+    if (submitError) setSubmitError('');
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const foundErrors = validate(form);
+    setErrors(foundErrors);
+    if (Object.keys(foundErrors).length > 0) return;
+
+    if (GOOGLE_SHEETS_URL.includes('YOUR_SCRIPT_ID')) {
+      setSubmitError('The contact form is not configured yet. Please set VITE_GOOGLE_SHEETS_URL.');
+      return;
+    }
+
     setLoading(true);
+    setSubmitError('');
     try {
+      // no-cors mode: response is opaque, so we assume success if fetch does not throw.
+      // The Apps Script writes the row on its side regardless.
       await fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify({
-          ...form,
-          timestamp: new Date().toISOString(),
+          name: form.name.trim(),
+          email: form.email.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
         }),
       });
       setSubmitted(true);
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch {
-      setSubmitted(true);
+      setSubmitError('Something went wrong sending your message. Please try again or email us directly.');
     }
     setLoading(false);
   };
@@ -151,74 +196,116 @@ export default function ContactPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
+                      <label htmlFor="cf-name" className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
                         Name
                       </label>
                       <input
+                        id="cf-name"
                         type="text"
                         name="name"
                         value={form.name}
                         onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border border-brand-border rounded-sm outline-none focus:border-brand-yellow transition-colors"
+                        aria-invalid={!!errors.name}
+                        aria-describedby={errors.name ? 'cf-name-err' : undefined}
+                        className={`w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border rounded-sm outline-none transition-colors ${
+                          errors.name ? 'border-red-400 focus:border-red-500' : 'border-brand-border focus:border-brand-yellow'
+                        }`}
                         placeholder="Your name"
                       />
+                      {errors.name && (
+                        <p id="cf-name-err" className="mt-1.5 text-[12px] text-red-600">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
-                      <label className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
+                      <label htmlFor="cf-email" className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
                         Email
                       </label>
                       <input
+                        id="cf-email"
                         type="email"
                         name="email"
                         value={form.email}
                         onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border border-brand-border rounded-sm outline-none focus:border-brand-yellow transition-colors"
-                        placeholder="Your email"
+                        aria-invalid={!!errors.email}
+                        aria-describedby={errors.email ? 'cf-email-err' : undefined}
+                        className={`w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border rounded-sm outline-none transition-colors ${
+                          errors.email ? 'border-red-400 focus:border-red-500' : 'border-brand-border focus:border-brand-yellow'
+                        }`}
+                        placeholder="you@company.com"
                       />
+                      {errors.email && (
+                        <p id="cf-email-err" className="mt-1.5 text-[12px] text-red-600">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
+                    <label htmlFor="cf-subject" className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
                       Subject
                     </label>
                     <input
+                      id="cf-subject"
                       type="text"
                       name="subject"
                       value={form.subject}
                       onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border border-brand-border rounded-sm outline-none focus:border-brand-yellow transition-colors"
+                      aria-invalid={!!errors.subject}
+                      aria-describedby={errors.subject ? 'cf-subject-err' : undefined}
+                      className={`w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border rounded-sm outline-none transition-colors ${
+                        errors.subject ? 'border-red-400 focus:border-red-500' : 'border-brand-border focus:border-brand-yellow'
+                      }`}
                       placeholder="Subject"
                     />
+                    {errors.subject && (
+                      <p id="cf-subject-err" className="mt-1.5 text-[12px] text-red-600">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
+                    <label htmlFor="cf-message" className="block text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-grey-light mb-2">
                       Message
                     </label>
                     <textarea
+                      id="cf-message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      required
                       rows={5}
-                      className="w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border border-brand-border rounded-sm outline-none focus:border-brand-yellow transition-colors resize-none"
+                      aria-invalid={!!errors.message}
+                      aria-describedby={errors.message ? 'cf-message-err' : undefined}
+                      className={`w-full px-4 py-3 text-[15px] text-brand-dark bg-brand-surface border rounded-sm outline-none transition-colors resize-none ${
+                        errors.message ? 'border-red-400 focus:border-red-500' : 'border-brand-border focus:border-brand-yellow'
+                      }`}
                       placeholder="How can we help?"
                     />
+                    {errors.message && (
+                      <p id="cf-message-err" className="mt-1.5 text-[12px] text-red-600">
+                        {errors.message}
+                      </p>
+                    )}
                   </div>
+
+                  {submitError && (
+                    <div className="p-3 border border-red-300 bg-red-50 rounded-sm text-[13px] text-red-700">
+                      {submitError}
+                    </div>
+                  )}
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full sm:w-auto px-8 py-3.5 bg-brand-yellow text-white text-[13px] font-semibold tracking-wide uppercase rounded-sm hover:bg-brand-yellow-dark transition-colors duration-200 disabled:opacity-60"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-brand-yellow text-brand-dark text-[13px] font-semibold tracking-wide uppercase rounded-sm hover:bg-brand-yellow-dark transition-colors duration-200 disabled:opacity-60"
                   >
-                    {loading ? 'Sending...' : 'Send Message'}
+                    {loading ? 'Sending…' : 'Send Message'}
                   </button>
                 </form>
               )}

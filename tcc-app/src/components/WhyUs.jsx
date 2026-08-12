@@ -79,7 +79,7 @@ export default function WhyUs() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-[1px] bg-brand-yellow" />
                     <span className="text-[11px] font-semibold tracking-[0.3em] uppercase text-brand-yellow">
-                      Why The Compliance Chamber
+                      Why Compliancenomics
                     </span>
                   </div>
                   <h2 className="font-display text-[24px] sm:text-[30px] md:text-[36px] lg:text-[44px] font-semibold text-brand-dark leading-[1.15] tracking-tight">

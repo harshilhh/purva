@@ -65,7 +65,7 @@ export default function HomeAudience() {
             The right fit and the right problem.
           </h2>
           <p className="mt-6 text-[16px] md:text-[17px] leading-[1.85] text-brand-grey max-w-2xl">
-            The Compliance Chamber is not the right engagement for every
+            Compliancenomics is not the right engagement for every
             regulated firm. It is built for a specific kind of organisation ,
             the one with genuine cross-framework or cross-jurisdictional
             compliance exposure that a single-discipline adviser cannot resolve.
