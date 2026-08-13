@@ -42,7 +42,7 @@ export default function FinalCTA() {
               Book a Scoping Call
             </Link>
             <Link
-              to="/services"
+              to="/services/governance-advisory"
               className="inline-flex items-center justify-center gap-2 w-full md:w-auto px-8 md:px-10 py-4 text-[12px] font-semibold tracking-[0.18em] uppercase border-2 border-brand-dark/20 text-brand-dark/70 rounded-sm hover:border-brand-dark/50 hover:text-brand-dark transition-all duration-300"
             >
               View Our Services

@@ -20,7 +20,7 @@ export default function Navbar() {
   const links = [
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
-    { label: 'Services', to: '/services' },
+    { label: 'Services', to: '/services/governance-advisory' },
     { label: 'Contact', to: '/contact' },
   ];
 

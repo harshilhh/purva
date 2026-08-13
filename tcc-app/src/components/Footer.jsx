@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
-  { label: 'Services', to: '/services' },
+  { label: 'Services', to: '/services/governance-advisory' },
   { label: 'Contact', to: '/contact' },
 ];
 
@@ -28,10 +28,10 @@ export default function Footer() {
               Cross-border compliance frameworks designed for multi-jurisdiction operations, aligning Anti-Money Laundering obligations, Data Privacy laws, and AI Governance protocols across regulatory landscapes.
             </p>
 
-            <div className="mt-6 flex flex-col gap-2.5">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 max-w-xl">
               <a
                 href="mailto:info@compliancenomics.com"
-                className="inline-flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                className="flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark min-w-0 transition-colors"
               >
                 <svg
                   className="w-4 h-4 text-brand-yellow shrink-0"
@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
               <a
                 href="tel:+919773149576"
-                className="inline-flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                className="flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark min-w-0 transition-colors"
               >
                 <svg
                   className="w-4 h-4 text-brand-yellow shrink-0"
@@ -71,7 +71,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/compliancenomics-llp/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                className="flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark min-w-0 transition-colors"
               >
                 <svg
                   className="w-4 h-4 text-brand-yellow shrink-0"
@@ -87,7 +87,7 @@ export default function Footer() {
                 href="https://www.instagram.com/compliancenomics"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark transition-colors"
+                className="flex items-center gap-3 text-[15px] text-brand-dark hover:text-brand-yellow-dark min-w-0 transition-colors"
               >
                 <svg
                   className="w-4 h-4 text-brand-yellow shrink-0"
