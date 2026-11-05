@@ -8,6 +8,8 @@ import ServicesPage from './pages/ServicesPage2';
 import AMLCompliancePage from './pages/AMLCompliancePage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
+import InsightsPage from './pages/InsightsPage';
+import InsightArticlePage from './pages/InsightArticlePage';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/services" element={<Navigate to="/services/governance-advisory" replace />} />
           <Route path="/services/governance-advisory" element={<ServicesPage />} />
           <Route path="/services/aml-compliance-advisory" element={<AMLCompliancePage />} />
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/:slug" element={<InsightArticlePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

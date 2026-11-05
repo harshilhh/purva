@@ -41,6 +41,7 @@ export default function Navbar() {
     { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', dropdown: services },
+    { label: 'Insights', to: '/insights' },
     { label: 'Contact', to: '/contact' },
   ];
 
@@ -132,7 +133,7 @@ export default function Navbar() {
               const isActive =
                 link.to === '/'
                   ? location.pathname === '/' && !location.hash
-                  : location.pathname === link.to;
+                  : location.pathname === link.to || location.pathname.startsWith(`${link.to}/`);
 
               return (
                 <Link

@@ -288,3 +288,22 @@
 .blob-drift-3 { animation: blobDrift3 11s ease-in-out infinite; }
 .radar-ring-1 { animation: radarRing 3.6s ease-out infinite; }
 .radar-ring-2 { animation: radarRing 3.6s ease-out 1.8s infinite; }
+
+/* Article drop cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 4.6em;
+  line-height: 0.82;
+  font-weight: 600;
+  color: var(--color-brand-yellow-dark);
+  margin: 0.06em 0.12em 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-fade-up"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
